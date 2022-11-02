@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    font-family: Work Sans;
+  }
+}
+
 /* 
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;

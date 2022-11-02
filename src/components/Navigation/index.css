@@ -1,0 +1,15 @@
+.nav-wrapper {
+  @apply fixed z-50 top-0 left-0 w-screen;
+}
+
+.nav-background {
+  @apply absolute top-0 left-0 w-full backdrop-blur-sm h-full;
+}
+
+.nav {
+  @apply relative max-w-screen-xl w-full mx-auto;
+}
+
+.nav-container {
+  @apply flex justify-between py-4;
+}

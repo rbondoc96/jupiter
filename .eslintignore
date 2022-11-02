@@ -1,9 +1,19 @@
+# Project directories
 node_modules/
 dist/
 build/
+
+# Bundler configs
+vite.config.ts
+
+# Code Style configs
 .prettierrc.json
 .eslintrc.json
+
+# TailwindCSS configs
 tailwind.config.cjs
 postcss.config.cjs
+
+# Declaration files
 env.d.ts
 vite-env.d.ts

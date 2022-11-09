@@ -7,7 +7,7 @@ interface HeroSectionProps {
 
 const Hero = ({id}: HeroSectionProps) => {
   return (
-    <div
+    <section
       id={id}
       className="h-screen flex flex-col justify-center align-center"
     >
@@ -35,7 +35,7 @@ const Hero = ({id}: HeroSectionProps) => {
           </Button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

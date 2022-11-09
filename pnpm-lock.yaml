@@ -7,6 +7,7 @@ specifiers:
   '@fortawesome/free-regular-svg-icons': ^6.2.0
   '@fortawesome/free-solid-svg-icons': ^6.2.0
   '@fortawesome/react-fontawesome': ^0.2.0
+  '@types/lodash.throttle': ^4.1.7
   '@types/node': ^18.7.23
   '@types/react': ^18.0.17
   '@types/react-dom': ^18.0.6
@@ -25,6 +26,7 @@ specifiers:
   eslint-plugin-promise: ^6.0.0
   eslint-plugin-react: ^7.31.8
   eslint-plugin-react-hooks: ^4.6.0
+  lodash.throttle: ^4.1.1
   postcss: ^8.4.16
   prettier: ^2.7.1
   react: ^18.2.0
@@ -43,11 +45,13 @@ dependencies:
   '@fortawesome/free-regular-svg-icons': 6.2.0
   '@fortawesome/free-solid-svg-icons': 6.2.0
   '@fortawesome/react-fontawesome': 0.2.0_6j2wdqxompc6mcokhxkpep2gqu
+  lodash.throttle: 4.1.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-router-dom: 6.4.1_biqbaboplfbrettd7655fr4n2y
 
 devDependencies:
+  '@types/lodash.throttle': 4.1.7
   '@types/node': 18.7.23
   '@types/react': 18.0.21
   '@types/react-dom': 18.0.6
@@ -552,6 +556,16 @@ packages:
 
   /@types/json5/0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
+    dev: true
+
+  /@types/lodash.throttle/4.1.7:
+    resolution: {integrity: sha512-znwGDpjCHQ4FpLLx19w4OXDqq8+OvREa05H89obtSyXyOFKL3dDjCslsmfBz0T2FU8dmf5Wx1QvogbINiGIu9g==}
+    dependencies:
+      '@types/lodash': 4.14.187
+    dev: true
+
+  /@types/lodash/4.14.187:
+    resolution: {integrity: sha512-MrO/xLXCaUgZy3y96C/iOsaIqZSeupyTImKClHunL5GrmaiII2VwvWmLBu2hwa0Kp0sV19CsyjtrTc/Fx8rg/A==}
     dev: true
 
   /@types/node/18.7.23:
@@ -2882,6 +2896,10 @@ packages:
   /lodash.merge/4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
     dev: true
+
+  /lodash.throttle/4.1.1:
+    resolution: {integrity: sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ==}
+    dev: false
 
   /lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}

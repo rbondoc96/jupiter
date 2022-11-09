@@ -7,7 +7,7 @@ interface AboutSectionProps {
 
 const About = ({id}: AboutSectionProps) => {
   return (
-    <section id={id} className="h-screen">
+    <section id={id} className="min-h-screen">
       <SectionHeader>Me, Myself, and I</SectionHeader>
       <div className="flex flex-col space-y-8 md:flex-row md:space-x-8">
         <div className="flex-1 flex flex-col space-y-8">

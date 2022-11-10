@@ -3,6 +3,7 @@ import {MouseEvent, useCallback, useEffect, useMemo, useState} from 'react';
 import {faArrowDown} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import Text from '@/components/Text';
+import useHeaderHeight from '@/hooks/useHeaderHeight';
 
 interface Section {
   id: string;
@@ -26,6 +27,7 @@ function isInMiddleOfVerticalAxis(element: HTMLElement | null): boolean {
 }
 
 const SectionScroller = ({sections}: SectionScrollerProps) => {
+  const headerHeight = useHeaderHeight();
   const [isScrolling, setIsScrolling] = useState<boolean>(false);
   const [sectionIndexInFocus, setSectionIndexInFocus] = useState<number>(0);
 
@@ -50,7 +52,8 @@ const SectionScroller = ({sections}: SectionScrollerProps) => {
         const element = document.getElementById(href.substring(1));
 
         if (element !== null) {
-          scrollTo(0, element.offsetTop - 70);
+          console.log(headerHeight);
+          scrollTo(0, element.offsetTop - headerHeight);
           setIsScrolling(true);
 
           // Prevents the button text from blinking between values

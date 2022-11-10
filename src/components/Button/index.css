@@ -1,0 +1,25 @@
+.button {
+  @apply relative border-primary rounded-lg border-2 duration-500;
+}
+
+.button:hover,
+.button:focus {
+  box-shadow: inset 10em 0 0 0 theme('colors.primary.DEFAULT');
+}
+
+.button:hover span,
+.button:focus span {
+  @apply text-white;
+}
+
+.button.button-sm {
+  @apply px-3 py-1;
+}
+
+.button.button-md {
+  @apply px-5 py-1.5;
+}
+
+.button.button-lg {
+  @apply px-8 py-3;
+}

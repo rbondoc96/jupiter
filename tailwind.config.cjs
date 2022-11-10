@@ -30,7 +30,7 @@ module.exports = {
     },
     fontSize: {
       xl: 'clamp(1rem, 2.5vw, 1.25rem)',
-      '5xl': 'clamp(1.875rem, 6.5vw, 3rem)',
+      '5xl': 'clamp(1.8rem, 6.5vw, 3rem)',
       '7xl': 'clamp(3rem, 10vw, 4.5rem)',
     },
     screens: {

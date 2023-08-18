@@ -1,6 +1,0 @@
-build
-dist
-coverage
-node_modules/
-.prettierrc.json
-.eslintrs.json

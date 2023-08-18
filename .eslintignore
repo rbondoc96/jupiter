@@ -7,8 +7,7 @@ build/
 vite.config.ts
 
 # Code Style configs
-.prettierrc.json
-.eslintrc.json
+.eslintrc.cjs
 
 # TailwindCSS configs
 tailwind.config.cjs

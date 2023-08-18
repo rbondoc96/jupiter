@@ -1,14 +1,20 @@
+import {resolve} from 'node:path';
 import {defineConfig} from 'vite';
-import react from '@vitejs/plugin-react';
-import {resolve} from 'path';
+import solidPlugin from 'vite-plugin-solid';
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  resolve: {
-    alias: {
-      '@': resolve(__dirname, 'src'),
-      '@mocks': resolve(__dirname, 'mocks'),
+    build: {
+        target: 'esnext',
     },
-  },
+    css: {
+        modules: {
+            localsConvention: 'camelCase',
+        },
+    },
+    plugins: [solidPlugin()],
+    resolve: {
+        alias: {
+            '@': resolve(__dirname, 'src'),
+        },
+    },
 });

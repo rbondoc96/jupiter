@@ -16,10 +16,13 @@ const HomePage: Component = () => {
             // eslint-disable-next-line max-len
             description="Rodrigo Bondoc is a software engineer who specializes in creating web and mobile apps."
             title="Rodrigo Bondoc"
+            og-image="https://i.imgur.com/zjKXm9h.png"
             og-title="Rodrigo Bondoc"
             og-url="https://rbondoc.dev"
             twitter-creator="@rbondoc96"
             twitter-card="summary"
+            twitter-image="https://i.imgur.com/zjKXm9h.png"
+            twitter-image-alt="Rodrigo Bondoc's Website"
             twitter-site="@rbondoc96"
             
             anim-initial={{

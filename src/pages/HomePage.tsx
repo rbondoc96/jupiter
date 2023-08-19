@@ -101,10 +101,10 @@ const HomePage: Component = () => {
                     class="h-screen p-4 flex flex-col items-center justify-center gap-y-4 md:gap-y-8"
                 >
                     <div class="flex flex-col items-center justify-center gap-y-3 md:gap-y-6">
-                        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter">
+                        <h1 class="text-4xl md:text-6xl 2xl:text-7xl font-bold tracking-tighter">
                             Welcome!
                         </h1>
-                        <h2 class="text-xl md:text-2xl lg:text-3xl text-center tracking-tighter">
+                        <h2 class="text-xl md:text-2xl 2xl:text-3xl text-center tracking-tighter">
                             I&apos;m in the middle of a&nbsp;
                             <a
                                 // eslint-disable-next-line max-len
@@ -121,9 +121,9 @@ const HomePage: Component = () => {
                     <img
                         alt="Cat with a Laptop"
                         src={laptopWithCatSvg}
-                        class="w-[150px] md:w-[250px] lg:w-[350px]"
+                        class="w-[150px] md:w-[250px] 2xl:w-[350px]"
                     />
-                    <p class="text-sm md:text-base lg:text-lg text-center">
+                    <p class="text-sm md:text-base 2xl:text-lg text-center">
                         Check back again later! In the meantime, you can find me on:
                     </p>
                     <div class="flex flex-col gap-y-8">

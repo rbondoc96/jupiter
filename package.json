@@ -6,7 +6,8 @@
     "scripts": {
         "build": "tsc && vite build",
         "check": "pnpm dlx @biomejs/biome check",
-        "check:all": "pnpm dlx @biomejs/biome check .",
+        "check:all": "pnpm dlx @biomejs/biome check ./src ./package.json ./postcss.config.cjs ./tailwind.config.ts ./vite.config.ts",
+        "check:fix": "pnpm dlx @biomejs/biome check --apply",
         "check:fix:all": "pnpm dlx @biomejs/biome check --apply .",
         "check:format": "pnpm dlx @biomejs/biome format",
         "check:format:all": "pnpm dlx @biomejs/biome format .",

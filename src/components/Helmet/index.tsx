@@ -1,1 +1,1 @@
-export {default, type HelmetProps} from './Helmet';
+export {default} from './Helmet';

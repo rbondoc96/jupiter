@@ -1,5 +1,5 @@
 {
-    "name": "rbondoc.com",
+    "name": "rbondoc.dev",
     "private": true,
     "version": "2.0.0",
     "type": "module",
@@ -19,7 +19,6 @@
         "check:lint:all": "pnpm dlx @biomejs/biome lint .",
         "check:types": "tsc --noEmit --skipLibCheck",
         "dev": "vite --host",
-        "preview": "vite preview",
         "start": "vite"
     },
     "dependencies": {

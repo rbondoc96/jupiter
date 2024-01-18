@@ -9,6 +9,7 @@
                 }
             }
         ],
+        /* Path aliases should also be added to `vite.config.ts` */
         "paths": {
             "@/*": ["./src/*"]
         },

@@ -13,6 +13,7 @@ export default defineConfig({
     },
     plugins: [solidPlugin()],
     resolve: {
+        // Path aliases should also be added to tsconfig.json
         alias: {
             '@': resolve(__dirname, 'src'),
         },

@@ -1,95 +1,42 @@
-# rbondoc.com
+# Personal Portfolio Website
 
-## Import Aliasing
+## Website URLs
 
-When adding new aliases, they must be added in the following files:
+- [https://rbondoc.dev](https://rbondoc.dev)
+    - (Redirects to the `.dev` domain) [https://rbondoc.com](https://rbondoc.com) 
 
-- `vite.config.ts`
-- `tsconfig.json`
-
-```ts
-// vite.config.ts
-
-resolve: {
-  alias: {
-    '@': resolve(__dirname, 'src'),
-    '@mocks': resolve(__dirname, 'mocks'),
-  },
-},
-```
-
-```json
-// tsconfig.json
-
-{
-  "compilerOptions": {
-    "paths": {
-      "@/*": ["./src/*"],
-      "@mocks/*": ["./mocks/*"]
-    }
-  }
-}
-```
 
 ## Dependencies
 
-### Development Tools
+### Required Dependencies
 
-- `typescript` -
-- `vite` -
-- `@vitejs/plugin-react` -
+- `@fortawesome/free-brands-svg-icons` [[MIT License](https://github.com/FortAwesome/Font-Awesome/blob/6.x/LICENSE.txt)] - Provides SVG icons for companies and brands
+- `@fortawesome/free-regular-svg-icons` [[MIT License](https://github.com/FortAwesome/Font-Awesome/blob/6.x/LICENSE.txt)] - Provides outlined SVG icons
+- `@fortawesome/free-solid-svg-icons` [[MIT License](https://github.com/FortAwesome/Font-Awesome/blob/6.x/LICENSE.txt)] - Provides solid SVG icons
+- `@solidjs/meta` [[GitHub](https://github.com/solidjs/solid-meta)] - Document `<head>` management for Solid.js
+- `@solidjs/router` [[MIT License](https://github.com/solidjs/solid-router/blob/main/LICENSE)] - Router for managing multiple routes in SPA applications for Solid.js
+- `lodash.throttle` [[MIT License](https://github.com/lodash/lodash/blob/main/LICENSE)] - Provides the `throttle` utility function to aid in throttling the DOM `onscroll` event
+- `solid-fa` [[MIT License](https://github.com/Cweili/solid-fa/blob/master/LICENSE)] - Provides a Solid.js component to aid in rendering SVG icons from Font Awesome
+- `solid-js` [[MIT License](https://github.com/solidjs/solid/blob/main/LICENSE)] - Frontend framework
+- `solid-motionone` [[MIT License](https://github.com/solidjs-community/solid-motionone/blob/main/LICENSE)] - Animation library for Solid.js
 
-### Types for TypeScript
 
-- `@types/node` -
-- `@types/react` -
-- `@types/react-dom` -
+### Dependencies for Development
 
-### Assets
+- `@biomejs/biome` [[Apache License](https://github.com/biomejs/biome/blob/main/LICENSE-APACHE)] - Linting and code formatting
+- `@types/lodash.throttle` [[MIT License](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/LICENSE)] - Adds types for the `throttle` function from the `lodash` library
+- `@types/node` [[MIT License](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/LICENSE)] - Adds type support for functions provided by the Node.js runtime
+- `autoprefixer` [[MIT License](https://github.com/postcss/autoprefixer/blob/main/LICENSE)] - Requirement for TailwindCSS. A PostCSS plugin to add vendor prefixes to CSS rules
+- `postcss` [[MIT License](https://github.com/postcss/postcss/blob/main/LICENSE)] - Requirement for TailwindCSS. A tool for transforming styles with JS plugins
+- `sass` [[MIT License](https://github.com/sass/sass/blob/main/LICENSE)] - Adds support for `.scss` files
+- `tailwindcss` [[MIT License](https://github.com/tailwindlabs/tailwindcss/blob/master/LICENSE)] - CSS utility framework
+- `typescript` [[MIT License](https://github.com/microsoft/TypeScript)] - JavaScript superset that compiles to JavaScript that provides type checking/support during development
+- `typescript-plugin-css-modules` [[MIT License](https://github.com/mrmckeb/typescript-plugin-css-modules/blob/main/LICENSE)] - Adds type support when importing styles from CSS/SCSS modules
+- `vite` [[MIT License](https://github.com/vitejs/vite/blob/main/LICENSE)] - Build tool and module bundler
+- `vite-plugin-solid` [[GitHub](https://github.com/solidjs/vite-plugin-solid)] - Required Vite plugin to build Solid.js projects
 
-- `@fontsource/work-sans` - Font used for this project.
-- `@fortawesome/fontawesome-svg-core` - Required for using SVGs for FontAwesome.
-- `@fortawesome/free-brands-svg-icons` - Icons for brands (Facebook, GitHub, etc.)
-- `@fortawesome/free-regular-svg-icons` - Used for outlined versions of solid icons.
-- `@fortawesome/free-solid-svg-icons` - Filled/solid icons.
-- `@fortawesome/react-fontawesome` - Provides `<FontAwesomeIcon />` component.
 
-### React
+## Useful References
 
-- `react` - JS frontend library
-- `react-dom` -
-- `react-router-dom` -
-- `react-snapshot` -
-
-### TailwindCSS
-
-Configuring with Vite: https://tailwindcss.com/docs/guides/vite
-
-- `tailwindcss` - CSS utility framework
-- `postcss` - TailwindCSS peer dependency
-- `autoprefixer` - TailwindCSS peer dependency
-
-### Code Style
-
-#### ESLint
-
-- `eslint` - Main linter.
-- `eslint-plugin-import` - Tells ESLint how to resolve imports.
-- `eslint-import-resolver-typescript` - Allows `eslint` to resolve aliases defined in `tsconfig.json`
-- `eslint-config-google` - Google JS style rules.
-- `eslint-config-standard-with-typescript` - Standard ESLint rules for TypeScript.
-- `eslint-plugin-jsx-a11y` - Checks for accessiblity issues.
-- `eslint-plugin-n` -
-- `eslint-plugin-promise` -
-- `eslint-plugin-react` - React specific linting rules for ESLint.
-- `eslint-plugin-react-hooks` - Linting rules for using React hooks
-- `@typescript-eslint/eslint-plugin` - An ESLint plugin which provides rules for TypeScript codebases.
-- `@typescript-eslint/parser` - A parser which allows ESLint to lint TypeScript source code.
-
-#### Prettier
-
-- `prettier` - Main code formatter.
-
-#### Configuring ESLint and Prettier
-
-- `eslint-config-prettier` - An ESLint configuration which disables the formatting rules in ESLint that Prettier is going to be responsible for handling, hence avoiding any clashes.
+- [Configuring TailwindCSS with Vite](https://tailwindcss.com/docs/guides/vite) 
+- [Setting up `typescript-plugin-css-modules`](https://github.com/mrmckeb/typescript-plugin-css-modules?tab=readme-ov-file#installation)

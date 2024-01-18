@@ -1,8 +1,11 @@
-const breakpoints = require('./src/core/breakpoints.json');
-const colors = require('tailwindcss/colors');
-const defaultTheme = require('tailwindcss/defaultTheme');
+import type {Config} from 'tailwindcss';
+import colors from 'tailwindcss/colors';
+import defaultTheme from 'tailwindcss/defaultTheme';
+import plugin from 'tailwindcss/plugin';
+import type {PluginAPI} from 'tailwindcss/types/config';
 
-/** @type {import('tailwindcss').Config} */
+import breakpoints from './src/core/breakpoints.json';
+
 export default {
     content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
     darkMode: 'class',
@@ -16,11 +19,11 @@ export default {
             },
         },
         screens: {
-            'xs': `${breakpoints.xs}px`,
-            'sm': `${breakpoints.sm}px`,
-            'md': `${breakpoints.md}px`,
-            'lg': `${breakpoints.lg}px`,
-            'xl': `${breakpoints.xl}px`,
+            xs: `${breakpoints.xs}px`,
+            sm: `${breakpoints.sm}px`,
+            md: `${breakpoints.md}px`,
+            lg: `${breakpoints.lg}px`,
+            xl: `${breakpoints.xl}px`,
             '2xl': `${breakpoints['2xl']}px`,
         },
         colors: {
@@ -70,5 +73,9 @@ export default {
             white: colors.zinc[50],
         },
     },
-    plugins: [],
-};
+    plugins: [
+        plugin((api: PluginAPI) => {
+            api.addVariant('c-hover', '&:hover > *');
+        }),
+    ],
+} satisfies Config;

@@ -1,5 +1,5 @@
-import type {Options as MotionOptions} from '@motionone/solid';
 import type {JSX} from 'solid-js';
+import type {Options as MotionOptions} from 'solid-motionone';
 
 export type AnimatedComponentProps = {
     'anim-initial'?: MotionOptions['initial'];
@@ -13,6 +13,7 @@ export type AnimatedComponentProps = {
 
 interface BaseComponentMap {
     a: HTMLAnchorElement;
+    button: HTMLButtonElement;
     div: HTMLDivElement;
     svg: SVGSVGElement;
 }

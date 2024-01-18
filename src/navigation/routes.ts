@@ -1,9 +1,10 @@
-import {type RouteDefinition} from '@solidjs/router';
-import {lazy} from 'solid-js';
+import type {RouteDefinition} from '@solidjs/router';
+
+import HomePage from '@/pages/HomePage';
 
 export default [
     {
         path: '/',
-        component: lazy(() => import('@/pages/HomePage')),
+        component: HomePage,
     },
 ] satisfies RouteDefinition[];

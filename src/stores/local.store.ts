@@ -1,46 +1,44 @@
-import {batch} from 'solid-js';
-import {createStore} from 'solid-js/store';
+import {type Accessor, batch, createSignal} from 'solid-js';
 
-type Theme = 'dark' | 'light';
+import UITheme from '@/enums/UITheme';
 
-interface LocalStore {
-    theme: Theme ;
+const [theme, _setTheme] = createSignal<UITheme>(getSystemTheme());
+
+function getSystemTheme(): UITheme {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? UITheme.Dark : UITheme.Light;
 }
 
-function getSystemTheme(): Theme {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+function setTheme(value: UITheme): void {
+    document.body.classList.add('no-transition');
+    document.documentElement.classList.toggle('dark', value === UITheme.Dark);
+    _setTheme(value);
+
+    setTimeout(() => document.body.classList.remove('no-transition'), 100);
 }
 
-const [localStore, setLocalStore] = createStore<LocalStore>({
-    theme: getSystemTheme(),
-});
-
-function useSystemTheme(): void {
-    localStorage.removeItem('theme');
-
-    const theme = getSystemTheme();
-    document.documentElement.classList.toggle('dark', theme === 'dark');
-    setLocalStore({
-        theme,
-    });
+export function useTheme(): Accessor<UITheme> {
+    return theme;
 }
 
-export function setTheme(theme: 'dark' | 'light' | 'system'): void {
-    if (theme === 'system') {
-        useSystemTheme();
-        return;
-    }
+export function useSetTheme(): (valueOrSetter: UITheme | ((value: UITheme) => UITheme)) => void {
+    return (valueOrSetter: UITheme | ((value: UITheme) => UITheme)) => {
+        const targetTheme = typeof valueOrSetter === 'function'
+            ? valueOrSetter(theme())
+            : valueOrSetter;
 
-    localStorage.setItem('theme', theme);
-    setLocalStore({
-        theme,
-    });
-    document.documentElement.classList.toggle('dark', theme === 'dark');
+        if (targetTheme === theme()) {
+            return;
+        }
+
+        localStorage.setItem('theme', targetTheme);
+        setTheme(targetTheme === UITheme.System ? getSystemTheme() : targetTheme);
+    };
 }
 
 function initializeTheme(): void {
-    const theme = localStorage.getItem('theme') as Theme | null;    
-    setTheme(theme ?? 'system');
+    const storedTheme = localStorage.getItem('theme') as UITheme | null;
+
+    setTheme(storedTheme ?? UITheme.System);
 }
 
 export function initializeLocalStore(): void {
@@ -48,5 +46,3 @@ export function initializeLocalStore(): void {
         initializeTheme();
     });
 }
-
-export const useLocalStore = (): LocalStore => localStore;

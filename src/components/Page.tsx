@@ -1,16 +1,14 @@
-import {Motion} from '@motionone/solid';
-import {type ParentComponent, splitProps} from 'solid-js';
+import {type ComponentProps, type ParentComponent, splitProps} from 'solid-js';
+import {Motion} from 'solid-motionone';
 
-import Helmet, {type HelmetProps} from '@/components/Helmet';
-import type {
-    AnimatedComponentProps,
-    BaseComponentProps,
-} from '@/components/types';
+import Helmet from '@/components/Helmet';
+import type {AnimatedComponentProps, BaseComponentProps} from '@/components/types';
 
+type HelmetProps = ComponentProps<typeof Helmet>;
 type PageProps = HelmetProps & AnimatedComponentProps & BaseComponentProps<'div'>;
 
-const Page: ParentComponent<PageProps> = props => {
-    const [helmetProps, propsWithHelmet] = splitProps(props, [
+const Page: ParentComponent<PageProps> = (props) => {
+    const [helmetProps, propsWithoutHelmet] = splitProps(props, [
         'author',
         'description',
         'image',
@@ -31,9 +29,7 @@ const Page: ParentComponent<PageProps> = props => {
         'twitter-title',
     ]);
 
-    const [propsWithChildren, componentProps] = splitProps(propsWithHelmet, ['children']);
-
-    const [motionProps, rest] = splitProps(componentProps, [
+    const [animatedProps, parentProps] = splitProps(propsWithoutHelmet, [
         'anim-initial',
         'anim-animate',
         'anim-hover',
@@ -43,16 +39,18 @@ const Page: ParentComponent<PageProps> = props => {
         'anim-transition',
     ]);
 
+    const [propsWithChildren, divElementProps] = splitProps(parentProps, ['children']);
+
     return (
         <Motion.div
-            initial={motionProps['anim-initial']}
-            animate={motionProps['anim-animate']}
-            hover={motionProps['anim-hover']}
-            press={motionProps['anim-press']}
-            exit={motionProps['anim-exit']}
-            variants={motionProps['anim-variants']}
-            transition={motionProps['anim-transition']}
-            {...rest}
+            initial={animatedProps['anim-initial']}
+            animate={animatedProps['anim-animate']}
+            hover={animatedProps['anim-hover']}
+            press={animatedProps['anim-press']}
+            exit={animatedProps['anim-exit']}
+            variants={animatedProps['anim-variants']}
+            transition={animatedProps['anim-transition']}
+            {...divElementProps}
         >
             <Helmet {...helmetProps} />
             {propsWithChildren.children}

@@ -1,17 +1,18 @@
 import {faGithub, faLinkedin} from '@fortawesome/free-brands-svg-icons';
 import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
-import {Motion} from '@motionone/solid';
-import {type Component} from 'solid-js';
+import type {Component} from 'solid-js';
+import {Motion} from 'solid-motionone';
 
 import laptopWithCatSvg from '@/assets/images/laptop-with-cat.svg';
-import IconButton from '@/components/IconButton';
+import Button from '@/components/Button';
+import Link from '@/components/Link';
 import Logo from '@/components/Logo';
 import Page from '@/components/Page';
 import ThemeToggle from '@/components/ThemeToggle';
 
 const HomePage: Component = () => {
     return (
-        <Page            
+        <Page
             anim-initial={{
                 opacity: 0,
             }}
@@ -50,15 +51,11 @@ const HomePage: Component = () => {
                                         duration: 1,
                                     }}
                                 >
-                                    <a
-                                        aria-label="Home"
-                                        class="block p-2"
-                                        href="/"
-                                    >
+                                    <Link unstyled aria-label="Home" class="block p-2" href="/">
                                         <Logo />
-                                    </a>
+                                    </Link>
                                 </Motion.div>
-                                
+
                                 <Motion.div
                                     initial={{
                                         opacity: 0,
@@ -78,7 +75,7 @@ const HomePage: Component = () => {
                             </div>
                         </div>
                     </div>
-                </div>        
+                </div>
             </header>
 
             <Motion.div
@@ -96,25 +93,16 @@ const HomePage: Component = () => {
                     duration: 1,
                 }}
             >
-                <main
-                    // eslint-disable-next-line max-len
-                    class="h-screen p-4 flex flex-col items-center justify-center gap-y-4 md:gap-y-8"
-                >
+                <main class="h-screen p-4 flex flex-col items-center justify-center gap-y-4 md:gap-y-8">
                     <div class="flex flex-col items-center justify-center gap-y-3 md:gap-y-6">
-                        <h1 class="text-4xl md:text-6xl 2xl:text-7xl font-bold tracking-tighter">
+                        <h1 class="text-5xl md:text-6xl 2xl:text-7xl font-bold tracking-tighter">
                             Welcome!
                         </h1>
                         <h2 class="text-xl md:text-2xl 2xl:text-3xl text-center tracking-tighter">
                             I&apos;m in the middle of a&nbsp;
-                            <a
-                                // eslint-disable-next-line max-len
-                                class="text-rose hover:text-cyan focus-visible:text-cyan font-medium"
-                                href="https://www.solidjs.com/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <em>solid</em>
-                            </a>
+                            <Link href="https://www.solidjs.com/" target="_blank" rel="noreferrer">
+                                solid
+                            </Link>
                             &nbsp;makeover.
                         </h2>
                     </div>
@@ -127,51 +115,42 @@ const HomePage: Component = () => {
                         Check back again later! In the meantime, you can find me on:
                     </p>
                     <div class="flex flex-col gap-y-8">
-                        <div
-                            // eslint-disable-next-line max-len
-                            class="flex flex-col md:flex-row items-center justify-center gap-y-4 md:gap-x-8"
-                        >
-                            <IconButton
-                                // eslint-disable-next-line max-len
-                                class="text-black dark:text-white hover:text-cyan focus-visible:text-cyan dark:hover:text-cyan dark:focus-visible:text-cyan text-xs md:text-sm flex items-center gap-x-3"
+                        <div class="flex flex-col md:flex-row items-center justify-center gap-y-4 md:gap-x-8">
+                            <Link
                                 href="mailto:rbondoc96@gmail.com"
                                 icon={faEnvelope}
-                                label="rbondoc96@gmail.com"
-                                rel="noopener noreferrer"
-                                size="2x"
+                                rel="noreferrer"
                                 target="_blank"
-                            />
-                            <IconButton
-                                // eslint-disable-next-line max-len
-                                class="text-black dark:text-white hover:text-cyan focus-visible:text-cyan dark:hover:text-cyan dark:focus-visible:text-cyan text-xs md:text-sm flex items-center gap-x-3"
+                            >
+                                rbondoc96@gmail.com
+                            </Link>
+                            <Link
                                 href="https://github.com/rbondoc96"
                                 icon={faGithub}
-                                label="rbondoc96"
-                                rel="noopener noreferrer"
+                                rel="noreferrer"
                                 size="2x"
                                 target="_blank"
-                            />
-                            <IconButton
-                                // eslint-disable-next-line max-len
-                                class="text-black dark:text-white hover:text-cyan focus-visible:text-cyan dark:hover:text-cyan dark:focus-visible:text-cyan text-xs md:text-sm flex items-center gap-x-3"
+                            >
+                                rbondoc96
+                            </Link>
+                            <Link
                                 href="https://www.linkedin.com/in/rbondoc96/"
                                 icon={faLinkedin}
-                                label="rbondoc96"
-                                rel="noopener noreferrer"
+                                rel="noreferrer"
                                 size="2x"
                                 target="_blank"
-                            />                            
+                            >
+                                rbondoc96
+                            </Link>
                         </div>
-                        <a
-                            // eslint-disable-next-line max-len
-                            class="self-center text-sm md:text-lg text-white px-5 py-3 rounded-lg bg-rose border-2 border-rose hover:text-rose hover:bg-transparent"
-                            // eslint-disable-next-line max-len
+                        <Button
+                            type="link"
                             href="https://drive.google.com/file/d/1zY5jY88vM6oEEuDUPbC6hFUGF-HILdYt/view?usp=sharing"
                             target="_blank"
-                            rel="noopener noreferrer"
+                            rel="noreferrer"
                         >
                             My Resume
-                        </a>
+                        </Button>
                     </div>
                 </main>
             </Motion.div>

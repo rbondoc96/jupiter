@@ -18,6 +18,7 @@ interface BaseComponentMap {
     svg: SVGSVGElement;
 }
 
-export type BaseComponentProps<TComponentKey extends keyof BaseComponentMap> = 
-    JSX.CustomAttributes<BaseComponentMap[TComponentKey]>
-        & JSX.HTMLAttributes<BaseComponentMap[TComponentKey]>;
+export type BaseComponentProps<TComponentKey extends keyof BaseComponentMap> = JSX.CustomAttributes<
+    BaseComponentMap[TComponentKey]
+> &
+    JSX.HTMLAttributes<BaseComponentMap[TComponentKey]>;

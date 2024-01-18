@@ -4,6 +4,6 @@ const UITheme = {
     System: 'system',
 } as const;
 
-type UITheme = typeof UITheme[keyof typeof UITheme];
+type UITheme = (typeof UITheme)[keyof typeof UITheme];
 
 export default UITheme;

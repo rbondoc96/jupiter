@@ -16,8 +16,8 @@ type TailwindStylesConfig = {
 };
 
 export class TailwindStyles<TStyles extends TailwindStylesConfig = TailwindStylesConfig> {
-    public styles: TStyles;
-    
+    private styles: TStyles;
+
     constructor(styles: TStyles) {
         this.styles = styles;
     }

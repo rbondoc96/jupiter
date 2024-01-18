@@ -1,14 +1,16 @@
-/* eslint-disable max-len */
 import {type Component, mergeProps} from 'solid-js';
 
 type LogoProps = {
     size?: 30 | 40 | 50;
 };
 
-const Logo: Component<LogoProps> = props => {
-    const propsWithDefaults = mergeProps({
-        size: 40,
-    }, props);
+const Logo: Component<LogoProps> = (props) => {
+    const propsWithDefaults = mergeProps(
+        {
+            size: 40,
+        },
+        props,
+    );
 
     return (
         <svg
@@ -18,6 +20,7 @@ const Logo: Component<LogoProps> = props => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
         >
+            <title>Logo</title>
             <g clip-path="url(#clip0_501_773)">
                 <path
                     d="M0.902832 0.901123V25.8558H5.237V5.26052H18.8582C21.8507 5.26052 23.6388 6.83982 23.6388 10.0664C23.6388 13.293 21.9883 15.0775 18.8582 15.0775H8.43547V18.922H17.7921L20.2086 21.5698H26.0553L22.7792 18.2703C26.0125 17.0346 27.9387 14.1171 27.9387 9.99803C27.9387 4.43731 24.5681 0.901123 18.8582 0.901123H0.902832Z"

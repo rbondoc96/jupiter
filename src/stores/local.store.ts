@@ -9,11 +9,13 @@ function getSystemTheme(): UITheme {
 }
 
 function setTheme(value: UITheme): void {
-    document.body.classList.add('no-transition');
-    document.documentElement.classList.toggle('dark', value === UITheme.Dark);
-    _setTheme(value);
+    const targetTheme = value === UITheme.System ? getSystemTheme() : value;
 
+    document.body.classList.add('no-transition');
+    document.documentElement.classList.toggle('dark', targetTheme === UITheme.Dark);
     setTimeout(() => document.body.classList.remove('no-transition'), 100);
+
+    _setTheme(targetTheme);
 }
 
 export function useTheme(): Accessor<UITheme> {
@@ -23,16 +25,12 @@ export function useTheme(): Accessor<UITheme> {
 export function useSetTheme(): (valueOrSetter: UITheme | ((value: UITheme) => UITheme)) => void {
     return (valueOrSetter: UITheme | ((value: UITheme) => UITheme)) => {
         // biome-ignore format: easier to read
-        const targetTheme = typeof valueOrSetter === 'function'
+        const value = typeof valueOrSetter === 'function'
             ? valueOrSetter(theme())
             : valueOrSetter;
 
-        if (targetTheme === theme()) {
-            return;
-        }
-
-        localStorage.setItem('theme', targetTheme);
-        setTheme(targetTheme === UITheme.System ? getSystemTheme() : targetTheme);
+        localStorage.setItem('theme', value);
+        setTheme(value);
     };
 }
 

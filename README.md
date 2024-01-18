@@ -6,6 +6,22 @@
     - (Redirects to the `.dev` domain) [https://rbondoc.com](https://rbondoc.com) 
 
 
+## Installation
+
+### Installation Requirements
+
+- Node.js [[Website](https://nodejs.org/en)] - JavaScript runtime
+- `pnpm` [[Website](https://pnpm.io/)] - Package manager
+
+
+### Steps
+
+1. Clone this repo onto your local machine
+2. Run `pnpm install --frozen-lockfile`
+3. Run `pnpm dev` to start the development server
+4. Visit [http://localhost:5173/](http://localhost:5173/) to view the webpage on your local machine
+
+
 ## Dependencies
 
 ### Required Dependencies

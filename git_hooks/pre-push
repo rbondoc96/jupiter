@@ -1,0 +1,7 @@
+#!/bin/sh
+
+echo "Running code checks..."
+pnpm check:all
+check_result=$?
+
+exit $check_result

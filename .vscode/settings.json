@@ -11,9 +11,6 @@
     "files.associations": {
         "*.css": "tailwindcss"
     },
-    "files.exclude": {
-        "**/.git": false
-    },
     "scss.lint.unknownAtRules": "ignore",
     "typescript.tsdk": "node_modules/typescript/lib"
 }

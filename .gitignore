@@ -1,9 +1,12 @@
 # General
 .DS_Store
 
-# Build
+# Build Output
 build
 dist
+
+# CI/CD
+.turbo
 
 # Assets
 **/fonts/*

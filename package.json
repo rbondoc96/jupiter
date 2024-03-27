@@ -11,5 +11,8 @@
         "start": ""
     },
     "keywords": [],
-    "license": "ISC"
+    "license": "ISC",
+    "devDependencies": {
+        "turbo": "^1.13.0"
+    }
 }

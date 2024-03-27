@@ -4,8 +4,9 @@
     "version": "0.0.0",
     "type": "module",
     "scripts": {
-        "dev": "vite",
-        "build": "tsc && vite build"
+        "build": "tsc && vite build",
+        "check:types": "tsc --noEmit --skipLibCheck",
+        "dev": "vite"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^6.5.1",

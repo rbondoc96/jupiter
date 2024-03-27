@@ -1,13 +1,15 @@
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
-.idea
+# General
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+
+# Build
+build
+dist
+
+# Assets
+**/fonts/*
+
+# Editor Configs
+
+
+# Node
+node_modules

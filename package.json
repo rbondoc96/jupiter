@@ -1,0 +1,15 @@
+{
+    "name": "jupiter",
+    "private": true,
+    "type": "module",
+    "author": "Rodrigo Bondoc",
+    "description": "",
+    "packageManager": "pnpm@8.6.12",
+    "scripts": {
+        "init": "",
+        "new:react-ts": "cd apps && pnpm create vite --template react-swc-ts",
+        "start": ""
+    },
+    "keywords": [],
+    "license": "ISC"
+}

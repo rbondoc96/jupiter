@@ -75,9 +75,6 @@ importers:
 
   apps/react-template:
     dependencies:
-      '@jupiter/react-resume':
-        specifier: workspace:^
-        version: link:../react-resume
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -260,9 +257,6 @@ importers:
       '@fortawesome/free-solid-svg-icons':
         specifier: ^6.4.0
         version: 6.5.1
-      '@jupiter/react-resume':
-        specifier: workspace:^
-        version: link:../react-resume
       '@solidjs/meta':
         specifier: ^0.28.6
         version: 0.28.6(solid-js@1.8.10)

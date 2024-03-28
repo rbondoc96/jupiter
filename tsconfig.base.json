@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        // General
+        "allowImportingTsExtensions": false,
+        "moduleResolution": "Bundler",
+        "resolveJsonModule": true,
+        "skipLibCheck": false,
+
+        // Build
+        "target": "ESNext",
+        "module": "ESNext",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "noEmit": true,
+        "isolatedModules": true,
+
+        // Linting
+        "allowJs": false,
+        "forceConsistentCasingInFileNames": true,
+        "useDefineForClassFields": true,
+        "strict": true,
+        "strictNullChecks": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noUncheckedIndexedAccess": true,
+    }
+}

@@ -80,15 +80,15 @@ export const BulletListSection: FunctionComponent<BulletListSectionProps> = ({
                 ))}
             </View>
             <View style={styles.subheadingsContainer}>
-                {subheadings.map(subheading => (
-                    <Text style={styles.subheading}>
+                {subheadings.map((subheading, index) => (
+                    <Text key={`${subheading}-${index}`} style={styles.subheading}>
                         {subheading}
                     </Text>
                 ))}
             </View>
             <View style={styles.itemsContainer}>
-                {items.map(item => (
-                    <View style={styles.itemContainer}>
+                {items.map((item, index) => (
+                    <View key={`${item}-${index}`} style={styles.itemContainer}>
                         <Text style={styles.item}>
                             {'\u2022'}
                         </Text>

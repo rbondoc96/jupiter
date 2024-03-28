@@ -25,8 +25,7 @@ export const FontAwesomeIcon: FunctionComponent<FontAwesomeIconProps> = ({
 
     return (
         <Svg viewBox={`0 0 ${icon[0]} ${icon[1]}`} style={[...styleList, {width}]}>
-        {paths &&
-            paths.map((d, index) => (
+            {paths && paths.map((d, index) => (
                 <Path
                     d={d}
                     key={index}

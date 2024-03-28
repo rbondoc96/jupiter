@@ -49,11 +49,11 @@ Font.register({
             fontWeight: 900,
         },
     ],
-})
+});
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
-       <App />
+        <App />
     </React.StrictMode>,
 );
     

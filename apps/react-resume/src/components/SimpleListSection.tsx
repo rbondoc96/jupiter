@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         columnGap: 3,
-        textDecoration: 'none'
+        textDecoration: 'none',
     },
     subheading: {
         fontSize: 8,
@@ -82,8 +82,8 @@ export const SimpleListSection: FunctionComponent<SimpleListSectionProps> = ({
                 </Text>
             )}
             <View style={styles.itemsContainer}>
-                {items.map(item => (
-                    <Text style={styles.item}>
+                {items.map((item, index) => (
+                    <Text key={`${item}-${index}`} style={styles.item}>
                         {item}
                     </Text>
                 ))}

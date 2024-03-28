@@ -129,7 +129,7 @@ export const Resume: FunctionComponent = () => {
                                     headings={[['San Diego State University', 'Aug. 2014 - May 2019']]}
                                     subheadings={[
                                         'Bachelor\'s of Science in Electrical Engineering',
-                                        'Minor in Computer Science'
+                                        'Minor in Computer Science',
                                     ]}
                                     items={[
                                         'Major GPA: 3.74',

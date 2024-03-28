@@ -46,6 +46,15 @@ const config = [
         },
     },
     {
+        files: [
+            'vite.config.ts',
+            'vitest.config.ts',
+        ],
+        rules: {
+            'no-undef': 'off',
+        },
+    },
+    {
         plugins: {
             '@stylistic': stylistic,
         },

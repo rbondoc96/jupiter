@@ -11,7 +11,8 @@
     "eslint.experimental.useFlatConfig": true,
     "eslint.workingDirectories": [
         "./apps/react-resume",
-        "./apps/react-template"
+        "./apps/react-template",
+        "./apps/www"
         // {"pattern": "./apps/*"}
     ],
     "files.associations": {

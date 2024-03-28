@@ -6,6 +6,9 @@
         },
         "check:types": {
             "outputMode": "errors-only"
+        },
+        "test": {
+            "outputMode": "errors-only"
         }
     }
 }

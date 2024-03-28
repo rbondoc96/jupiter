@@ -20,4 +20,4 @@ export const App: FunctionComponent = () => {
             </p>
         </>
     );
-}
+};

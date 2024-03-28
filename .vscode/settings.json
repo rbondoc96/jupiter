@@ -1,16 +1,21 @@
 {
-    "editor.codeActionsOnSave": {
-        "quickfix.biome": "explicit",
-        "source.organizeImports.biome": "explicit"
-    },
-    "editor.defaultFormatter": "biomejs.biome",
+    // "editor.codeActionsOnSave": {
+    //     "quickfix.biome": "explicit",
+    //     "source.organizeImports.biome": "explicit"
+    // },
+    // "editor.defaultFormatter": "biomejs.biome",
     "editor.formatOnSave": true,
     "editor.quickSuggestions": {
         "strings": true
     },
+    "eslint.experimental.useFlatConfig": true,
+    "eslint.workingDirectories": [
+        "./apps/react-resume",
+        "./apps/react-template"
+        // {"pattern": "./apps/*"}
+    ],
     "files.associations": {
         "*.css": "tailwindcss"
     },
-    "scss.lint.unknownAtRules": "ignore",
-    "typescript.tsdk": "node_modules/typescript/lib"
+    "scss.lint.unknownAtRules": "ignore"
 }

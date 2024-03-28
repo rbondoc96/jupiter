@@ -1,10 +1,24 @@
 {
-    "name": "react-resume",
+    "name": "@jupiter/react-resume",
     "private": true,
-    "version": "0.0.0",
     "type": "module",
+    "version": "1.0.0",
+    "author": "Rodrigo Bondoc",
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.cjs",
+            "types": "./dist/index.d.ts"
+        }
+    },
     "scripts": {
-        "build": "tsc && vite build",
+        "build": "vite build",
         "check:lint": "eslint . --max-warnings 0",
         "check:types": "tsc --noEmit --skipLibCheck",
         "dev": "vite"
@@ -13,6 +27,11 @@
         "@fortawesome/fontawesome-svg-core": "^6.5.1",
         "@fortawesome/free-brands-svg-icons": "^6.5.1",
         "@fortawesome/free-solid-svg-icons": "^6.5.1",
+        "@react-pdf/renderer": "^3.4.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    },
+    "peerDependencies": {
         "@react-pdf/renderer": "^3.4.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0"
@@ -29,6 +48,7 @@
         "eslint-plugin-react-hooks": "^4.6.0",
         "globals": "^15.0.0",
         "typescript": "^5.2.2",
-        "vite": "^5.2.0"
+        "vite": "^5.2.0",
+        "vite-plugin-dts": "^3.8.1"
     }
 }

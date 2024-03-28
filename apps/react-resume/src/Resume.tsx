@@ -1,5 +1,13 @@
-import {Document, Page, StyleSheet, View} from '@react-pdf/renderer';
+import {Document, Font, Page, StyleSheet, View} from '@react-pdf/renderer';
 import {type FunctionComponent} from 'react';
+import MontserratThin from '@/assets/fonts/Montserrat-Thin.ttf';
+import MontserratLight from '@/assets/fonts/Montserrat-Light.ttf';
+import MontserratRegular from '@/assets/fonts/Montserrat-Regular.ttf';
+import MontserratMedium from '@/assets/fonts/Montserrat-Medium.ttf';
+import MontserratSemiBold from '@/assets/fonts/Montserrat-SemiBold.ttf';
+import MontserratBold from '@/assets/fonts/Montserrat-Bold.ttf';
+import MontserratExtraBold from '@/assets/fonts/Montserrat-ExtraBold.ttf';
+import MontserratBlack from '@/assets/fonts/Montserrat-Black.ttf';
 import {BulletListSection} from '@/components/BulletListSection';
 import {NameTitleHeader} from '@/components/NameTitleHeader';
 import {LinksHeader} from '@/components/LinksHeader';
@@ -7,6 +15,44 @@ import {SkillsPanel} from '@/components/SkillsPanel';
 import {SimpleListSection} from '@/components/SimpleListSection';
 import {Text} from '@/components/Text';
 import {colors} from '@/theme';
+
+Font.register({
+    family: 'Montserrat',
+    fonts: [
+        {
+            src: MontserratThin,
+            fontWeight: 100,
+        },
+        {
+            src: MontserratLight,
+            fontWeight: 300,
+        },
+        {
+            src: MontserratRegular,
+            fontWeight: 400,
+        },
+        {
+            src: MontserratMedium,
+            fontWeight: 500,
+        },
+        {
+            src: MontserratSemiBold,
+            fontWeight: 600,
+        },
+        {
+            src: MontserratBold,
+            fontWeight: 700,
+        },
+        {
+            src: MontserratExtraBold,
+            fontWeight: 800,
+        },
+        {
+            src: MontserratBlack,
+            fontWeight: 900,
+        },
+    ],
+});
 
 const styles = StyleSheet.create({
     page: {

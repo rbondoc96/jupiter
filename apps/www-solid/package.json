@@ -1,7 +1,7 @@
 {
-    "name": "rbondoc.dev",
+    "name": "www-solid",
     "private": true,
-    "version": "2.0.0",
+    "version": "1.0.0",
     "type": "module",
     "scripts": {
         "build": "tsc && vite build",
@@ -13,10 +13,10 @@
         "check:format:all": "pnpm dlx @biomejs/biome format .",
         "check:format:fix": "pnpm dlx @biomejs/biome format --write",
         "check:format:fix:all": "pnpm dlx @biomejs/biome format --write .",
-        "check:lint": "pnpm dlx @biomejs/biome lint",
-        "check:lint:fix": "pnpm dlx @biomejs/biome lint --apply",
-        "check:lint:fix:all": "pnpm dlx @biomejs/biome lint --apply .",
-        "check:lint:all": "pnpm dlx @biomejs/biome lint .",
+        "check:lint": "pnpm dlx @biomejs/biome lint .",
+        "check:lint:fix": "pnpm dlx @biomejs/biome lint --apply .",
+        "check:lint:fix:one": "pnpm dlx @biomejs/biome lint --apply",
+        "check:lint:one": "pnpm dlx @biomejs/biome lint",
         "check:types": "tsc --noEmit --skipLibCheck",
         "dev": "vite --host",
         "start": "vite"

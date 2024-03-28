@@ -1,6 +1,9 @@
 {
     "$schema": "https://turbo.build/schema.json",
     "pipeline": {
+        "check:lint": {
+            "outputMode": "errors-only"
+        },
         "check:types": {
             "outputMode": "errors-only"
         }

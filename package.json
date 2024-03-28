@@ -6,7 +6,9 @@
     "description": "",
     "packageManager": "pnpm@8.6.12",
     "scripts": {
-        "check": "turbo run check:types",
+        "check": "pnpm run check:lint && pnpm run check:types",
+        "check:lint": "turbo run check:lint --filter=!./apps/www-solid",
+        "check:types": "turbo run check:types --filter=!./apps/www-solid",
         "init": "pnpm run init:git",
         "init:git": "git config --local include.path ../.gitconfig",
         "new:react-ts": "cd apps && pnpm create vite --template react-swc-ts",

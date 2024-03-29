@@ -38,13 +38,11 @@ const config = [
         plugins: {
             '@typescript-eslint': typescript,
             'jsx-a11y': jsxA11y,
-            'react': react,
         },
         rules: {
             ...eslintJs.configs.recommended.rules,
             ...typescript.configs.recommended.rules,
             ...jsxA11y.configs.recommended.rules,
-            ...react.configs.recommended.rules,
             'no-redeclare': 'off',
         },
     },
@@ -88,6 +86,11 @@ const config = [
         rules: {
             ...react.configs.recommended.rules,
             'react/react-in-jsx-scope': 'off',
+        },
+        settings: {
+            react: {
+                version: 'detect',
+            },
         },
     },
     {

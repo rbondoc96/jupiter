@@ -1,5 +1,6 @@
 import {faGithub, faLinkedin} from '@fortawesome/free-brands-svg-icons';
 import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
+import {Link as RouterLink} from '@tanstack/react-router';
 import {type FunctionComponent} from 'react';
 import laptopWithCatSvg from '@/assets/images/laptop-with-cat.svg';
 import {Button} from '@/components/Button';
@@ -51,7 +52,7 @@ export const HomePage: FunctionComponent = () => {
                     Check back again later! In the meantime, you can find me on:
                 </p>
 
-                <div className="flex flex-col gap-y-8">
+                <div className="flex flex-col items-center gap-y-8">
                     <div className="flex flex-col md:flex-row items-center justify-center gap-y-4 md:gap-x-8">
                         <Link
                             href="mailto:rbondoc96@gmail.com"
@@ -77,9 +78,11 @@ export const HomePage: FunctionComponent = () => {
                         </Link>
                     </div>
 
-                    <Button>
-                        My Resume
-                    </Button>
+                    <RouterLink to="/resume">
+                        <Button>
+                            My Resume
+                        </Button>
+                    </RouterLink>
                 </div>
             </main>
         </div>

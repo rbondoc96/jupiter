@@ -1,7 +1,10 @@
+import {createRouter, RouterProvider} from '@tanstack/react-router';
 import {type FunctionComponent, useEffect} from 'react';
 import {useAppTheme} from '@/hooks/stores/useLocalStore';
-import {HomePage} from '@/pages/HomePage';
+import {routeTree} from '@/routeTree.gen';
 import {applyAppTheme} from '@/utilities/theme';
+
+const router = createRouter({routeTree});
 
 export const App: FunctionComponent = () => {
     const appTheme = useAppTheme();
@@ -15,7 +18,7 @@ export const App: FunctionComponent = () => {
 
     return (
         <div className="app">
-            <HomePage />            
+            <RouterProvider router={router} />
         </div>
     );
 };

@@ -37,5 +37,11 @@ jobs:
       - name: Install Dependencies
         run: pnpm install
 
+      - name: Build React Resume
+        run: pnpm @react-resume run build
+
+      - name: Build React UI Library
+        run: pnpm @ui-react run build
+
       - name: Check Types and Code Style
         run: pnpm run check

@@ -8,6 +8,7 @@
     "scripts": {
         "@react-resume": "pnpm --filter \"./apps/react-resume\"",
         "@react-template": "pnpm --filter \"./apps/react-template\"",
+        "@ui-react": "pnpm --filter \"./apps/ui-react\"",
         "@www": "pnpm --filter \"./apps/www\"",
         "@www-solid": "pnpm --filter \"./apps/www-solid\"",
         "check": "pnpm run check:lint && pnpm run check:types && pnpm run test",

@@ -12,6 +12,7 @@
     "eslint.workingDirectories": [
         "./apps/react-resume",
         "./apps/react-template",
+        "./apps/ui-react",
         "./apps/www"
         // {"pattern": "./apps/*"}
     ],

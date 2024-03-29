@@ -8,6 +8,7 @@ import {composeClassName} from '@/utilities/styles';
 
 const dialogVariants = cva([
     'fixed z-50 gap-4 bg-background p-6 shadow-lg transition ease-in-out',
+    'fill-mode-forwards',
     'data-[state=open]:animate-in data-[state=open]:duration-500',
     'data-[state=closed]:animate-out data-[state=closed]:duration-300',
 ],

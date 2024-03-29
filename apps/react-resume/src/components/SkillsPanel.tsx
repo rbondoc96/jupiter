@@ -51,7 +51,7 @@ export const SkillsPanel: FunctionComponent = () => {
                         Proficient
                     </Text>
                     <Text style={styles.item}>
-                        JavaScript, TypeScript, HTML, CSS, SCSS, PHP
+                        JavaScript, TypeScript, PHP, HTML, CSS
                     </Text>
                 </View>
                 <View style={styles.sectionContent}>
@@ -66,11 +66,11 @@ export const SkillsPanel: FunctionComponent = () => {
 
             <View style={styles.section}>
                 <Text style={styles.heading}>
-                    Libraries & Frameworks
+                    Libraries, Frameworks, & Runtimes
                 </Text>
 
                 <Text style={styles.item}>
-                    React, React Native, Solid.js, Vue.js, Laravel, Express.js, Jest, TailwindCSS
+                    React, React Native, Solid.js, Vue.js, Laravel, Node.js, Express.js, Jest, TailwindCSS
                 </Text>
             </View>
 

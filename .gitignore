@@ -4,15 +4,16 @@
 # Build Output
 build
 dist
+target
 
 # CI/CD
 .turbo
 
 # Assets
 **/fonts/*
+**/assets/*.json
+
+# Dependencies
+node_modules
 
 # Editor Configs
-
-
-# Node
-node_modules

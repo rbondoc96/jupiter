@@ -1,13 +1,5 @@
 import {Document, Font, Page, StyleSheet, View} from '@react-pdf/renderer';
 import {type FunctionComponent} from 'react';
-import MontserratThin from '@/assets/fonts/Montserrat-Thin.ttf';
-import MontserratLight from '@/assets/fonts/Montserrat-Light.ttf';
-import MontserratRegular from '@/assets/fonts/Montserrat-Regular.ttf';
-import MontserratMedium from '@/assets/fonts/Montserrat-Medium.ttf';
-import MontserratSemiBold from '@/assets/fonts/Montserrat-SemiBold.ttf';
-import MontserratBold from '@/assets/fonts/Montserrat-Bold.ttf';
-import MontserratExtraBold from '@/assets/fonts/Montserrat-ExtraBold.ttf';
-import MontserratBlack from '@/assets/fonts/Montserrat-Black.ttf';
 import {BulletListSection} from '@/components/BulletListSection';
 import {NameTitleHeader} from '@/components/NameTitleHeader';
 import {LinksHeader} from '@/components/LinksHeader';
@@ -15,40 +7,41 @@ import {SkillsPanel} from '@/components/SkillsPanel';
 import {SimpleListSection} from '@/components/SimpleListSection';
 import {Text} from '@/components/Text';
 import {colors} from '@/theme';
+  
 
 Font.register({
     family: 'Montserrat',
     fonts: [
         {
-            src: MontserratThin,
+            src: 'https://fonts.gstatic.com/s/montserrat/v26/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Uw-Y3tcoqK5.ttf',
             fontWeight: 100,
         },
         {
-            src: MontserratLight,
+            src: 'https://fonts.gstatic.com/s/montserrat/v26/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCs16Ew-Y3tcoqK5.ttf',
             fontWeight: 300,
         },
         {
-            src: MontserratRegular,
+            src: 'https://fonts.gstatic.com/s/montserrat/v26/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Ew-Y3tcoqK5.ttf',
             fontWeight: 400,
         },
         {
-            src: MontserratMedium,
+            src: 'https://fonts.gstatic.com/s/montserrat/v26/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtZ6Ew-Y3tcoqK5.ttf',
             fontWeight: 500,
         },
         {
-            src: MontserratSemiBold,
+            src: 'https://fonts.gstatic.com/s/montserrat/v26/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCu170w-Y3tcoqK5.ttf',
             fontWeight: 600,
         },
         {
-            src: MontserratBold,
+            src: 'https://fonts.gstatic.com/s/montserrat/v26/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCuM70w-Y3tcoqK5.ttf',
             fontWeight: 700,
         },
         {
-            src: MontserratExtraBold,
+            src: 'https://fonts.gstatic.com/s/montserrat/v26/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvr70w-Y3tcoqK5.ttf',
             fontWeight: 800,
         },
         {
-            src: MontserratBlack,
+            src: 'https://fonts.gstatic.com/s/montserrat/v26/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvC70w-Y3tcoqK5.ttf',
             fontWeight: 900,
         },
     ],

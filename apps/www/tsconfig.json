@@ -1,0 +1,17 @@
+{
+    "extends": "../../tsconfig.base.json",
+    "include": ["__tests__", "src"],
+    "references": [
+        {
+            "path": "./tsconfig.node.json"
+        }
+    ],
+    "compilerOptions": {
+        // Project Environment
+        "jsx": "react-jsx",
+        "lib": ["ESNext", "DOM", "DOM.Iterable"],
+        "paths": {
+            "@/*": ["./src/*"]
+        },
+    }
+}

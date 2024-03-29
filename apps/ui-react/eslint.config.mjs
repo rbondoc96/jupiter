@@ -50,11 +50,19 @@ const config = [
             'vite.config.ts',
             'vitest.config.ts',
         ],
+        ignores: [
+            'dist/**',
+            'node_modules/**',
+        ],
         rules: {
             'no-undef': 'off',
         },
     },
     {
+        ignores: [
+            'dist/**',
+            'node_modules/**',
+        ],
         plugins: {
             '@stylistic': stylistic,
         },
@@ -67,6 +75,10 @@ const config = [
         },
     },
     {
+        ignores: [
+            'dist/**',
+            'node_modules/**',
+        ],
         plugins: {
             'react': react,
         },
@@ -76,6 +88,10 @@ const config = [
         },
     },
     {
+        ignores: [
+            'dist/**',
+            'node_modules/**',
+        ],
         plugins: {
             'react-hooks': reactHooks,
         },

@@ -1,7 +1,7 @@
 import {PDFViewer} from '@react-pdf/renderer';
 import {type FunctionComponent} from 'react';
 import {getResumeMetaData, Resume} from '@jupiter/react-resume';
-import {DialogSheet} from '@jupiter/ui-react';
+import {Dialog} from '@jupiter/ui-react';
 
 export const ResumeViewerPage: FunctionComponent = () => {
     const {dateOfLastBuild, version} = getResumeMetaData();
@@ -11,20 +11,20 @@ export const ResumeViewerPage: FunctionComponent = () => {
             <PDFViewer height="100%" width="100%">
                 <Resume />
             </PDFViewer>
-            <DialogSheet.Root>
+            <Dialog.Root>
                 <div className="absolute bottom-0 right-0">
                     <div className="mr-6 mb-4">
-                        <DialogSheet.Trigger className="bg-primary px-4 py-2 rounded-lg text-white">
+                        <Dialog.Trigger className="bg-primary px-4 py-2 rounded-lg text-white">
                             More Info
-                        </DialogSheet.Trigger>
+                        </Dialog.Trigger>
                     </div>
                 </div>
-                <DialogSheet.Content side="center">
-                    <DialogSheet.Header>
-                        <DialogSheet.Title className="text-left">
+                <Dialog.Content side="center">
+                    <Dialog.Header>
+                        <Dialog.Title className="text-left">
                             Resume Information
-                        </DialogSheet.Title>
-                    </DialogSheet.Header>
+                        </Dialog.Title>
+                    </Dialog.Header>
 
                     <div className="flex flex-col gap-y-6">
                         <div>
@@ -52,7 +52,7 @@ export const ResumeViewerPage: FunctionComponent = () => {
                         </p>
                     </div>
 
-                    <DialogSheet.Footer>
+                    <Dialog.Footer>
                         <a
                             href="https://github.com/rbondoc96/jupiter/tree/main/apps/react-resume"
                             target="_blank"
@@ -61,9 +61,9 @@ export const ResumeViewerPage: FunctionComponent = () => {
                         >
                             View on GitHub
                         </a>
-                    </DialogSheet.Footer>
-                </DialogSheet.Content>
-            </DialogSheet.Root>
+                    </Dialog.Footer>
+                </Dialog.Content>
+            </Dialog.Root>
         </div>
     );
 };

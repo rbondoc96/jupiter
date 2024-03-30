@@ -21,6 +21,10 @@ body {
     @apply bg-background;
 }
 
+body.no-transition * {
+    transition-duration: 0ms !important;
+}
+
 h1, h2, h3, h4, h5, h6, p, span, svg {
     @apply text-black dark:text-white;
 }

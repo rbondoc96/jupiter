@@ -28,49 +28,56 @@ export const HomePage: FunctionComponent = () => {
             }}
         >
             <header className="w-full">
-                <div className="fixed inset-x-0 pt-8 z-50">
-                    <div className="mx-auto max-w-7xl px-10">
-                        <div className="w-full lg:max-w-none">
-                            <div className="flex items-center justify-between">
-                                <motion.div
-                                    initial={{
-                                        opacity: 0,
-                                        y: '-100%',
-                                    }}
-                                    animate={{
-                                        opacity: 1,
-                                        y: '0%',
-                                    }}
-                                    transition={{
-                                        delay: 0.25,
-                                        duration: 1,
-                                    }}
-                                >
-                                    <Link
-                                        href="/"
-                                        className="block p-2"
-                                        aria-label="Home"
+                <div className="fixed inset-x-0 z-50">
+                    <div className="flex flex-col gap-y-2 items-stretch">
+                        <div className="w-full py-2 bg-primary">
+                            <p className="text-center font-bold">
+                                Ceasefire now! 🕊️
+                            </p>
+                        </div>
+                        <div className="w-full mx-auto max-w-7xl px-10">
+                            <div className="w-full lg:max-w-none">
+                                <div className="flex items-center justify-between">
+                                    <motion.div
+                                        initial={{
+                                            opacity: 0,
+                                            y: '-100%',
+                                        }}
+                                        animate={{
+                                            opacity: 1,
+                                            y: '0%',
+                                        }}
+                                        transition={{
+                                            delay: 0.25,
+                                            duration: 1,
+                                        }}
                                     >
-                                        <Logo />
-                                    </Link>
-                                </motion.div>
-                                
-                                <motion.div
-                                    initial={{
-                                        opacity: 0,
-                                        y: '-100%',
-                                    }}
-                                    animate={{
-                                        opacity: 1,
-                                        y: '0%',
-                                    }}
-                                    transition={{
-                                        delay: 0.75,
-                                        duration: 1,
-                                    }}
-                                >
-                                    <ThemeToggle />
-                                </motion.div>
+                                        <Link
+                                            href="/"
+                                            className="block p-2"
+                                            aria-label="Home"
+                                        >
+                                            <Logo />
+                                        </Link>
+                                    </motion.div>
+                                    
+                                    <motion.div
+                                        initial={{
+                                            opacity: 0,
+                                            y: '-100%',
+                                        }}
+                                        animate={{
+                                            opacity: 1,
+                                            y: '0%',
+                                        }}
+                                        transition={{
+                                            delay: 0.75,
+                                            duration: 1,
+                                        }}
+                                    >
+                                        <ThemeToggle />
+                                    </motion.div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -117,6 +124,7 @@ export const HomePage: FunctionComponent = () => {
                             <Link
                                 href="mailto:rbondoc96@gmail.com"
                                 icon={faEnvelope}
+                                className="font-normal"
                             >
                                 rbondoc96@gmail.com
                             </Link>
@@ -125,6 +133,7 @@ export const HomePage: FunctionComponent = () => {
                                 href="https://github.com/rbondoc96"
                                 target="_blank"
                                 icon={faGithub}
+                                className="font-normal"
                             >
                                 rbondoc96
                             </Link>
@@ -133,6 +142,7 @@ export const HomePage: FunctionComponent = () => {
                                 href="https://www.linkedin.com/in/rbondoc96/"
                                 target="_blank"
                                 icon={faLinkedin}
+                                className="font-normal"
                             >
                                 rbondoc96
                             </Link>

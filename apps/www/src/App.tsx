@@ -1,4 +1,5 @@
 import {createRouter, RouterProvider} from '@tanstack/react-router';
+import {AnimatePresence} from 'framer-motion';
 import {type FunctionComponent, useEffect} from 'react';
 import {useAppTheme} from '@/hooks/stores/useLocalStore';
 import {routeTree} from '@/routeTree.gen';
@@ -18,7 +19,9 @@ export const App: FunctionComponent = () => {
 
     return (
         <div className="app">
-            <RouterProvider router={router} />
+            <AnimatePresence>
+                <RouterProvider router={router} />
+            </AnimatePresence>
         </div>
     );
 };

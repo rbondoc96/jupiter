@@ -4,22 +4,11 @@ import {cva, type VariantProps} from 'class-variance-authority';
 import {type FunctionComponent, type PropsWithChildren} from 'react';
 import {composeClassName} from '@/utilities/styles';
 
-const linkStyles = cva([
-    'cursor-pointer',
-    'text-black dark:text-white',
-    'font-medium',
-], {
+const linkStyles = cva('link', {
     variants: {
         variant: {
-            primary: [
-                'hover:text-primary focus-visible:text-primary',
-                'dark:hover:text-primary focus-visible:text-primary',
-            ],
-            unstyled: '',
+            primary: 'link--primary',
         },
-    },
-    defaultVariants: {
-        variant: 'primary',
     },
 });
 
@@ -36,7 +25,7 @@ export const Link: FunctionComponent<PropsWithChildren<LinkProps>> = ({
     href,
     icon,
     target,
-    variant,
+    variant = 'primary',
 }) => {
     return (
         <a
@@ -45,7 +34,7 @@ export const Link: FunctionComponent<PropsWithChildren<LinkProps>> = ({
             rel={target ? 'noopener noreferrer' : undefined}
             className={composeClassName(
                 linkStyles({variant}),
-                icon && 'flex items-center gap-x-3 text-xs md:text-sm',
+                icon && 'link--with-icon',
                 className,
             )}
         >

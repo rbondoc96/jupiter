@@ -1,0 +1,19 @@
+.link {
+    @apply cursor-pointer;
+    @apply text-black dark:text-white;
+    @apply font-medium;
+}
+
+.link--with-icon {
+    @apply flex items-center gap-x-3;
+    @apply text-xs md:text-sm;
+}
+
+.link--primary {
+    @apply hover:text-primary dark:hover:text-primary;
+    @apply focus-visible:text-primary dark:focus-visible:text-primary;
+
+    &:hover > svg {
+        @apply text-primary dark:text-primary;
+    }
+}

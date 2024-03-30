@@ -10,10 +10,10 @@
     },
     "eslint.experimental.useFlatConfig": true,
     "eslint.workingDirectories": [
-        "./apps/react-resume",
         "./apps/react-template",
-        "./apps/ui-react",
-        "./apps/www"
+        "./apps/www",
+        "./packages/react-resume",
+        "./packages/ui-react"
         // {"pattern": "./apps/*"}
     ],
     "files.associations": {

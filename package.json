@@ -6,9 +6,9 @@
     "description": "",
     "packageManager": "pnpm@8.6.12",
     "scripts": {
-        "@react-resume": "pnpm --filter \"./apps/react-resume\"",
+        "@react-resume": "pnpm --filter \"./packages/react-resume\"",
         "@react-template": "pnpm --filter \"./apps/react-template\"",
-        "@ui-react": "pnpm --filter \"./apps/ui-react\"",
+        "@ui-react": "pnpm --filter \"./packages/ui-react\"",
         "@www": "pnpm --filter \"./apps/www\"",
         "@www-solid": "pnpm --filter \"./apps/www-solid\"",
         "check": "pnpm run check:lint && pnpm run check:types && pnpm run test",

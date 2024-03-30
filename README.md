@@ -96,7 +96,9 @@ This command runs 2 sets of commands concurrently:
             My personal website, written with React.
         </td>
         <td>
-            N/A
+            <a href="https://rbondoc.dev">
+                Website
+            </a>
         </td>
     </tr>
     <tr>

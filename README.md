@@ -12,6 +12,42 @@
     A monorepo for my configs, utilities, main projects, etc.
 </h3>
 
+## Installation
+
+Please refer to the [workspaces](#workspaces) section for an overview of how this monorepo is structured.
+
+### Projects that Use a Dependency in `packages`
+
+Before running the `dev` command for the project, make sure that the package has been built. Every JS project in this monorepo has an "filter" script defined in the root `package.json`. The script should make running commands that target a specific package easier and less cumbersome to type.
+
+For example, with the `@jupiter/ui-react` package:
+
+```shell
+pnpm @ui-react run build
+# Or run in watch mode
+pnpm @ui-react run build:watch
+```
+
+> [!TIP]
+> Running the build in watch mode can help when working on a project using that package while making updates to that package.
+
+Alternatively, the `@<project_name>:dev` script defined in the root `package.json` can be used to avoid need a terminal window open for each dev server.
+
+For example, for the `www` project:
+
+```shell
+pnpm @www:dev
+```
+
+This command runs 2 sets of commands concurrently:
+1. Builds the `@jupiter/ui-react` package, then runs the `www` project Vite dev server.
+2. Re-runs the build script for `@jupiter/ui-react` package, but in watch mode.
+
+> [!NOTE]
+> It is possible to the build script for `@jupiter/ui-react` in watch mode first, then run the `www` project Vite dev server using the `--group` flag from the concurrently package. (meaning the initial build for `@jupiter/ui-react` could be skipped).
+>
+> However, when running that flag, the logs from the `www` were not shown in the terminal. Only the logs for `@jupiter/ui-react` were displayed, even though the Vite dev server was running as expected.
+
 ## Workspaces
 
 ### `apps` Directory

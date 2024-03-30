@@ -1,3 +1,2 @@
-export * from '@/components/Dialog';
-export * from '@/components/DropdownMenu';
+export * from '@/components';
 export * from '@/utilities/styles';

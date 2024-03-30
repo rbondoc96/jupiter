@@ -1,11 +1,13 @@
 import {faGithub, faLinkedin} from '@fortawesome/free-brands-svg-icons';
 import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
-import {Link as RouterLink} from '@tanstack/react-router';
 import {motion} from 'framer-motion';
 import {type FunctionComponent} from 'react';
-import {Button, Link} from '@jupiter/ui-react';
+
+import {Link} from '@jupiter/ui-react';
+
 import laptopWithCatSvg from '@/assets/images/laptop-with-cat.svg';
 import {Logo} from '@/components/Logo';
+import {ResumeViewer} from '@/components/ResumeViewer';
 import {ThemeToggle} from '@/components/ThemeToggle';
 
 export const HomePage: FunctionComponent = () => {
@@ -136,11 +138,7 @@ export const HomePage: FunctionComponent = () => {
                             </Link>
                         </div>
 
-                        <Button asChild>
-                            <RouterLink to="/resume">
-                                My Resume
-                            </RouterLink>
-                        </Button>
+                        <ResumeViewer />
                     </div>
                 </main>
             </motion.div>

@@ -19,6 +19,9 @@ export default {
             '2xl': '1536px',
         },
         extend: {
+            aspectRatio: {
+                'paper-A4': 'calc(var(--aspect-paper-A4))',
+            },
             colors: {
                 primary: 'hsl(var(--primary))',
 

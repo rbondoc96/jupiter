@@ -43,7 +43,7 @@ type LinkProps = {
     href?: string;
     icon?: IconDefinition;
     target?: '_blank';
-} & Omit<VariantProps<typeof linkStyles>, 'childItem' | 'withChildItem'>;;
+} & Omit<VariantProps<typeof linkStyles>, 'childItem' | 'withChildItem'>;
 
 export const Link: FunctionComponent<PropsWithChildren<LinkProps>> = ({
     asChild = false,

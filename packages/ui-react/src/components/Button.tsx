@@ -32,7 +32,7 @@ const buttonStyles = cva([
         size: 'md',
         variant: 'primary',
     },
-})
+});
 
 type ButtonProps = {
     asChild?: boolean;
@@ -69,3 +69,5 @@ export const Button = forwardRef<HTMLButtonElement, PropsWithChildren<ButtonProp
         </Component>
     );
 });
+
+Button.displayName = 'Button';

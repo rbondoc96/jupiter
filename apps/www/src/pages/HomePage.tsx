@@ -31,7 +31,7 @@ export const HomePage: FunctionComponent = () => {
                 <div className="fixed inset-x-0 z-50">
                     <div className="flex flex-col gap-y-2 items-stretch">
                         <div className="w-full py-2 bg-primary">
-                            <p className="text-center font-bold">
+                            <p className="text-white text-center font-bold">
                                 Ceasefire now! 🕊️
                             </p>
                         </div>

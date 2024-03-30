@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
 
 export const Resume: FunctionComponent = () => {
     return (
-        <Document pageMode="fullScreen">
+        <Document title="Rodrigo Bondoc Resume" pageMode="fullScreen">
             <Page size="A4" style={styles.page}>
                 <View style={styles.header}>
                     <NameTitleHeader />

@@ -10,6 +10,7 @@
         "@react-template": "pnpm --filter \"./apps/react-template\"",
         "@ui-react": "pnpm --filter \"./packages/ui-react\"",
         "@www": "pnpm --filter \"./apps/www\"",
+        "@www:dev": "concurrently \"pnpm @ui-react run build && pnpm @www run dev\" \"pnpm @ui-react run build:watch\" --names www,ui-react",
         "@www-solid": "pnpm --filter \"./apps/www-solid\"",
         "check": "pnpm run check:lint && pnpm run check:types && pnpm run test",
         "check:lint": "turbo run check:lint --filter=!./apps/www-solid",
@@ -23,6 +24,7 @@
     "keywords": [],
     "license": "ISC",
     "devDependencies": {
+        "concurrently": "^8.2.2",
         "turbo": "^1.13.0"
     }
 }

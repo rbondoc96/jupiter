@@ -1,0 +1,6 @@
+[build]
+  # Only deploy if changes are made to the website, resume, or component library 
+  ignore = "git diff --quiet $COMMIT_REF $CACHED_COMMIT_REF -- apps/www packages/react-resume packages/ui-react"
+
+  publish = "apps/www/dist"
+  command = "pnpm @www:deploy"

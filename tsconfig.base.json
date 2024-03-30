@@ -4,7 +4,7 @@
         "allowImportingTsExtensions": false,
         "moduleResolution": "Bundler",
         "resolveJsonModule": true,
-        "skipLibCheck": false,
+        "skipLibCheck": true,
 
         // Build
         "target": "ESNext",

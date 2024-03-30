@@ -8,7 +8,7 @@
         "build:preview": "pnpm run build && vite preview",
         "check:lint": "eslint . --max-warnings 0",
         "check:types": "tsc --noEmit --skipLibCheck",
-        "dev": "vite",
+        "dev": "vite --host",
         "test": "vitest --run"
     },
     "dependencies": {

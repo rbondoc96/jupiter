@@ -3,10 +3,9 @@ import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
 import {Link as RouterLink} from '@tanstack/react-router';
 import {motion} from 'framer-motion';
 import {type FunctionComponent} from 'react';
+import {Button, Link} from '@jupiter/ui-react';
 import laptopWithCatSvg from '@/assets/images/laptop-with-cat.svg';
-import {Button} from '@/components/Button';
 import {Logo} from '@/components/Logo';
-import {Link} from '@/components/Link';
 import {ThemeToggle} from '@/components/ThemeToggle';
 
 export const HomePage: FunctionComponent = () => {
@@ -28,8 +27,8 @@ export const HomePage: FunctionComponent = () => {
         >
             <header className="w-full">
                 <div className="fixed inset-x-0 pt-8 z-50">
-                    <div className="mx-auto max-w-7xl px-8 lg:px-10">
-                        <div className="mx-auto max-w-2xl lg:max-w-none">
+                    <div className="mx-auto max-w-7xl px-10">
+                        <div className="w-full lg:max-w-none">
                             <div className="flex items-center justify-between">
                                 <motion.div
                                     initial={{
@@ -92,11 +91,11 @@ export const HomePage: FunctionComponent = () => {
             >
                 <main className="min-h-screen flex flex-col items-center justify-center p-4 gap-y-4 md:gap-y-8">
                     <div className="flex flex-col items-center justify-center gap-y-3 md:gap-y-6">
-                        <h1 className="text-5xl md:text-6xl 2xl:text-7xl font-bold tracking-tighter">
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter">
                             Welcome!
                         </h1>
 
-                        <h2 className="text-xl md:text-2xl 2xl:text-3xl text-center tracking-tighter">
+                        <h2 className="text-lg md:text-xl lg:text-2xl xl:text-3xl text-center tracking-tighter">
                             I&apos;m in the middle of a website and repo rework.
                         </h2>
                     </div>
@@ -107,7 +106,7 @@ export const HomePage: FunctionComponent = () => {
                         className="w-[150px] md:w-[250px] 2xl:w-[350px]"
                     />
 
-                    <p className="text-sm md:text-base 2xl:text-lg text-center">
+                    <p className="text-xs md:text-sm lg:text-base xl:text-lg text-center">
                         Check back again later! In the meantime, you can find me on:
                     </p>
 
@@ -137,11 +136,11 @@ export const HomePage: FunctionComponent = () => {
                             </Link>
                         </div>
 
-                        <RouterLink to="/resume">
-                            <Button>
+                        <Button asChild>
+                            <RouterLink to="/resume">
                                 My Resume
-                            </Button>
-                        </RouterLink>
+                            </RouterLink>
+                        </Button>
                     </div>
                 </main>
             </motion.div>

@@ -10,6 +10,14 @@ export default {
     ],
     darkMode: 'class',
     theme: {
+        screens: {
+            // Tailwind's default breakpoints, added for reference
+            'sm': '640px',
+            'md': '768px',
+            'lg': '1024px',
+            'xl': '1280px',
+            '2xl': '1536px',
+        },
         extend: {
             colors: {
                 primary: 'hsl(var(--primary))',

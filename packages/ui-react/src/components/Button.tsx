@@ -6,6 +6,7 @@ import {composeClassName} from '@/utilities/styles';
 const buttonStyles = cva([
     'border-2',
     'self-center',
+    'text-center',
 ], {
     variants: {
         size: {

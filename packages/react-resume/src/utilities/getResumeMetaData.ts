@@ -1,5 +1,4 @@
 import resumeMetaData from '@/assets/resume-meta-data.json';
-import pkg from '../../package.json';
 
 type ResumeMetaData = {
     dateOfLastBuild: Date;
@@ -9,6 +8,6 @@ type ResumeMetaData = {
 export function getResumeMetaData(): ResumeMetaData {
     return {
         dateOfLastBuild: new Date(resumeMetaData.dateOfLastBuild),
-        version: pkg.version,
+        version: resumeMetaData.version,
     };
 }

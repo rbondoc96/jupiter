@@ -18,7 +18,7 @@
         }
     },
     "scripts": {
-        "build": "node ./scripts/prebuild.mjs && vite build",
+        "build": "tsx ./scripts/prebuild.mts && vite build",
         "check:lint": "eslint src --max-warnings 0",
         "check:types": "tsc --noEmit --skipLibCheck",
         "dev": "vite"

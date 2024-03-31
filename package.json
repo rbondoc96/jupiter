@@ -25,7 +25,9 @@
     "keywords": [],
     "license": "ISC",
     "devDependencies": {
+        "@types/node": "^20.12.2",
         "concurrently": "^8.2.2",
+        "tsx": "^4.7.1",
         "turbo": "^1.13.0"
     }
 }

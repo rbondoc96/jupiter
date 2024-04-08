@@ -59,7 +59,7 @@ type DropdownMenuComponentMap = {
     Trigger: typeof Trigger;
 };
 
-export const DropdownMenu = Object.assign<{}, DropdownMenuComponentMap>({}, {
+export const DropdownMenu = Object.assign<Record<string, never>, DropdownMenuComponentMap>({}, {
     CheckboxItem: DropdownMenuCheckboxItem,
     Content: DropdownMenuContent,
     Group,

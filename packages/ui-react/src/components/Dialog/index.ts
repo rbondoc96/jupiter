@@ -16,7 +16,7 @@ type DialogComponentMap = {
     Trigger: typeof Trigger;
 };
 
-export const Dialog = Object.assign<{}, DialogComponentMap>({}, {
+export const Dialog = Object.assign<Record<string, never>, DialogComponentMap>({}, {
     Close,
     Content: DialogContent,
     Description: DialogDescription,

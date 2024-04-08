@@ -6,7 +6,6 @@
 
 @import './app';
 @import './colors';
-@import './utilities';
 
 :root {
     @apply antialiased;
@@ -35,11 +34,7 @@ h1, h2, h3, h4, h5, h6, p, span, svg {
     @apply focus-visible:ring-4;
 }
 
-#root {
+#app {
     @apply flex-1;
     @apply flex flex-col;
-}
-
-button {
-    cursor: pointer;
 }

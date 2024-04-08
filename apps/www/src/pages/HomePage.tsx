@@ -1,16 +1,19 @@
 import {faGithub, faLinkedin} from '@fortawesome/free-brands-svg-icons';
 import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
+import {usePDF} from '@react-pdf/renderer';
 import {motion} from 'framer-motion';
 import {type FunctionComponent} from 'react';
 
-import {Link} from '@jupiter/ui-react';
+import {Resume} from '@jupiter/react-resume';
+import {Button, Link, Text} from '@jupiter/ui-react';
 
 import laptopWithCatSvg from '@/assets/images/laptop-with-cat.svg';
 import {Logo} from '@/components/Logo';
-import {ResumeViewer} from '@/components/ResumeViewer';
 import {ThemeToggle} from '@/components/ThemeToggle';
 
 export const HomePage: FunctionComponent = () => {
+    const [pdfInstance] = usePDF({document: <Resume />});
+
     return (
         <motion.div
             className="flex flex-col"
@@ -100,13 +103,13 @@ export const HomePage: FunctionComponent = () => {
             >
                 <main className="min-h-screen flex flex-col items-center justify-center p-4 gap-y-4 md:gap-y-8">
                     <div className="flex flex-col items-center justify-center gap-y-3 md:gap-y-6">
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter">
+                        <Text as="h1">
                             Welcome!
-                        </h1>
+                        </Text>
 
-                        <h2 className="text-lg md:text-xl lg:text-2xl xl:text-3xl text-center tracking-tighter">
+                        <Text as="h3" className="text-center">
                             I&apos;m in the middle of a website and repo rework.
-                        </h2>
+                        </Text>
                     </div>
 
                     <img
@@ -115,9 +118,9 @@ export const HomePage: FunctionComponent = () => {
                         className="w-[150px] md:w-[250px] 2xl:w-[350px]"
                     />
 
-                    <p className="text-xs md:text-sm lg:text-base xl:text-lg text-center">
+                    <Text as="p">
                         Check back again later! In the meantime, you can find me on:
-                    </p>
+                    </Text>
 
                     <div className="flex flex-col items-center gap-y-8">
                         <div className="flex flex-col md:flex-row items-center justify-center gap-y-4 md:gap-x-8">
@@ -148,7 +151,17 @@ export const HomePage: FunctionComponent = () => {
                             </Link>
                         </div>
 
-                        <ResumeViewer />
+                        {pdfInstance.url && (
+                            <Button asChild>
+                                <a
+                                    href={pdfInstance.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    My Resume
+                                </a>
+                            </Button>
+                        )}
                     </div>
                 </main>
             </motion.div>

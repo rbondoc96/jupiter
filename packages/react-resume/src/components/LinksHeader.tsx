@@ -23,18 +23,21 @@ export const LinksHeader: FunctionComponent = () => {
         <View style={styles.container}>
             <View style={styles.column}>
                 <LinkWithIcon
+                    showExternalLinkIcon
                     icon={faGithub}
                     href="https://github.com/rbondoc96"
                     label="/rbondoc96"
                 />
 
                 <LinkWithIcon
+                    showExternalLinkIcon
                     icon={faLinkedin}
                     href="https://linkedin.com/in/rbondoc96"
                     label="/in/rbondoc96"
                 />
 
                 <LinkWithIcon
+                    showExternalLinkIcon
                     icon={faGlobe}
                     href="https://rbondoc.dev"
                     label="rbondoc.dev"

@@ -1,5 +1,6 @@
+import {faExternalLink} from '@fortawesome/free-solid-svg-icons';
 import {type IconDefinition} from '@fortawesome/fontawesome-svg-core';
-import {Link, StyleSheet} from '@react-pdf/renderer';
+import {Link, StyleSheet, View} from '@react-pdf/renderer';
 import {type FunctionComponent} from 'react';
 import {Text} from '@/components/Text';
 
@@ -13,6 +14,14 @@ const styles = StyleSheet.create({
         columnGap: 8,
         textDecoration: 'none',
     },
+    externalIcon: {
+        marginBottom: 3,
+    },
+    textContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        columnGap: 3,
+    },
     text: {
         color: '#000',
         fontFamily: 'Montserrat',
@@ -25,20 +34,32 @@ type LinkWithIconProps = {
     href?: string;
     icon: IconDefinition;
     label: string;
+    showExternalLinkIcon?: boolean;
 };
 
 export const LinkWithIcon: FunctionComponent<LinkWithIconProps> = ({
     href,
     icon,
     label,
+    showExternalLinkIcon = false,
 }) => {
     return (
         <Link href={href} style={styles.container}>
             <FontAwesomeIcon icon={icon} width="12" />
             
-            <Text style={styles.text}>
-                {label}
-            </Text>
+            <View style={styles.textContainer}>
+                <Text style={styles.text}>
+                    {label}
+                </Text>
+
+                {href && showExternalLinkIcon && (
+                    <FontAwesomeIcon
+                        icon={faExternalLink}
+                        style={styles.externalIcon}
+                        width="5"
+                    />
+                )}
+            </View>
         </Link>
     );
 };

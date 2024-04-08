@@ -3,12 +3,11 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {Slot} from '@radix-ui/react-slot';
 import {cva, type VariantProps} from 'class-variance-authority';
 import {type FunctionComponent, type PropsWithChildren} from 'react';
+import {Text} from '@/components/Text';
 import {composeClassName} from '@/utilities/styles';
 
 const linkStyles = cva([
     'cursor-pointer',
-    'text-foreground',
-    'text-xs md:text-sm lg:text-base xl:text-lg',
     'font-medium',
     'group',
 ], {
@@ -57,23 +56,25 @@ export const Link: FunctionComponent<PropsWithChildren<LinkProps>> = ({
     const Component = asChild ? Slot : 'a';
 
     return (
-        <Component
-            href={href}
-            target={target}
-            rel={target ? 'noopener noreferrer' : undefined}
-            className={composeClassName(
-                linkStyles({variant}),
-                icon && linkStyles({withChildItem: 'icon'}),
-                className,       
-            )}
-        >
-            {icon && (
-                <FontAwesomeIcon
-                    icon={icon}
-                    className={linkStyles({childItem: 'icon'})}
-                />
-            )}
-            {children}
-        </Component>
+        <Text as="span" asChild>
+            <Component
+                href={href}
+                target={target}
+                rel={target ? 'noopener noreferrer' : undefined}
+                className={composeClassName(
+                    linkStyles({variant}),
+                    icon && linkStyles({withChildItem: 'icon'}),
+                    className,       
+                )}
+            >
+                {icon && (
+                    <FontAwesomeIcon
+                        icon={icon}
+                        className={linkStyles({childItem: 'icon'})}
+                    />
+                )}
+                {children}
+            </Component>
+        </Text>
     );
 };

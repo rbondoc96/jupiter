@@ -1,7 +1,9 @@
 import {faMoon, faSun} from '@fortawesome/free-regular-svg-icons';
 import {faComputer} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+
 import {composeClassName, DropdownMenu} from '@jupiter/ui-react';
+
 import {type FunctionComponent} from 'react';
 import {AppTheme} from '@/enums/AppTheme';
 import {useAppTheme, useSetAppTheme} from '@/hooks/stores/useLocalStore';

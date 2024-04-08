@@ -44,6 +44,7 @@ const config = [
             ...typescript.configs.recommended.rules,
             ...jsxA11y.configs.recommended.rules,
             'no-redeclare': 'off',
+            'no-unused-vars': 'off',
         },
     },
     {

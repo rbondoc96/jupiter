@@ -41,7 +41,10 @@ const config = [
         },
         rules: {
             ...eslintJs.configs.recommended.rules,
+            ...typescript.configs.recommended.rules,
             ...jsxA11y.configs.recommended.rules,
+            'no-redeclare': 'off',
+            'no-unused-vars': 'off',
         },
     },
     {

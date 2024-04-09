@@ -5,11 +5,8 @@
     },
     "eslint.experimental.useFlatConfig": true,
     "eslint.workingDirectories": [
-        "./apps/react-template",
-        "./apps/www",
-        "./packages/react-resume",
-        "./packages/ui-react"
-        // {"pattern": "./apps/*"}
+        {"pattern": "./apps/*"},
+        {"pattern": "./packages/*"}
     ],
     "files.associations": {
         "*.css": "tailwindcss"

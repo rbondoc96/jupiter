@@ -8,6 +8,7 @@
     "scripts": {
         "@codercooks": "pnpm --filter \"./apps/codercooks\"",
         "@codercooks:dev": "concurrently \"pnpm @ui-react run build && pnpm @codercooks run dev\" \"pnpm @ui-react run build:watch\" --names codercooks,ui-react",
+        "@next-template": "pnpm --filter \"./apps/next-template\"",
         "@react-resume": "pnpm --filter \"./packages/react-resume\"",
         "@react-template": "pnpm --filter \"./apps/react-template\"",
         "@ui-react": "pnpm --filter \"./packages/ui-react\"",

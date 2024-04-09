@@ -1,6 +1,4 @@
-import type {IconDefinition as BrandIconDefinition} from '@fortawesome/free-brands-svg-icons';
-import type {IconDefinition as RegularIconDefinition} from '@fortawesome/free-regular-svg-icons';
-import type {IconDefinition as SolidIconDefinition} from '@fortawesome/free-solid-svg-icons';
+import {type IconDefinition} from '@fortawesome/fontawesome-svg-core';
 import {A as RouterLink} from '@solidjs/router';
 import FontAwesomeIcon from 'solid-fa';
 import {type ParentComponent, Show} from 'solid-js';
@@ -25,7 +23,7 @@ type RouterLinkButtonProps = {
 };
 
 type ButtonProps = (BaseButtonProps | LinkButtonProps | RouterLinkButtonProps) & {
-    icon?: BrandIconDefinition | RegularIconDefinition | SolidIconDefinition;
+    icon?: IconDefinition;
 };
 
 const Button: ParentComponent<ButtonProps> = (props) => {
@@ -38,19 +36,27 @@ const Button: ParentComponent<ButtonProps> = (props) => {
         textSize: 'text-sm md:text-lg',
     });
 
+    // eslint-disable-next-line solid/reactivity
     if (props.type === 'link') {
+        // eslint-disable-next-line solid/components-return-once
         return (
             <a class={styles.toCssClass()} href={props.href} rel={props.rel} target={props.target}>
-                <Show when={props.icon}>{(icon) => <FontAwesomeIcon icon={icon()} />}</Show>
+                <Show when={props.icon}>
+                    {(icon) => <FontAwesomeIcon icon={icon()} />}
+                </Show>
                 {props.children}
             </a>
         );
     }
 
+    // eslint-disable-next-line solid/reactivity
     if (props.type === 'router-link') {
+        // eslint-disable-next-line solid/components-return-once
         return (
             <RouterLink class={styles.toCssClass()} href={props.href}>
-                <Show when={props.icon}>{(icon) => <FontAwesomeIcon icon={icon()} />}</Show>
+                <Show when={props.icon}>
+                    {(icon) => <FontAwesomeIcon icon={icon()} />}
+                </Show>
                 {props.children}
             </RouterLink>
         );
@@ -58,7 +64,9 @@ const Button: ParentComponent<ButtonProps> = (props) => {
 
     return (
         <button class={styles.toCssClass()} type={props.type}>
-            <Show when={props.icon}>{(icon) => <FontAwesomeIcon icon={icon()} />}</Show>
+            <Show when={props.icon}>
+                {(icon) => <FontAwesomeIcon icon={icon()} />}
+            </Show>
             {props.children}
         </button>
     );

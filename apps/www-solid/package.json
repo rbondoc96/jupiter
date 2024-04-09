@@ -23,6 +23,7 @@
     },
     "devDependencies": {
         "@eslint/js": "^8.57.0",
+        "@fortawesome/fontawesome-svg-core": "^6.4.0",
         "@stylistic/eslint-plugin": "^1.7.0",
         "@types/lodash.throttle": "^4.1.7",
         "@types/node": "^18.15.10",

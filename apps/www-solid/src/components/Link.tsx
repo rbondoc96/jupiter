@@ -1,6 +1,4 @@
-import type {IconDefinition as BrandIconDefinition} from '@fortawesome/free-brands-svg-icons';
-import type {IconDefinition as RegularIconDefinition} from '@fortawesome/free-regular-svg-icons';
-import type {IconDefinition as SolidIconDefinition} from '@fortawesome/free-solid-svg-icons';
+import {type IconDefinition} from '@fortawesome/fontawesome-svg-core';
 import FontAwesomeIcon from 'solid-fa';
 import {type ComponentProps, type ParentComponent, Show, splitProps} from 'solid-js';
 
@@ -13,7 +11,7 @@ type FontAwesomeSize = ComponentProps<typeof FontAwesomeIcon>['size'];
 const Link: ParentComponent<
     {
         href: string;
-        icon?: BrandIconDefinition | RegularIconDefinition | SolidIconDefinition;
+        icon?: IconDefinition;
         rel?: 'noopener' | 'noreferrer';
         size?: FontAwesomeSize;
         target?: '_blank';
@@ -40,10 +38,12 @@ const Link: ParentComponent<
 
     let underlineStyles: TailwindStyles | undefined;
 
+    // eslint-disable-next-line solid/reactivity
     if (componentProps.icon) {
         anchorStyles
             .add('positioning', 'flex items-center gap-x-3')
             .add('textSize', 'text-xs md:text-sm');
+    // eslint-disable-next-line solid/reactivity
     } else if (!componentProps.unstyled) {
         anchorStyles.add('layout', 'relative').add('animation', 'c-hover:scale-x-0');
         underlineStyles = new TailwindStyles({

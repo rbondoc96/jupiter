@@ -23,6 +23,7 @@ export function useTheme(): Accessor<UITheme> {
 }
 
 export function useSetTheme(): (valueOrSetter: UITheme | ((value: UITheme) => UITheme)) => void {
+    // eslint-disable-next-line solid/reactivity
     return (valueOrSetter: UITheme | ((value: UITheme) => UITheme)) => {
         // biome-ignore format: easier to read
         const value = typeof valueOrSetter === 'function'

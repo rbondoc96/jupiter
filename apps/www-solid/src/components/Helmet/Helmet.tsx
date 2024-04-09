@@ -14,25 +14,25 @@ import TwitterCardHelmet from '@/components/Helmet/TwitterCardHelmet';
 
 type LinkAttribute =
     | {
-          rel: 'preload';
-          as: JSX.IntrinsicElements['link']['as'];
-          type: `text/${'css' | 'html' | 'js'}`;
-      }
+        rel: 'preload';
+        as: JSX.IntrinsicElements['link']['as'];
+        type: `text/${'css' | 'html' | 'js'}`;
+    }
     | {
-          rel: string;
-          type: string;
-          [key: string]: string;
-      };
+        rel: string;
+        type: string;
+        [key: string]: string;
+    };
 
 type MetaAttribute =
     | {
-          name: string;
-          content: string;
-      }
+        name: string;
+        content: string;
+    }
     | {
-          property: string;
-          content: string;
-      };
+        property: string;
+        content: string;
+    };
 
 type HelmetProps = {
     author?: string;

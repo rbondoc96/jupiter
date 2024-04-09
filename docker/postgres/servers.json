@@ -1,0 +1,31 @@
+{
+    "Servers": {
+        "postgres12": {
+            "Name": "postgres_12",
+            "Group": "Servers",
+            "Port": 5432,
+            "Username": "postgres",
+            "Host": "jupiter_postgres12",
+            "SSLMode": "prefer",
+            "MaintenanceDB": "postgres"
+        },
+        "postgres15": {
+            "Name": "postgres_15",
+            "Group": "Servers",
+            "Port": 5432,
+            "Username": "postgres",
+            "Host": "jupiter_postgres15",
+            "SSLMode": "prefer",
+            "MaintenanceDB": "postgres"
+        },
+        "postgres16": {
+            "Name": "postgres_16",
+            "Group": "Servers",
+            "Port": 5432,
+            "Username": "postgres",
+            "Host": "jupiter_postgres16",
+            "SSLMode": "prefer",
+            "MaintenanceDB": "postgres"
+        }
+    }
+}

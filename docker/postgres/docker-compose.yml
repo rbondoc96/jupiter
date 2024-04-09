@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  pgadmin:
+    container_name: jupiter_pgadmin
+    image: dpage/pgadmin4:latest
+    restart: always
+    networks:
+      - jupiter
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    volumes:
+      - ./servers.json:/pgadmin4/servers.json
+    ports:
+      - '5050:80'
+
+  postgres16:
+    container_name: jupiter_postgres16
+    image: postgres:16
+    restart: always
+    user: postgres
+    networks:
+      - jupiter
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5416:5432'
+
+  postgres15:
+    container_name: jupiter_postgres15
+    image: postgres:15
+    restart: always
+    user: postgres
+    networks:
+      - jupiter
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5415:5432'
+
+  postgres12:
+    container_name: jupiter_postgres12
+    image: postgres:12
+    restart: always
+    user: postgres
+    networks:
+      - jupiter
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5412:5432'
+
+networks:
+  jupiter:
+    name: jupiter
+    external: true

@@ -31,9 +31,9 @@ export const HomePage: FunctionComponent = () => {
             }}
         >
             <header className="w-full">
-                <div className="fixed inset-x-0 z-50">
+                <div className="fixed inset-x-0 z-10">
                     <div className="flex flex-col gap-y-2 items-stretch">
-                        <div className="w-full py-2 bg-primary">
+                        <div className="relative w-full py-2 bg-primary z-20">
                             <p className="text-white text-center font-bold">
                                 Ceasefire now! 🕊️
                             </p>

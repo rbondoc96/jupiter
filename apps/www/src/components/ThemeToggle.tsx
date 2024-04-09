@@ -2,7 +2,7 @@ import {faMoon, faSun} from '@fortawesome/free-regular-svg-icons';
 import {faComputer} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-import {composeClassName, DropdownMenu} from '@jupiter/ui-react';
+import {DropdownMenu} from '@jupiter/ui-react';
 
 import {type FunctionComponent} from 'react';
 import {AppTheme} from '@/enums/AppTheme';
@@ -21,49 +21,36 @@ export const ThemeToggle: FunctionComponent = () => {
     return (
         <DropdownMenu.Root>
             <DropdownMenu.Trigger
-                className={composeClassName(
-                    'border-2 rounded-3xl',
-                    'border-slate-300 hover:border-slate-800 dark:border-slate-800 dark:hover:border-slate-300',
-                    'px-4 py-2.5',
-                    'shadow-lg',
-                )}
+                className="theme-toggle-trigger"
             >
                 <FontAwesomeIcon
                     fixedWidth
                     icon={icon}
-                    className="text-black dark:text-white"
+                    className="icon"
                 />
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
                 <DropdownMenu.RadioGroup
-                    className={composeClassName(
-                        'flex flex-col',
-                    )}
+                    className="theme-toggle-dropdown-container"
                     value={appTheme}
                     onValueChange={value => setAppTheme(value as AppTheme)}
                 >
                     <DropdownMenu.RadioItem
-                        className={composeClassName(
-                            'flex',
-                        )}
+                        className="item"
                         value={AppTheme.Dark}
                     >
                         Dark
                     </DropdownMenu.RadioItem>
                     <DropdownMenu.Separator />
                     <DropdownMenu.RadioItem
-                        className={composeClassName(
-                            'flex',
-                        )}
+                        className="item"
                         value={AppTheme.Light}
                     >
                         Light
                     </DropdownMenu.RadioItem>
                     <DropdownMenu.Separator />
                     <DropdownMenu.RadioItem
-                        className={composeClassName(
-                            'flex',
-                        )}
+                        className="item"
                         value={AppTheme.System}
                     >
                         System

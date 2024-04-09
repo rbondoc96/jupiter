@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: jupiter_mailpit
+    ports:
+      # Web UI can be accessed at http://localhost:8025
+      - 8025:8025
+      # Apps can send mail to this container on port 1025
+      - 1025:1025
+    environment:
+      MP_MAX_MESSAGES: 5000
+      # Accept any SMTP username and password, including none. Use this to basically allow anything.
+      MP_SMTP_AUTH_ACCEPT_ANY: 1
+      # Typically either STARTTLS or TLS is enforced for all SMTP authentication.
+      # This option allows insecure PLAIN & LOGIN SMTP authentication when using STARTTLS.
+      MP_SMTP_AUTH_ALLOW_INSECURE: 1
+
+networks:
+  jupiter:
+    name: jupiter
+    external: true

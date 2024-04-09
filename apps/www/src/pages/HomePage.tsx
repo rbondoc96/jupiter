@@ -118,7 +118,7 @@ export const HomePage: FunctionComponent = () => {
                         className="w-[150px] md:w-[250px] 2xl:w-[350px]"
                     />
 
-                    <Text as="p">
+                    <Text as="p" className="text-center">
                         Check back again later! In the meantime, you can find me on:
                     </Text>
 

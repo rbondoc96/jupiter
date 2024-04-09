@@ -27,6 +27,12 @@ node_modules
 # Environment Files
 .env
 
+# Next.js
+.next
+out
+
+# Vercel
+.vercel
 
 # Testing
 coverage

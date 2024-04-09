@@ -6,6 +6,8 @@
     "description": "",
     "packageManager": "pnpm@8.6.12",
     "scripts": {
+        "@codercooks": "pnpm --filter \"./apps/codercooks\"",
+        "@codercooks:dev": "concurrently \"pnpm @ui-react run build && pnpm @codercooks run dev\" \"pnpm @ui-react run build:watch\" --names codercooks,ui-react",
         "@react-resume": "pnpm --filter \"./packages/react-resume\"",
         "@react-template": "pnpm --filter \"./apps/react-template\"",
         "@ui-react": "pnpm --filter \"./packages/ui-react\"",

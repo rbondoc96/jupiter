@@ -108,6 +108,15 @@ impl ExerciseController {
             .all(database.connection())
             .await?;
 
+        let exercise_count = exercises.len();
+
+        if exercise_count <= 0 {
+            return Ok(JsonResponse::ok()
+                .with_data(Vec::<ExerciseResource>::new())
+                .with_pagination(exercise_count, pagination.page(), pagination.per_page())
+            );
+        }
+
         let start_index = std::cmp::max(0, std::cmp::min(
             pagination.offset() as usize,
             exercises.len() - 1,
@@ -118,7 +127,6 @@ impl ExerciseController {
             exercises.len(),
         );
 
-        let exercise_count = exercises.len();
         let paginated_exercises = Vec::from(&exercises[start_index..end_index]);
         let exercise_list_resource = ExerciseResource::list(paginated_exercises, &database).await?;
 

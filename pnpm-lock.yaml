@@ -222,6 +222,9 @@ importers:
       '@tanstack/router-vite-plugin':
         specifier: ^1.24.1
         version: 1.24.1
+      '@testing-library/react':
+        specifier: ^14.2.2
+        version: 14.2.2(react-dom@18.2.0)(react@18.2.0)
       '@types/luxon':
         specifier: ^3.4.1
         version: 3.4.1

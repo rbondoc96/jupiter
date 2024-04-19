@@ -135,10 +135,11 @@ impl AuthController {
     }
 
     pub async fn register(
+        session: Session,
         State(database): State<DatabaseManager>,
         Json(payload): Json<RegisterPayload>,
     ) -> Result<JsonResponse> {
-        let user = actions::create_user(
+        let mut user = actions::create_user(
             data::CreateUserData {
                 email: payload.email.as_str(),
                 first_name: payload.first_name.as_str(),
@@ -158,6 +159,9 @@ impl AuthController {
             },
             &database,
         ).await?;
+
+        user.update_last_logged_in(&database).await?;
+        session.set("user_id", user.id);
 
         Ok(JsonResponse::created()
             .with_data(UserResource::default(user, &database).await?)

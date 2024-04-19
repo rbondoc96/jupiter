@@ -8,7 +8,7 @@ import {Alert, type AlertContext, Button, Form} from '@jupiter/ui-react';
 import {AuthAPI} from '@/api';
 import {Logo} from '@/components/Logo';
 import {Page} from '@/components/Page';
-import {userLogInMutation, userRegisterMutation} from '@/core/mutations';
+import {userRegisterMutation} from '@/core/mutations';
 import Gender, {displayGender} from '@/enums/Gender';
 import {RequestError} from '@/errors/RequestError';
 import {useRouter} from '@/hooks/useRouter';
@@ -30,10 +30,6 @@ export const RegisterPage: FunctionComponent = () => {
         mutateAsync: registerUser,
         isPending: isRegistering,
     } = useMutation(userRegisterMutation(queryClient));
-    const {
-        mutateAsync: logInUser,
-        isPending: isAuthenticating,
-    } = useMutation(userLogInMutation(queryClient));
 
     const router = useRouter();
 
@@ -43,12 +39,6 @@ export const RegisterPage: FunctionComponent = () => {
         async (values: AuthAPI.RegisterUserPayload) => {
             try {
                 await registerUser(values);
-
-                await logInUser({
-                    email: values.email,
-                    password: values.password,
-                });
-
                 await router.push('/app');
             } catch (error) {
                 if (error instanceof RequestError) {
@@ -75,7 +65,7 @@ export const RegisterPage: FunctionComponent = () => {
                 });
             }
         },
-        [logInUser, registerUser, router],
+        [registerUser, router],
     );
 
     return (
@@ -179,7 +169,7 @@ export const RegisterPage: FunctionComponent = () => {
 
                                 <Button
                                     type="submit"
-                                    isLoading={isAuthenticating || isRegistering}
+                                    isLoading={isRegistering}
                                     classNames={{
                                         root: 'self-stretch',
                                     }}

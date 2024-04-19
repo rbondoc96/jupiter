@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './colors';
+
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    @apply flex flex-col justify-center items-center;
+    @apply bg-background;
+
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+#root {
+    flex: 1;
+}

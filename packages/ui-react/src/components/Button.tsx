@@ -1,9 +1,13 @@
-import {Slot} from '@radix-ui/react-slot';
+import {type IconDefinition, type SizeProp} from '@fortawesome/fontawesome-svg-core';
+import {faSpinner} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {Slot, Slottable} from '@radix-ui/react-slot';
 import {cva, type VariantProps} from 'class-variance-authority';
-import {forwardRef, type PropsWithChildren} from 'react';
+import {forwardRef, type JSX, type PropsWithChildren} from 'react';
 import {composeClassName} from '@/utilities/styles';
 
 const buttonStyles = cva([
+    'relative',
     'border-2',
     'self-center',
     'text-center',
@@ -27,6 +31,11 @@ const buttonStyles = cva([
                 'border-primary',
                 'text-primary',
             ],
+            unstyled: [
+                'border-0',
+                'rounded-none',
+                'p-0',
+            ],
         },
     },
     defaultVariants: {
@@ -35,23 +44,34 @@ const buttonStyles = cva([
     },
 });
 
-type ButtonProps = {
+export type ButtonClassNames = Partial<{
+    actionIndicator: string;
+    actionIndicatorContainer: string;
+    root: string;
+}>;
+
+type ButtonProps = Omit<JSX.IntrinsicElements['button'], 'className' | 'ref' | 'type'> & {
+    actionIndicator?: IconDefinition;
+    actionIndicatorSize?: SizeProp;
     asChild?: boolean;
-    className?: string;
+    classNames?: ButtonClassNames;
+    isLoading?: boolean;
     type?: 'button' | 'submit';
-    onClick?: () => void;
-    onKeyDown?: () => void;
 } & VariantProps<typeof buttonStyles>;
 
 export const Button = forwardRef<HTMLButtonElement, PropsWithChildren<ButtonProps>>(({
+    actionIndicator,
+    actionIndicatorSize,
     asChild = false,
     children,
-    className,
+    classNames,
+    isLoading = false,
     size,
     type = 'button',
     variant,
     onClick,
     onKeyDown,
+    ...props
 }, ref) => {
     const Component = asChild ? Slot : 'button';
 
@@ -61,12 +81,33 @@ export const Button = forwardRef<HTMLButtonElement, PropsWithChildren<ButtonProp
             ref={ref}
             className={composeClassName(
                 buttonStyles({size, variant}),
-                className,
+                classNames?.root,
             )}
             onClick={onClick}
             onKeyDown={onKeyDown}
+            {...(asChild ? {} : props)}
         >
-            {children}
+            {isLoading && (
+                <span
+                    className={composeClassName(
+                        'absolute top-1/2 right-2 transform -translate-x-1/2 -translate-y-1/2',
+                        classNames?.actionIndicatorContainer,
+                    )}
+                >
+                    <FontAwesomeIcon
+                        className={composeClassName(
+                            'animate-spin text-white',
+                            classNames?.actionIndicator,
+                        )}
+                        icon={actionIndicator ?? faSpinner}
+                        size={actionIndicatorSize}
+                    />
+                </span>
+            )}
+            
+            <Slottable>
+                {children}
+            </Slottable>
         </Component>
     );
 });

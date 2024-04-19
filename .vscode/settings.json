@@ -9,7 +9,8 @@
         {"pattern": "./packages/*"}
     ],
     "files.associations": {
-        "*.css": "tailwindcss"
+        "*.css": "tailwindcss",
+        "*.scss": "tailwindcss"
     },
-    "scss.lint.unknownAtRules": "ignore"
+    "tailwindCSS.classAttributes": ["class", "class:list", "className", "classNames", "ngClass", "ng-class"]
 }

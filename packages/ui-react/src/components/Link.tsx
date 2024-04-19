@@ -1,6 +1,6 @@
 import {type IconDefinition} from '@fortawesome/fontawesome-svg-core';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {Slot} from '@radix-ui/react-slot';
+import {Slot, Slottable} from '@radix-ui/react-slot';
 import {cva, type VariantProps} from 'class-variance-authority';
 import {type FunctionComponent, type PropsWithChildren} from 'react';
 import {Text} from '@/components/Text';
@@ -73,7 +73,10 @@ export const Link: FunctionComponent<PropsWithChildren<LinkProps>> = ({
                         className={linkStyles({childItem: 'icon'})}
                     />
                 )}
-                {children}
+                
+                <Slottable>
+                    {children}
+                </Slottable>
             </Component>
         </Text>
     );

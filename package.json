@@ -8,6 +8,9 @@
     "scripts": {
         "@codercooks": "pnpm --filter \"./apps/codercooks\"",
         "@codercooks:dev": "concurrently \"pnpm @ui-react run build && pnpm @codercooks run dev\" \"pnpm @ui-react run build:watch\" --names codercooks,ui-react",
+        "@kratos:dev": "nodemon --exec \"pnpm @ui-react run build && pnpm @kratos-web run dev\" --watch ./packages/ui-react/src -e ts,tsx",
+        "@kratos-api": "pnpm --filter \"./apis/kratos-api\"",
+        "@kratos-web": "pnpm --filter \"./apps/kratos-web\"",
         "@next-template": "pnpm --filter \"./apps/next-template\"",
         "@react-resume": "pnpm --filter \"./packages/react-resume\"",
         "@react-template": "pnpm --filter \"./apps/react-template\"",
@@ -30,6 +33,7 @@
     "devDependencies": {
         "@types/node": "^20.12.2",
         "concurrently": "^8.2.2",
+        "nodemon": "^3.1.0",
         "tsx": "^4.7.1",
         "turbo": "^1.13.0"
     }

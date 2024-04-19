@@ -11,9 +11,16 @@ export default defineConfig({
         outDir: 'dist',
         emptyOutDir: true,
         lib: {
-            entry: cwd('src', 'index.ts'),
+            entry: {
+                'index': cwd('src', 'index.ts'),
+                'enums': cwd('src', 'lib', 'enums', 'index.ts'),
+                'errors': cwd('src', 'lib', 'errors', 'index.ts'),
+                'lib': cwd('src', 'lib', 'index.ts'),
+                'primitives': cwd('src', 'primitives', 'index.ts'),
+                'utilities': cwd('src', 'utilities', 'index.ts'),
+            },
             formats: ['es', 'cjs'],
-            fileName: (format) => (format === 'es' ? 'index.mjs' : 'index.cjs'),
+            fileName: (format, entryName) => (format === 'es' ? `${entryName}.mjs` : `${entryName}.cjs`),
         },
         rollupOptions: {
             external: [

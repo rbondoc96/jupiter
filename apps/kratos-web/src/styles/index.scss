@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './colors';
+@import './globals';
+@import './text';
+
+:root {
+    font-family: 'Noto Sans', system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
+
+html,
+body,
+#root {
+    @apply h-full;
+}
+
+body {
+    @apply bg-white;
+    @apply m-0;
+    @apply min-w-[320px];
+
+    line-height: inherit;
+    /* Prevent overscroll/bounce behavior when scrolling at the bounds of a page */
+    overscroll-behavior: none;
+}
+
+#root {
+    @apply relative;
+    @apply flex flex-col;
+}

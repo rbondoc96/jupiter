@@ -1,0 +1,17 @@
+{
+    "extends": "../../tsconfig.base.json",
+    "include": ["__tests__", "src", "tailwind.config.ts"],
+    "references": [
+        {
+            "path": "./tsconfig.node.json"
+        }
+    ],
+    "compilerOptions": {
+        // Project Environment
+        "jsx": "react-jsx",
+        "lib": ["ES2020", "DOM", "DOM.Iterable"],
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+    }
+}

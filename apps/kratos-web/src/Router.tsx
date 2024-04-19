@@ -1,17 +1,12 @@
 import {createRouter, RouterProvider} from '@tanstack/react-router';
 import {type ReactNode} from 'react';
 
-import {useRootContext} from '@/core/providers/RootProvider';
 import {queryClient} from '@/core/queryClient';
 import {routeTree} from '@/routeTree.gen';
 
 const router = createRouter({
     routeTree,
     context: {
-        app: {
-            name: 'Root',
-            setName: () => {},
-        },
         queryClient,
     },
     // Routes will be preloaded by default when the user hovers over a link
@@ -22,16 +17,10 @@ const router = createRouter({
 });
 
 export function Router(): ReactNode {
-    const {name, setName} = useRootContext();
-
     return (
         <RouterProvider
             router={router}
             context={{
-                app: {
-                    name,
-                    setName,
-                },
                 queryClient,
             }}
         />

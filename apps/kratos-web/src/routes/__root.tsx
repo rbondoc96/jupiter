@@ -3,8 +3,6 @@ import {type QueryClient} from '@tanstack/react-query';
 import {createRootRouteWithContext, Outlet, ScrollRestoration} from '@tanstack/react-router';
 import {Suspense} from 'react';
 
-import {type RootContextValue} from '@/core/providers/RootProvider';
-
 // const TanStackRouterDevtools = import.meta.env.MODE === 'development'
 //     ? lazy(() => import('@tanstack/router-devtools')
 //         .then(result => ({
@@ -13,7 +11,6 @@ import {type RootContextValue} from '@/core/providers/RootProvider';
 //     ) : () => null;
 
 export type RootRouteContext = {
-    app: RootContextValue;
     queryClient: QueryClient;
 };
 

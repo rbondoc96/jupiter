@@ -1,6 +1,6 @@
 import {type PropsWithChildren, type ReactNode, useEffect} from 'react';
 
-import {useRootContext} from '@/core/providers/RootProvider';
+import {useAppSetName} from '@/hooks/stores/useAppStore';
 
 export type PageProps = {
     name: string;
@@ -10,7 +10,7 @@ export function Page({
     children,
     name,
 }: PropsWithChildren<PageProps>): ReactNode {
-    const {setName} = useRootContext();
+    const setName = useAppSetName();
 
     useEffect(
         () => {

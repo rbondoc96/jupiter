@@ -4,7 +4,6 @@ import ScreenSize from '@/enums/ScreenSize';
 import ViewportState from '@/enums/ViewportState';
 import {checkIfUserAgentIsMobile} from '@/lib/window';
 
-
 type UiStore = {
     isMostLikelyMobile: boolean;
     screenSize: ScreenSize;

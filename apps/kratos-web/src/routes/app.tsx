@@ -1,8 +1,9 @@
 import {CatchBoundary, createFileRoute, Outlet, redirect} from '@tanstack/react-router';
-import {Suspense} from 'react';
+import {type ReactNode} from 'react';
 
-import {AppProvider} from '@/core/providers/AppProvider';
+import AppTabBar from '@/components/AppTabBar';
 import {userFetchQuery} from '@/core/queries';
+import {useIsMostLikelyMobile} from '@/stores/ui.store';
 
 export const Route = createFileRoute('/app')({
     beforeLoad: async ({context, location}) => {
@@ -28,11 +29,19 @@ export const Route = createFileRoute('/app')({
             {null}
         </CatchBoundary>;
     },
-    component: () => (
-        <AppProvider>
-            <Suspense>
-                <Outlet />
-            </Suspense>
-        </AppProvider>
-    ),
+    component: Component,
 });
+
+function Component(): ReactNode {
+    const isMostLikelyMobile = useIsMostLikelyMobile();
+    
+    return (
+        <>
+            <div className={isMostLikelyMobile ? 'pb-14' : undefined}>
+                <Outlet />
+            </div>
+
+            {isMostLikelyMobile && <AppTabBar />}
+        </>
+    );
+}

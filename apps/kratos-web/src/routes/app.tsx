@@ -17,7 +17,7 @@ export const Route = createFileRoute('/app')({
                     redirect: location.href,
                     view: 'unauth',
                 },
-            })
+            });
         }
     },
     // This error component prevents an error page from being shown
@@ -26,7 +26,7 @@ export const Route = createFileRoute('/app')({
     errorComponent: () => {
         <CatchBoundary getResetKey={() => Math.random().toString()}>
             {null}
-        </CatchBoundary>
+        </CatchBoundary>;
     },
     component: () => (
         <AppProvider>

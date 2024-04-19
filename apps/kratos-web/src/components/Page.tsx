@@ -1,4 +1,4 @@
-import {type FunctionComponent, type PropsWithChildren, useEffect} from 'react';
+import {type PropsWithChildren, type ReactNode, useEffect} from 'react';
 
 import {useRootContext} from '@/core/providers/RootProvider';
 
@@ -6,17 +6,17 @@ export type PageProps = {
     name: string;
 };
 
-export const Page: FunctionComponent<PropsWithChildren<PageProps>> = ({
+export function Page({
     children,
     name,
-}) => {
+}: PropsWithChildren<PageProps>): ReactNode {
     const {setName} = useRootContext();
 
     useEffect(
         () => {
             setName(name);
         },
-        [name],
+        [name, setName],
     );
 
     return children;

@@ -56,7 +56,7 @@ export const register = async (payload: RegisterUserPayload): Promise<User> => {
         json: {
             ...payload,
             birthday,
-        }
+        },
     }).json();
 
     return userParser.parse(data).data;

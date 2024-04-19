@@ -71,8 +71,8 @@ export const RegisterPage: FunctionComponent = () => {
                 setAlertContext({
                     type: 'error',
                     title: 'Fatal Error',
-                    description: 'An unknown error occurred. Please try again later.'
-                })
+                    description: 'An unknown error occurred. Please try again later.',
+                });
             }
         },
         [logInUser, registerUser, router],

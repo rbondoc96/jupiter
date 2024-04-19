@@ -49,4 +49,4 @@ export const AppProvider: FunctionComponent<PropsWithChildren> = ({
             {isMostLikelyMobile && <AppTabBar />}
         </AppContext.Provider>
     );
-}
+};

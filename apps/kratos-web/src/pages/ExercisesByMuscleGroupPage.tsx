@@ -16,8 +16,8 @@ export function ExercisesByMuscleGroupPageSkeleton(): ReactNode {
             <Skeleton className="h-4 w-[250px]" />
             <p>Loading exercises by muscle group</p>
         </div>
-    )
-};
+    );
+}
 
 export function ExercisesByMuscleGroupPage(): ReactNode {
     const {id} = MuscleGroupsByIdRoute.useParams();
@@ -75,4 +75,4 @@ export function ExercisesByMuscleGroupPage(): ReactNode {
             </main>
         </AppPageShell>
     );
-};
+}

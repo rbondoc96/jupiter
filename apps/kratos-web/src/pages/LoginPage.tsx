@@ -1,6 +1,6 @@
 import {useMutation, useQueryClient} from '@tanstack/react-query';
 import {Link} from '@tanstack/react-router';
-import {type FunctionComponent, useMemo} from 'react';
+import {type ReactNode, useMemo} from 'react';
 import {object, string} from 'zod';
 
 import {Alert, type AlertContext, Button, Form, Text} from '@jupiter/ui-react';
@@ -16,7 +16,7 @@ const loginFormSchema = object({
     password: string().min(1, 'A password is required.'),
 });
 
-export const LoginPage: FunctionComponent = () => {
+export function LoginPage(): ReactNode {
     const router = useRouter();
     const {redirect, view} = LoginRoute.useSearch();
     const navigate = LoginRoute.useNavigate();
@@ -37,9 +37,9 @@ export const LoginPage: FunctionComponent = () => {
                 type: 'error',
                 title: 'Unauthorized',
                 description: 'You are not logged in. Please log back in.',
-            } : undefined
+            } : undefined;
         },
-        [view]
+        [view],
     );
 
     return (

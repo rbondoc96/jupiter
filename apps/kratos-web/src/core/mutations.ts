@@ -20,7 +20,7 @@ export const userLogInMutation = (queryClient: QueryClient) => mutationOptions<U
     },
     onSuccess: (user) => {
         queryClient.setQueryData(userFetchQuery().queryKey, user);
-    }
+    },
 });
 
 export const userLogOutMutation = (queryClient: QueryClient) => mutationOptions<void, void>({
@@ -40,5 +40,5 @@ export const userRegisterMutation = (queryClient: QueryClient) => mutationOption
     },
     onSuccess: (user) => {
         queryClient.setQueryData(userFetchQuery().queryKey, user);
-    }
+    },
 });

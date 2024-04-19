@@ -81,4 +81,4 @@ export function MenuMainPage(): ReactNode {
             </main>
         </AppPageShell>
     );
-};
+}

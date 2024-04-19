@@ -38,4 +38,4 @@ export function RootProvider({
             {children}
         </RootContext.Provider>
     );
-};
+}

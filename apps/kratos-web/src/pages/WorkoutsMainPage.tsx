@@ -20,4 +20,4 @@ export function WorkoutsMainPage(): ReactNode {
             </main>
         </AppPageShell>
     );
-};
+}

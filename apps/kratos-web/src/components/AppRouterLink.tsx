@@ -1,6 +1,6 @@
 import {type IconDefinition} from '@fortawesome/fontawesome-svg-core';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {type FileRoutesByPath, Link as RouterLink, type LinkProps as RouterLinkProps} from '@tanstack/react-router';
+import {Link as RouterLink, type LinkProps as RouterLinkProps} from '@tanstack/react-router';
 import {type ReactNode} from 'react';
 
 import {Button} from '@jupiter/ui-react';
@@ -16,7 +16,7 @@ export type AppRouterLinkClassNames = Partial<{
 export type AppRouterLinkProps = Omit<RouterLinkProps, 'className' | 'to'> & {
     classNames?: AppRouterLinkClassNames;
     icon?: IconDefinition;
-    to: keyof FileRoutesByPath | (string & {});
+    to: string;
     // to: Exclude<keyof FileRoutesByPath, '/app'>;
     onClick?: () => void;
 };
@@ -78,6 +78,6 @@ export function AppRouterLink({
             )}
         </RouterLink>
     );
-};
+}
 
 AppRouterLink.displayName = 'AppRouterLink';

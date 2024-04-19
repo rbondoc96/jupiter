@@ -5,9 +5,9 @@ import {Skeleton} from '@jupiter/ui-react';
 
 import {AppPageShell} from '@/components/AppPageShell';
 import {exerciseReadQuery} from '@/core/queries';
+import {displayExerciseForce} from '@/enums/ExerciseForce';
 import {displayExerciseType} from '@/enums/ExerciseType';
 import {Route as ExerciseReadRoute} from '@/routes/app/exercises/$id';
-import {displayExerciseForce} from '@/enums/ExerciseForce';
 
 export function ExerciseReadPageSkeleton(): ReactNode {
     return (

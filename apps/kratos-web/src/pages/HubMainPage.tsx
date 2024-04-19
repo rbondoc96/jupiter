@@ -3,9 +3,9 @@ import {type ReactNode} from 'react';
 
 import {Skeleton} from '@jupiter/ui-react';
 
-import {userFetchQuery} from '@/core/queries';
 import {AppHeader} from '@/components/AppHeader';
 import {AppPageShell} from '@/components/AppPageShell';
+import {userFetchQuery} from '@/core/queries';
 
 export function HubMainPageSkeleton(): ReactNode {
     return (
@@ -13,7 +13,7 @@ export function HubMainPageSkeleton(): ReactNode {
             <Skeleton className="h-4 w-[250px]" />
             <p>Loading...</p>
         </div>
-    )
+    );
 }
 
 export function HubMainPage(): ReactNode {

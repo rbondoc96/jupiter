@@ -1,6 +1,6 @@
 import eslintJs from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
-import tanstackQuery from '@tanstack/eslint-plugin-query';
+// import tanstackQuery from '@tanstack/eslint-plugin-query';
 import typescript from '@typescript-eslint/eslint-plugin';
 import typescriptParser from '@typescript-eslint/parser';
 import importPlugin from 'eslint-plugin-import';
@@ -59,6 +59,12 @@ const config = [
             ...jsxA11y.configs.recommended.rules,
             'no-redeclare': 'off',
             'no-unused-vars': 'off',
+            '@typescript-eslint/no-unused-vars': [
+                'error',
+                {
+                    argsIgnorePattern: '^_',
+                },
+            ],
         },
     },
     {
@@ -88,6 +94,19 @@ const config = [
             '@stylistic/indent': ['error', 4, {SwitchCase: 1}],
             '@stylistic/quotes': ['error', 'single'],
             '@stylistic/semi': ['error', 'always'],
+            // '@stylistic/member-delimiter-style': [
+            //     'error',
+            //     {
+            //         multiline: {
+            //             delimiter: 'semi',
+            //             requireLast: true,
+            //         },
+            //         singleline: {
+            //             delimiter: 'semi',
+            //             requireLast: true,
+            //         },
+            //     },
+            // ],
         },
     },
     {
@@ -156,9 +175,8 @@ const config = [
                     groups: [
                         ['^\\u0000'],
                         ['^node:', '^@?\\w'],
-                        ['^~(/.*|$)'],
-                        ['^!(/.*|$)'],
-                        ['^@(/.*|$)'],
+                        ['^@jupiter(/.*|$)'],
+                        ['^~(/.*|$)', '^!(/.*|$)', '^@(/.*|$)'],
                         ['^', '^\\.'],
                     ],
                 },
@@ -208,21 +226,21 @@ const config = [
             ],
         },
     },
-    {
-        files: [
-            '**/*.{ts,tsx}',
-        ],
-        ignores: [
-            'dist/**',
-            'node_modules/**',
-        ],
-        plugins: {
-            '@tanstack/query': tanstackQuery,
-        },
-        rules: {
-            ...tanstackQuery.configs.recommended.rules,
-        },
-    },
+    // {
+    //     files: [
+    //         '**/*.{ts,tsx}',
+    //     ],
+    //     ignores: [
+    //         'dist/**',
+    //         'node_modules/**',
+    //     ],
+    //     plugins: {
+    //         '@tanstack/query': tanstackQuery,
+    //     },
+    //     rules: {
+    //         ...tanstackQuery.configs.recommended.rules,
+    //     },
+    // },
 ];
 
 export default config;

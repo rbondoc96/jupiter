@@ -1,5 +1,5 @@
-import {Link} from '@tanstack/react-router';
 import {useSuspenseQuery} from '@tanstack/react-query';
+import {Link} from '@tanstack/react-router';
 import {type ReactNode} from 'react';
 
 import {HorizontalList, ImageWithOverlay, Skeleton} from '@jupiter/ui-react';

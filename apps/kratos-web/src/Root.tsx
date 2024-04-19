@@ -2,10 +2,10 @@ import {QueryClientProvider} from '@tanstack/react-query';
 import {type FunctionComponent, useCallback, useEffect} from 'react';
 import {HelmetProvider} from 'react-helmet-async';
 
-import {Router} from '@/Router';
-import {queryClient} from '@/core/queryClient';
 import {RootProvider} from '@/core/providers/RootProvider';
+import {queryClient} from '@/core/queryClient';
 import {checkIfUserAgentIsMobile, resolveViewportState, resolveWindowWidthToScreenSize} from '@/lib/window';
+import {Router} from '@/Router';
 import {useScreenSize, useSetIsMostLikelyMobile, useSetScreenSize, useSetViewportState} from '@/stores/ui.store';
 
 export const Root: FunctionComponent = () => {

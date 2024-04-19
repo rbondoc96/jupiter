@@ -3,7 +3,7 @@ import {type ReactNode} from 'react';
 
 import AppTabBar from '@/components/AppTabBar';
 import {userFetchQuery} from '@/core/queries';
-import {useIsMostLikelyMobile} from '@/stores/ui.store';
+import {useViewportIsMostLikelyMobile} from '@/hooks/stores/useViewportStore';
 
 export const Route = createFileRoute('/app')({
     beforeLoad: async ({context, location}) => {
@@ -33,7 +33,7 @@ export const Route = createFileRoute('/app')({
 });
 
 function Component(): ReactNode {
-    const isMostLikelyMobile = useIsMostLikelyMobile();
+    const isMostLikelyMobile = useViewportIsMostLikelyMobile();
     
     return (
         <>

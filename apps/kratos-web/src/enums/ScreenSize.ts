@@ -9,4 +9,4 @@ const ScreenSize = {
 
 type ScreenSize = typeof ScreenSize[keyof typeof ScreenSize];
 
-export default ScreenSize;
+export {ScreenSize};

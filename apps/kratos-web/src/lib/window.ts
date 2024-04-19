@@ -1,6 +1,6 @@
-import ScreenBreakpoint from '@/enums/ScreenBreakpoint';
-import ScreenSize from '@/enums/ScreenSize';
-import ViewportState from '@/enums/ViewportState';
+import {ScreenBreakpoint} from '@/enums/ScreenBreakpoint';
+import {ScreenSize} from '@/enums/ScreenSize';
+import {ViewportState} from '@/enums/ViewportState';
 
 export function resolveViewportState(
     previousSize: ScreenSize,

@@ -7,4 +7,4 @@ const ViewportState = {
 
 type ViewportState = typeof ViewportState[keyof typeof ViewportState];
 
-export default ViewportState;
+export {ViewportState};

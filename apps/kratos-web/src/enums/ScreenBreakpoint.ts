@@ -1,4 +1,4 @@
-import ScreenSize from '@/enums/ScreenSize';
+import {ScreenSize} from '@/enums/ScreenSize';
 
 const ScreenBreakpoint = {
     [ScreenSize.XS]: 480,
@@ -11,4 +11,4 @@ const ScreenBreakpoint = {
 
 type ScreenBreakpoint = (typeof ScreenBreakpoint)[keyof typeof ScreenBreakpoint];
 
-export default ScreenBreakpoint;
+export {ScreenBreakpoint};

@@ -4,7 +4,7 @@ import {Helmet} from 'react-helmet-async';
 import {composeClassName} from '@jupiter/ui-react/utilities';
 
 import {Page, type PageProps} from '@/components/Page';
-import {useIsMostLikelyMobile} from '@/stores/ui.store';
+import {useViewportIsMostLikelyMobile} from '@/hooks/stores/useViewportStore';
 
 type AppPageShellProps = PageProps & {
     header?: ReactNode;
@@ -23,7 +23,7 @@ export function AppPageShell({
     _mobile,
     ...props
 }: PropsWithChildren<AppPageShellProps>): ReactNode {
-    const isMostLikelyMobile = useIsMostLikelyMobile();
+    const isMostLikelyMobile = useViewportIsMostLikelyMobile();
 
     return (
         <Page {...props}>

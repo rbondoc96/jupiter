@@ -3,15 +3,20 @@ import {type FunctionComponent, useCallback, useEffect} from 'react';
 import {HelmetProvider} from 'react-helmet-async';
 
 import {queryClient} from '@/core/queryClient';
+import {
+    useViewportScreenSize,
+    useViewportSetIsMostLikelyMobile,
+    useViewportSetScreenSize,
+    useViewportSetViewportState,
+} from '@/hooks/stores/useViewportStore';
 import {checkIfUserAgentIsMobile, resolveViewportState, resolveWindowWidthToScreenSize} from '@/lib/window';
 import {Router} from '@/Router';
-import {useScreenSize, useSetIsMostLikelyMobile, useSetScreenSize, useSetViewportState} from '@/stores/ui.store';
 
 export const Root: FunctionComponent = () => {
-    const screenSize = useScreenSize();
-    const setScreenSize = useSetScreenSize();
-    const setIsMostLikelyMobile = useSetIsMostLikelyMobile();
-    const setViewportState = useSetViewportState();
+    const screenSize = useViewportScreenSize();
+    const setScreenSize = useViewportSetScreenSize();
+    const setIsMostLikelyMobile = useViewportSetIsMostLikelyMobile();
+    const setViewportState = useViewportSetViewportState();
 
     const onWindowResize = useCallback(
         () => {

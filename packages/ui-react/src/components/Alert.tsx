@@ -124,7 +124,7 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(({
         <AnimatePresence>
             {context && show && (
                 <motion.div
-                    className="overflow-hidden"
+                    className="overflow-hidden self-stretch"
                     initial={{
                         height: 0,
                     }}

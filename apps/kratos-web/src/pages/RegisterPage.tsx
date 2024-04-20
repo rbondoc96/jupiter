@@ -71,15 +71,17 @@ export const RegisterPage: FunctionComponent = () => {
     return (
         <Page name="RegisterPage">
             <main className="flex-1 flex flex-col items-center justify-center p-8 mx-auto w-full max-w-md">
-                <div className="flex flex-col justify-center items-center self-stretch gap-10 rounded-md">
-                    <Link to="/">
-                        <Logo showText />
-                    </Link>
+                <div className="flex flex-col justify-center items-center self-stretch gap-y-4 rounded-md">
+                    <div className="flex flex-col justify-center items-center gap-y-2">
+                        <Link to="/">
+                            <Logo showText />
+                        </Link>
 
-                    <div className="flex flex-col gap-3 text-center">
-                        <h1 className="text-3xl font-medium tracking-tighter text-black">
-                            Create an Account
-                        </h1>
+                        <div className="flex flex-col gap-y-1 text-center">
+                            <h2 className="text-2xl lg:text-3xl tracking-tighter">
+                                Create an Account
+                            </h2>
+                        </div>
                     </div>
 
                     <Alert
@@ -93,7 +95,7 @@ export const RegisterPage: FunctionComponent = () => {
 
                     <Form
                         schema={registerFormSchema}
-                        className="w-80"
+                        className="flex flex-col gap-y-4 w-full"
                         initialValues={{
                             birthday: new Date(),
                             email: '',
@@ -107,7 +109,7 @@ export const RegisterPage: FunctionComponent = () => {
                     >
                         {control => (
                             <div className="flex flex-col gap-y-4">
-                                <div className="flex gap-3 items-end">
+                                <div className="flex gap-x-3 items-end">
                                     <Form.Text
                                         type="text"
                                         control={control}
@@ -181,7 +183,7 @@ export const RegisterPage: FunctionComponent = () => {
                         )}
                     </Form>
 
-                    <div>
+                    <div className="self-stretch flex flex-col items-center gap-y-1">
                         <p className="text-sm">
                             Already have an account?&nbsp;
                         </p>

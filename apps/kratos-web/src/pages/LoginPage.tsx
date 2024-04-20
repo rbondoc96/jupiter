@@ -3,7 +3,7 @@ import {Link} from '@tanstack/react-router';
 import {type ReactNode, useMemo} from 'react';
 import {object, string} from 'zod';
 
-import {Alert, type AlertContext, Button, Form, Text} from '@jupiter/ui-react';
+import {Alert, type AlertContext, Button, Form} from '@jupiter/ui-react';
 
 import {Logo} from '@/components/Logo';
 import {Page} from '@/components/Page';
@@ -45,20 +45,20 @@ export function LoginPage(): ReactNode {
     return (
         <Page name="LoginPage">
             <main className="flex-1 flex flex-col items-center justify-center p-8 mx-auto w-full max-w-md">
-                <div className="flex flex-col justify-center items-center self-stretch gap-y-2 rounded-md">
+                <div className="flex flex-col justify-center items-center self-stretch gap-y-4 rounded-md">
                     <div className="flex flex-col justify-center items-center gap-y-2">
                         <Link to="/">
                             <Logo showText />
                         </Link>
 
                         <div className="flex flex-col gap-y-1 text-center">
-                            <Text as="h2">
+                            <h2 className="text-2xl lg:text-3xl tracking-tighter">
                                 Welcome back!
-                            </Text>
+                            </h2>
 
-                            <Text as="h4" className="tracking-tighter">
+                            <h4 className="text-lg lg:text-2xl tracking-tighter">
                                 Log in to your account
-                            </Text>
+                            </h4>
                         </div>
                     </div>
 
@@ -78,7 +78,7 @@ export function LoginPage(): ReactNode {
 
                     <Form
                         schema={loginFormSchema}
-                        className="w-80 flex flex-col gap-y-4"
+                        className="flex flex-col gap-y-4 w-full"
                         initialValues={{
                             email: '',
                             password: '',
@@ -122,7 +122,7 @@ export function LoginPage(): ReactNode {
                         )}
                     </Form>
 
-                    <div>
+                    <div className="self-stretch flex flex-col items-center gap-y-1">
                         <p className="text-center text-sm">
                             Don&apos;t have an account?&nbsp;
                         </p>

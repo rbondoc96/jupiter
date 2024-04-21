@@ -1,7 +1,10 @@
 import {CatchBoundary, createFileRoute, Outlet, redirect} from '@tanstack/react-router';
 import {type ReactNode} from 'react';
 
-import AppTabBar from '@/components/AppTabBar';
+import {composeClassName} from '@jupiter/ui-react/utilities';
+
+import {AppSideBar} from '@/components/AppSideBar';
+import {AppTabBar} from '@/components/AppTabBar';
 import {userFetchQuery} from '@/core/queries';
 import {useViewportIsMostLikelyMobile} from '@/hooks/stores/useViewportStore';
 
@@ -14,6 +17,7 @@ export const Route = createFileRoute('/app')({
         } catch (error) {
             throw redirect({
                 to: '/login',
+                replace: true,
                 search: {
                     redirect: location.href,
                     view: 'unauth',
@@ -36,12 +40,16 @@ function Component(): ReactNode {
     const isMostLikelyMobile = useViewportIsMostLikelyMobile();
     
     return (
-        <>
-            <div className={isMostLikelyMobile ? 'pb-14' : undefined}>
+        <div className="flex flex-1">
+            {!isMostLikelyMobile && <AppSideBar />}
+
+            <div className={composeClassName(
+                isMostLikelyMobile && 'pb-14 w-screen',
+            )}>
                 <Outlet />
             </div>
 
             {isMostLikelyMobile && <AppTabBar />}
-        </>
+        </div>
     );
 }

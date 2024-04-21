@@ -1,4 +1,4 @@
-import {type IconDefinition} from '@fortawesome/fontawesome-svg-core';
+import {type IconDefinition, type SizeProp} from '@fortawesome/fontawesome-svg-core';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {Link as RouterLink, type LinkProps as RouterLinkProps} from '@tanstack/react-router';
 import {type ReactNode} from 'react';
@@ -6,18 +6,20 @@ import {type ReactNode} from 'react';
 import {Button} from '@jupiter/ui-react';
 
 export type AppRouterLinkClassNames = Partial<{
-    active: string;
-    default: string;
+    content: string;
     icon: string;
-    iconContainer: string;
-    inactive: string;
+    iconPositioner: string;
+    iconWrapper: string;
+    root: string;
+    rootActive: string;
+    rootInactive: string;
 }>;
 
 export type AppRouterLinkProps = Omit<RouterLinkProps, 'className' | 'to'> & {
     classNames?: AppRouterLinkClassNames;
     icon?: IconDefinition;
+    iconSize?: SizeProp;
     to: string;
-    // to: Exclude<keyof FileRoutesByPath, '/app'>;
     onClick?: () => void;
 };
 
@@ -25,6 +27,7 @@ export function AppRouterLink({
     children,
     classNames,
     icon,
+    iconSize,
     to,
     onClick,
     ...props
@@ -32,12 +35,15 @@ export function AppRouterLink({
     return (
         <RouterLink
             activeProps={{
-                className: classNames?.active,
+                className: classNames?.rootActive,
+            }}
+            activeOptions={{
+                exact: true,
             }}
             inactiveProps={{
-                className: classNames?.inactive,
+                className: classNames?.rootInactive,
             }}
-            className={classNames?.default}
+            className={classNames?.root}
             to={to}
             {...props}
         >
@@ -45,15 +51,21 @@ export function AppRouterLink({
                 <Button
                     type="button"
                     tabIndex={-1}
+                    classNames={{
+                        root: classNames?.content,
+                    }}
                     variant="unstyled"
                     onClick={onClick}
                 >
                     {icon && (
-                        <div className={classNames?.iconContainer}>
-                            <FontAwesomeIcon
-                                className={classNames?.icon}
-                                icon={icon}
-                            />
+                        <div className={classNames?.iconPositioner}>
+                            <div className={classNames?.iconWrapper}>
+                                <FontAwesomeIcon
+                                    className={classNames?.icon}
+                                    icon={icon}
+                                    size={iconSize}
+                                />
+                            </div>
                         </div>
                     )}
                     {children(context)}
@@ -62,15 +74,21 @@ export function AppRouterLink({
                 <Button
                     type="button"
                     tabIndex={-1}
+                    classNames={{
+                        root: classNames?.content,
+                    }}
                     variant="unstyled"
                     onClick={onClick}
                 >
                     {icon && (
-                        <div className={classNames?.iconContainer}>
-                            <FontAwesomeIcon
-                                className={classNames?.icon}
-                                icon={icon}
-                            />
+                        <div className={classNames?.iconPositioner}>
+                            <div className="flex justify-center items-center h-full w-full">
+                                <FontAwesomeIcon
+                                    className={classNames?.icon}
+                                    icon={icon}
+                                    size={iconSize}
+                                />
+                            </div>
                         </div>
                     )}
                     {children}

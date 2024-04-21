@@ -1,5 +1,7 @@
 import {faChartLine, faDumbbell, faEllipsis, faHome, faWeightHanging} from '@fortawesome/free-solid-svg-icons';
-import {type ReactNode, useState} from 'react';
+import {useRouterState} from '@tanstack/react-router';
+import {motion} from 'framer-motion';
+import {type ReactNode, useMemo} from 'react';
 
 import {AppRouterLink} from '@/components/AppRouterLink';
 
@@ -12,33 +14,42 @@ const navLinks = [
 ] as const;
 
 export function AppTabBar(): ReactNode {
-    const [activeIndex, setActiveIndex] = useState(0);
+    const routerState = useRouterState();
+
+    const computedActiveIndex = useMemo(
+        () => Math.max(
+            0,
+            navLinks.findIndex(({route}) => route.includes(routerState.location.pathname)),
+        ),
+        [routerState.location.pathname],
+    );
 
     return (
-        <div className="fixed bottom-0 inset-x-0 bg-white">
+        <div className="fixed bottom-0 w-screen bg-white">
             <nav className="relative h-14 flex">
                 <div className="absolute inset-x-0 border border-gray-300">
-                    <div
+                    <motion.div
                         className="absolute transition-transform duration-100 h-0.5 border border-green"
-                        style={{
+                        initial={{
                             width: `${100 / navLinks.length}%`,
-                            transform: `translateX(calc(100% * ${activeIndex})`,
+                        }}
+                        animate={{
+                            x: `${100 * computedActiveIndex}%`,
+                        }}
+                        transition={{
+                            duration: 0.1,
                         }}
                     />
                 </div>
-                {navLinks.map(({children, icon, route}, index) => (
+
+                {navLinks.map(({children, icon, route}) => (
                     <AppRouterLink
                         key={`app-tab-bar-link-${route}`}
                         classNames={{
-                            default: 'flex-1 flex justify-center items-center',
-                            // icon: 'h-5 w-5',
-                            // iconContainer: 'flex justify-center p-1',
-                            // inner: 'flex flex-col',
+                            root: 'flex-1 flex justify-center items-center',
                         }}
-                        // end={end}
                         icon={icon}
                         to={route}
-                        onClick={() => setActiveIndex(index)}
                     >
                         <p className="text-[0.65rem] text-center">
                             {children}

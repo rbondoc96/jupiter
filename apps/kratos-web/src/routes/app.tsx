@@ -1,5 +1,5 @@
 import {CatchBoundary, createFileRoute, Outlet, redirect} from '@tanstack/react-router';
-import {type ReactNode} from 'react';
+import {type ReactNode, useLayoutEffect, useRef, useState} from 'react';
 
 import {composeClassName} from '@jupiter/ui-react/utilities';
 
@@ -38,14 +38,31 @@ export const Route = createFileRoute('/app')({
 
 function Component(): ReactNode {
     const isMostLikelyMobile = useViewportIsMostLikelyMobile();
+    const sideBarRef = useRef<HTMLDivElement>(null);
+
+    const [contentOffset, setContentOffset] = useState(0);
+
+    useLayoutEffect(
+        () => {
+            if (sideBarRef.current) {
+                setContentOffset(sideBarRef.current.clientWidth);
+            }
+        },
+        [],
+    );
     
     return (
         <div className="flex flex-1">
-            {!isMostLikelyMobile && <AppSideBar />}
+            {!isMostLikelyMobile && <AppSideBar ref={sideBarRef} />}
 
-            <div className={composeClassName(
-                isMostLikelyMobile && 'pb-14 w-screen',
-            )}>
+            <div
+                className={composeClassName(
+                    isMostLikelyMobile && 'pb-14 w-screen',
+                )}
+                style={{
+                    marginLeft: contentOffset,
+                }}
+            >
                 <Outlet />
             </div>
 

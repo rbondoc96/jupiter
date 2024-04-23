@@ -1,21 +1,25 @@
 import {type IconDefinition, type SizeProp} from '@fortawesome/fontawesome-svg-core';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {Link as RouterLink, type LinkProps as RouterLinkProps} from '@tanstack/react-router';
-import {type ReactNode} from 'react';
+import {forwardRef, type PropsWithChildren} from 'react';
 
 import {Button} from '@jupiter/ui-react';
+import {composeClassName} from '@jupiter/ui-react/utilities';
 
 export type AppRouterLinkClassNames = Partial<{
     content: string;
+    contentActive: string;
+    contentInactive: string;
     icon: string;
+    iconActive: string;
+    iconInactive: string;
     iconPositioner: string;
-    iconWrapper: string;
     root: string;
     rootActive: string;
     rootInactive: string;
 }>;
 
-export type AppRouterLinkProps = Omit<RouterLinkProps, 'className' | 'to'> & {
+export type AppRouterLinkProps = Omit<RouterLinkProps, 'className' | 'children' | 'to'> & {
     classNames?: AppRouterLinkClassNames;
     icon?: IconDefinition;
     iconSize?: SizeProp;
@@ -23,7 +27,7 @@ export type AppRouterLinkProps = Omit<RouterLinkProps, 'className' | 'to'> & {
     onClick?: () => void;
 };
 
-export function AppRouterLink({
+export const AppRouterLink = forwardRef<HTMLAnchorElement, PropsWithChildren<AppRouterLinkProps>>(({
     children,
     classNames,
     icon,
@@ -31,7 +35,7 @@ export function AppRouterLink({
     to,
     onClick,
     ...props
-}: AppRouterLinkProps): ReactNode {
+}, ref) => {
     return (
         <RouterLink
             activeProps={{
@@ -44,38 +48,19 @@ export function AppRouterLink({
                 className: classNames?.rootInactive,
             }}
             className={classNames?.root}
+            ref={ref}
             to={to}
             {...props}
         >
-            {(context) => typeof children === 'function' ? (
+            {({isActive}) => (
                 <Button
                     type="button"
                     tabIndex={-1}
                     classNames={{
-                        root: classNames?.content,
-                    }}
-                    variant="unstyled"
-                    onClick={onClick}
-                >
-                    {icon && (
-                        <div className={classNames?.iconPositioner}>
-                            <div className={classNames?.iconWrapper}>
-                                <FontAwesomeIcon
-                                    className={classNames?.icon}
-                                    icon={icon}
-                                    size={iconSize}
-                                />
-                            </div>
-                        </div>
-                    )}
-                    {children(context)}
-                </Button>
-            ) : (
-                <Button
-                    type="button"
-                    tabIndex={-1}
-                    classNames={{
-                        root: classNames?.content,
+                        root: composeClassName(
+                            classNames?.content,
+                            isActive ? classNames?.contentActive : classNames?.contentInactive,
+                        ),
                     }}
                     variant="unstyled"
                     onClick={onClick}
@@ -84,18 +69,22 @@ export function AppRouterLink({
                         <div className={classNames?.iconPositioner}>
                             <div className="flex justify-center items-center h-full w-full">
                                 <FontAwesomeIcon
-                                    className={classNames?.icon}
+                                    className={composeClassName(
+                                        classNames?.icon,
+                                        isActive ? classNames?.iconActive : classNames?.iconInactive,
+                                    )}
                                     icon={icon}
                                     size={iconSize}
                                 />
                             </div>
                         </div>
                     )}
+
                     {children}
                 </Button>
             )}
         </RouterLink>
     );
-}
+});
 
 AppRouterLink.displayName = 'AppRouterLink';

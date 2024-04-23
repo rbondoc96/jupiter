@@ -5,7 +5,8 @@ import {boolean, enum as zEnum, object, type output, string, ZodError} from 'zod
 import {Button} from '@/components/Button';
 import {Form} from '@/components/Form';
 import {Text} from '@/components/Text';
-import {GeneralError} from '@/lib/errors/GeneralError';
+
+// import {ColorPalette} from './components/ColorPalette';
 
 const formSchema = object({
     checkbox: boolean(),

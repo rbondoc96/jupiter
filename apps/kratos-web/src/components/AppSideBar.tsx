@@ -63,6 +63,7 @@ export const AppSideBar = forwardRef<HTMLDivElement>((_props, ref) => {
                                                 rootActive: 'bg-primary',
                                             }}
                                             to={navLink.route}
+                                            params={{}}
                                         />
                                     ))}
                                 </div>
@@ -88,6 +89,7 @@ export const AppSideBar = forwardRef<HTMLDivElement>((_props, ref) => {
                                             rootActive: 'bg-primary',
                                         }}
                                         to={navLink.route}
+                                        params={{}}
                                     >
                                         <span className="text-sm tracking-wide">
                                             {navLink.children}

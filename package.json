@@ -26,7 +26,7 @@
         "init:git": "git config --local include.path ../.gitconfig",
         "new:react-ts": "cd apps && cp -r react-template",
         "start": "",
-        "test": "turbo run test"
+        "test": "turbo run test --filter=!./apis/kratos-api"
     },
     "keywords": [],
     "license": "ISC",

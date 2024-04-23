@@ -65,7 +65,6 @@ export const App: FunctionComponent = () => {
                                 message: 'This is an initial error message',
                             },
                         }}
-                        initialError={new GeneralError('Initial Error', 'This is an initial error.')}
                         initialValues={{
                             password: '',
                             text: '',
@@ -113,7 +112,12 @@ export const App: FunctionComponent = () => {
                                     label="Submit the form with an error?"
                                 />
 
-                                <Button type="submit" className="self-stretch">
+                                <Button
+                                    type="submit"
+                                    classNames={{
+                                        root: 'self-stretch',
+                                    }}
+                                >
                                     Submit
                                 </Button>
                             </>

@@ -50,6 +50,8 @@ export const App: FunctionComponent = () => {
                     <Text as="h2">
                         Color Palette
                     </Text>
+
+                    {/*<ColorPalette />*/}
                 </div>
 
                 <div className="flex flex-col gap-y-2">

@@ -1,9 +1,6 @@
-import {DateTime} from 'luxon';
-
 import {delay} from '@jupiter/ui-react/utilities';
 
 import {createClient} from '@/api/client';
-import type Gender from '@/enums/Gender';
 import {type User, userParser} from '@/parsers/authParsers';
 
 export const fetchUser = async (): Promise<User> => {
@@ -38,11 +35,9 @@ export const logout = async (): Promise<void> => {
 };
 
 export type RegisterUserPayload = {
-    birthday: Date;
     email: string;
     first_name: string;
     last_name: string;
-    gender: Gender;
     password: string;
     password_confirm: string;
 };
@@ -50,12 +45,9 @@ export type RegisterUserPayload = {
 export const register = async (payload: RegisterUserPayload): Promise<User> => {
     const client = createClient();
 
-    const birthday = DateTime.fromJSDate(payload.birthday).toFormat('yyyy-MM-dd');
-
     const data = await client.post('api/auth/register', {
         json: {
             ...payload,
-            birthday,
         },
     }).json();
 

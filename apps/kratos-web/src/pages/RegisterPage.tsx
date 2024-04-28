@@ -1,7 +1,7 @@
 import {useMutation, useQueryClient} from '@tanstack/react-query';
 import {Link} from '@tanstack/react-router';
 import {type FunctionComponent, useCallback, useState} from 'react';
-import {date, nativeEnum, object, string} from 'zod';
+import {object, string} from 'zod';
 
 import {Alert, type AlertContext, Button, Form} from '@jupiter/ui-react';
 
@@ -9,16 +9,12 @@ import {AuthAPI} from '@/api';
 import {Logo} from '@/components/Logo';
 import {Page} from '@/components/Page';
 import {userRegisterMutation} from '@/core/mutations';
-import Gender, {displayGender} from '@/enums/Gender';
 import {RequestError} from '@/errors/RequestError';
 import {useRouter} from '@/hooks/useRouter';
-import {enumToSelectOptions} from '@/utilities/forms';
 
 const registerFormSchema = object({
-    birthday: date(),
     email: string().email('A valid email address is required.'),
     first_name: string().min(1, 'A first name is required.'),
-    gender: nativeEnum(Gender),
     last_name: string().min(1, 'A last name is required.'),
     password: string().min(1, 'A password is required.'),
     password_confirm: string().min(1, 'Please confirm your password.'),
@@ -97,10 +93,8 @@ export const RegisterPage: FunctionComponent = () => {
                         schema={registerFormSchema}
                         className="flex flex-col gap-y-4 w-full"
                         initialValues={{
-                            birthday: new Date(),
                             email: '',
                             first_name: '',
-                            gender: Gender.Other,
                             last_name: '',
                             password: '',
                             password_confirm: '',
@@ -135,29 +129,16 @@ export const RegisterPage: FunctionComponent = () => {
                                     />
                                 </div>
                                 <div>
-                                    <Form.SimpleSelect
-                                        control={control}
-                                        label="Gender"
-                                        name="gender"
-                                        options={enumToSelectOptions(Gender, displayGender)}
-                                    />
-                                </div>
-                                <div>
-                                    <Form.Date
-                                        control={control}
-                                        fromDate={new Date('January 1, 1970')}
-                                        label="Date of birth"
-                                        name="birthday"
-                                        placeholder="Pick a date"
-                                        toDate={new Date()}
-                                    />
-                                </div>
-                                <div>
                                     <Form.Password
                                         control={control}
                                         label="Password"
                                         name="password"
                                         placeholder="Password"
+                                        classNames={{
+                                            revealPassword: {
+                                                toggle: 'border',
+                                            },
+                                        }}
                                     />
                                 </div>
                                 <div>
@@ -166,6 +147,11 @@ export const RegisterPage: FunctionComponent = () => {
                                         label="Confirm Password"
                                         name="password_confirm"
                                         placeholder="Confirm your password"
+                                        classNames={{
+                                            revealPassword: {
+                                                toggle: 'border',
+                                            },
+                                        }}
                                     />
                                 </div>
 

@@ -1,6 +1,5 @@
 import {nativeEnum, nullable, object, optional, type output, string} from 'zod';
 
-import Gender from '@/enums/Gender';
 import Role from '@/enums/Role';
 import {createGetResponseParser} from '@/parsers/responseParsers';
 import {iso8601DateTime} from '@/parsers/transforms';
@@ -15,8 +14,7 @@ const userSchema = object({
     role: nativeEnum(Role),
     profile: optional(object({
         id: string(),
-        gender: nativeEnum(Gender),
-        birthday: iso8601DateTime,
+        birthday: nullable(iso8601DateTime),
     })),
     last_logged_in_at: nullable(iso8601DateTime),
     created_at: iso8601DateTime,

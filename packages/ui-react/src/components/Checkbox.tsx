@@ -9,7 +9,7 @@ import {type FunctionComponent} from 'react';
 
 import {composeClassName} from '@/utilities/styles';
 
-export type FormCheckboxClassnames = Partial<{
+export type CheckboxClassNames = Partial<{
     label: string;
     root: string;
     toggle: string;
@@ -17,10 +17,10 @@ export type FormCheckboxClassnames = Partial<{
 
 type CheckboxProps = {
     checked?: CheckedState;
-    classNames?: FormCheckboxClassnames;
+    classNames?: CheckboxClassNames;
     disabled?: boolean;
     label: string;
-    name: string;
+    name?: string;
     value?: string;
     onChange: (checked: CheckedState) => void;
 };
@@ -46,9 +46,10 @@ export const Checkbox: FunctionComponent<CheckboxProps> = ({
                 checked={checked}
                 className={composeClassName(
                     'flex justify-center items-center',
-                    'h-7 w-7',
+                    'h-4 w-4',
                     'rounded-md',
                     'bg-white',
+                    'border',
                     classNames?.toggle,
                 )}
                 disabled={disabled}
@@ -74,6 +75,7 @@ export const Checkbox: FunctionComponent<CheckboxProps> = ({
 
             <label
                 className={composeClassName(
+                    'text-sm',
                     classNames?.label,
                 )}
                 htmlFor={name}

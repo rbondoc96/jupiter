@@ -45,7 +45,7 @@ export function FormFieldPrimitiveRoot<
             render={({field}) => (
                 <div
                     className={composeClassName(
-                        'flex flex-col gap-y-1',
+                        'flex flex-col gap-y-2',
                         classNames?.container,
                     )}
                 >

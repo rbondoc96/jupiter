@@ -1,14 +1,16 @@
-import {faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {type ReactNode, useState} from 'react';
 import {type ControllerProps, type FieldPath, type FieldValues} from 'react-hook-form';
 
+import {Checkbox} from '@jupiter/ui-react';
+
+import {type CheckboxClassNames} from '@/components/Checkbox';
 import {FormFieldPrimitive, type FormFieldPrimitiveClassNames} from '@/primitives/FormFieldPrimitive';
-import {Button} from '@/components/Button';
 import {composeClassName} from '@/utilities/styles';
 
 export type FormPasswordClassNames = FormFieldPrimitiveClassNames & Partial<{
     input: string;
+    revealPassword: CheckboxClassNames;
+    root: string;
 }>;
 
 type FormPasswordProps<
@@ -51,7 +53,12 @@ export function FormPassword<
         >
             {(field) => (
                 <FormFieldPrimitive.Control>
-                    <div className="relative">
+                    <div
+                        className={composeClassName(
+                            'flex flex-col gap-y-2',
+                            classNames?.root,
+                        )}
+                    >
                         <input
                             className={composeClassName(
                                 'flex h-9 w-full px-3 py-1 shadow-sm transition-colors',
@@ -65,24 +72,12 @@ export function FormPassword<
                             {...field}
                         />
 
-                        <div className="absolute top-0 right-0 translate-y-1/4">
-                            <div className="mr-2">
-                                <Button
-                                    variant="unstyled"
-                                    onClick={() => setRevealPassword(revealed => !revealed)}
-                                >
-                                    {revealPassword ? (
-                                        <FontAwesomeIcon
-                                            icon={faEyeSlash}
-                                        />
-                                    ) : (
-                                        <FontAwesomeIcon
-                                            icon={faEye}
-                                        />
-                                    )}
-                                </Button>
-                            </div>
-                        </div>
+                        <Checkbox
+                            checked={revealPassword}
+                            classNames={classNames?.revealPassword}
+                            label="Reveal Password"
+                            onChange={(checked) => setRevealPassword(checked === true)}
+                        />
                     </div>
                 </FormFieldPrimitive.Control>
             )}

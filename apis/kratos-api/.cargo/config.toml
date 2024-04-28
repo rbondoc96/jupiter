@@ -1,2 +1,2 @@
 [env]
-RUST_LOG="core=debug"
+RUST_LOG="kratos_api=debug"

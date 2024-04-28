@@ -23,11 +23,9 @@ use std::collections::HashMap;
 
 #[derive(Deserialize)]
 pub struct RegisterPayload {
-    pub birthday: NaiveDate,
     pub email: String,
     pub first_name: String,
     pub last_name: String,
-    pub gender: Gender,
     pub role: Option<Role>,
     pub password: String,
     pub password_confirm: String,
@@ -158,8 +156,6 @@ impl AuthController {
         let _profile = actions::profiles::create_user_profile(
             actions::profiles::CreateUserProfileData {
                 user: &user,
-                birthday: payload.birthday,
-                gender: payload.gender,
             },
             &database,
         ).await?;

@@ -8,8 +8,7 @@ use serde::Serialize;
 #[derive(Serialize)]
 pub struct ProfileResource {
     id: String,
-    gender: Gender,
-    birthday: chrono::NaiveDate,
+    birthday: Option<chrono::NaiveDate>,
 }
 
 #[async_trait]
@@ -19,7 +18,6 @@ impl ModelResource for ProfileResource {
     async fn default(profile: Profile, database: &DatabaseManager) -> ResourceResult<Self> {
         Ok(Self {
             id: profile.route_key(),
-            gender: profile.gender,
             birthday: profile.birthday,
         })
     }
@@ -27,7 +25,6 @@ impl ModelResource for ProfileResource {
     async fn simple(profile: Profile, database: &DatabaseManager) -> ResourceResult<Self> {
         Ok(Self {
             id: profile.route_key(),
-            gender: profile.gender,
             birthday: profile.birthday,
         })
     }

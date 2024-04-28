@@ -7,7 +7,7 @@ use super::{Error, ModelResult, User};
 use crate::prelude::*;
 use crate::enums::Gender;
 use async_trait::async_trait;
-use chrono::NaiveDate;
+use chrono::{DateTime, NaiveDate, Utc};
 use database::{DatabaseManager, HasRouteKey, Model, SqlxAction};
 use serde::{Deserialize, Serialize};
 use sqlx::{FromRow, PgPool};
@@ -20,16 +20,15 @@ pub struct Profile {
     pub id: i16,
     pub ulid: String,
     pub user_id: i16,
-    pub birthday: NaiveDate,
-    pub gender: Gender,
-    pub created_at: ISO8601DateTimeUTC,
-    pub updated_at: ISO8601DateTimeUTC,
+    pub birthday: Option<NaiveDate>,
+    pub created_at: DateTime<Utc>,
+    pub updated_at: DateTime<Utc>,
 }
 
 #[async_trait]
 impl Model for Profile {
     const MODEL_NAME: &'static str = "Profile";
-    const TABLE_NAME: &'static str = "user_profiles";
+    const TABLE_NAME: &'static str = "profiles";
 
     type PrimaryKey = i16;
     fn primary_key(&self) -> Self::PrimaryKey {
@@ -49,7 +48,7 @@ impl HasRouteKey for Profile {
 impl Profile {
     // region Static Methods
 
-    pub fn new() -> ProfileBuilder<NoUserId, NoBirthday, NoUserGender> {
+    pub fn new() -> ProfileBuilder<NoUserId> {
         ProfileBuilder::new()
     }
 
@@ -69,17 +68,15 @@ impl Profile {
 
     pub async fn save(&mut self, database: &DatabaseManager) -> ModelResult<()> {
         let model = sqlx::query_as::<_, Self>(format!(
-            "UPDATE {} SET (birthday, gender, updated_at) = ($1, $2, $3) WHERE {} = {} RETURNING *",
+            "UPDATE {} SET (birthday, updated_at) = ($1, $2) WHERE {} = {} RETURNING *",
             Self::TABLE_NAME, Self::PRIMARY_KEY, &self.primary_key(),
         ).as_str())
             .bind(self.birthday)
-            .bind(self.gender.clone())
             .bind(chrono::Utc::now())
             .fetch_one(database.connection())
             .await?;
 
         self.birthday = model.birthday;
-        self.gender = model.gender;
         self.updated_at = model.updated_at;
 
         Ok(())

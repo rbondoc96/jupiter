@@ -21,6 +21,7 @@ type CheckboxProps = {
     disabled?: boolean;
     label: string;
     name?: string;
+    tabIndex?: number;
     value?: string;
     onChange: (checked: CheckedState) => void;
 };
@@ -31,6 +32,7 @@ export const Checkbox: FunctionComponent<CheckboxProps> = ({
     disabled = false,
     label,
     name,
+    tabIndex,
     value,
     onChange,
 }) => {
@@ -55,6 +57,7 @@ export const Checkbox: FunctionComponent<CheckboxProps> = ({
                 disabled={disabled}
                 id={name}
                 name={name}
+                tabIndex={tabIndex}
                 value={value}
                 onCheckedChange={onChange}
             >
@@ -76,6 +79,7 @@ export const Checkbox: FunctionComponent<CheckboxProps> = ({
             <label
                 className={composeClassName(
                     'text-sm',
+                    name && 'cursor-pointer',
                     classNames?.label,
                 )}
                 htmlFor={name}

@@ -1,4 +1,4 @@
-import {type ReactNode, useState} from 'react';
+import {type ReactNode, useId, useState} from 'react';
 import {type ControllerProps, type FieldPath, type FieldValues} from 'react-hook-form';
 
 import {Checkbox} from '@jupiter/ui-react';
@@ -23,6 +23,7 @@ type FormPasswordProps<
     label?: string;
     name: ControllerProps<TFieldValues, TName>['name'];
     placeholder?: string;
+    revealPasswordLabel?: string;
 };
 
 export function FormPassword<
@@ -35,8 +36,10 @@ export function FormPassword<
     label,
     name,
     placeholder,
+    revealPasswordLabel = 'Reveal Password',
 }: FormPasswordProps<TFieldValues, TName>): ReactNode {
     const [revealPassword, setRevealPassword] = useState(false);
+    const id = useId();
 
     return (
         <FormFieldPrimitive
@@ -75,7 +78,9 @@ export function FormPassword<
                         <Checkbox
                             checked={revealPassword}
                             classNames={classNames?.revealPassword}
-                            label="Reveal Password"
+                            label={revealPasswordLabel}
+                            name={`password-${id}`}
+                            tabIndex={-1}
                             onChange={(checked) => setRevealPassword(checked === true)}
                         />
                     </div>

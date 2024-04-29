@@ -176,6 +176,8 @@ export const RegisterPage: FunctionComponent = () => {
 
                         <Link
                             to="/login"
+                            // Prevent calls to /api/auth when the link is hovered
+                            preload={false}
                             className="text-sm underline font-medium"
                         >
                             Log in.

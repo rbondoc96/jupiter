@@ -1,0 +1,35 @@
+services:
+  server:
+    container_name: jupiter_kratos_server
+    build:
+      context: .
+      target: local
+    env_file:
+      - .env
+    volumes:
+#      - type: bind
+#        source: ./.cargo
+#        target: /code/.cargo
+      - cargo_registry_database:/usr/local/cargo/registry
+      - ./.cargo:/code/.cargo
+      - ./database/migrations:/code/database/migrations
+      - ./database/src:/code/database/src
+      - ./database/Cargo.toml:/code/database/Cargo.toml
+      - ./lang:/code/lang
+      - ./src:/code/src
+      - ./.env:/code/.env
+      - /code/target
+      - ./Cargo.lock:/code/Cargo.lock
+      - ./Cargo.toml:/code/Cargo.toml
+    networks:
+      - jupiter
+    ports:
+      - '4000:4000'
+
+volumes:
+  cargo_registry_database: {}
+
+networks:
+  jupiter:
+    name: jupiter
+    external: true

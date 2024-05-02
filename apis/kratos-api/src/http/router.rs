@@ -45,7 +45,7 @@ pub async fn create_admin_user(database: &DatabaseManager) -> () {
     match actions::users::create_user(admin_data, database).await {
         Ok(_) => println!("Created admin user"),
         Err(err) => {
-            println!("Admin user not created: {}", err);
+            tracing::debug!("Admin user not created: {}", err);
         }
     }
 }

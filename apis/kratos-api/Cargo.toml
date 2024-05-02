@@ -1,12 +1,6 @@
 [workspace]
 members = ["database"]
 
-[target.x86_64-apple-darwin]
-rustflags = ["-C", "link-arg=-fuse-ld=lld"]
-
-[target.aarch64-apple-darwin]
-rustflags = ["-C", "link-arg=-fuse-ld=/opt/homebrew/opt/llvm/bin/ld64.lld"]
-
 [package]
 name = "kratos_api"
 version = "0.1.0"

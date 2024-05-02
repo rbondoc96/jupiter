@@ -13,6 +13,7 @@ export default defineConfig({
         lib: {
             entry: {
                 'index': cwd('src', 'index.ts'),
+                'constants': cwd('src', 'constants', 'index.ts'),
                 'enums': cwd('src', 'lib', 'enums', 'index.ts'),
                 'errors': cwd('src', 'lib', 'errors', 'index.ts'),
                 'lib': cwd('src', 'lib', 'index.ts'),

@@ -1,6 +1,6 @@
 {
     "extends": "../../tsconfig.base.json",
-    "include": ["dev", "src"],
+    "include": ["dev", "src", "tailwind.config.ts"],
     "references": [
         {
             "path": "./tsconfig.node.json"

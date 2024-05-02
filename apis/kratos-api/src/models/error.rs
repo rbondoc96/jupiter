@@ -1,5 +1,5 @@
 use crate::error::{ClientError, Domain};
-use crate::lib::__;
+use crate::utilities::__;
 use axum::http::StatusCode;
 use serde::Serialize;
 use serde_with::{serde_as, DisplayFromStr};
@@ -12,8 +12,8 @@ pub enum Error {
     Unknown(String),
 }
 
-impl From<crate::lib::Error> for Error {
-    fn from(error: crate::lib::Error) -> Self {
+impl From<crate::utilities::Error> for Error {
+    fn from(error: crate::utilities::Error) -> Self {
         Self::Unknown(__("errors.unknownSystemError"))
     }
 }

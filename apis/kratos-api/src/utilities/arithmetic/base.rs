@@ -1,4 +1,4 @@
-use crate::lib::arithmetic::{ArithmeticError, ArithmeticResult, Number};
+use crate::utilities::arithmetic::{ArithmeticError, ArithmeticResult, Number};
 
 pub fn validate_f32(value: f32) -> ArithmeticResult<f32> {
     if value.is_subnormal() {

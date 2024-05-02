@@ -1,4 +1,3 @@
-mod config;
 mod error;
 mod auth;
 mod database;
@@ -45,8 +44,9 @@ impl Config {
                 env("DATABASE_MIN_POOL")?,
             )?,
             server: server::ServerConfig::new(
+                env("SERVER_HOSTNAME").unwrap_or(String::from("127.0.0.1")),
                 env("SERVER_PORT")?,
-                env("SHOULD_SYNC_EXERCISES")?,
+                env("SHOULD_SYNC_EXERCISES").unwrap_or(String::from("false")),
             )?,
         })
     }

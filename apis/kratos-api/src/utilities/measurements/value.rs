@@ -2,7 +2,7 @@ use super::{
     measurement::{Measurement, MeasurementFormat, MeasurementUnit},
     MeasurementResult,
 };
-use crate::lib::arithmetic::{
+use crate::utilities::arithmetic::{
     conversions,
     ArithmeticError, Number,
 };

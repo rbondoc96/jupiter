@@ -1,7 +1,7 @@
 mod measurement;
 mod value;
 
-use crate::lib::arithmetic::ArithmeticError;
+use crate::utilities::arithmetic::ArithmeticError;
 
 pub use measurement::{Measurement, MeasurementDenominator, MeasurementFormat, MeasurementOperation, MeasurementUnit};
 pub use value::MeasuredValue;

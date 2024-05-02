@@ -1,6 +1,6 @@
 use crate::{
     enums::ExerciseMeasurement,
-    lib::measurements::{MeasurementDenominator, MeasurementFormat, MeasurementOperation, MeasurementUnit},
+    utilities::measurements::{MeasurementDenominator, MeasurementFormat, MeasurementOperation, MeasurementUnit},
 };
 use serde::Serialize;
 

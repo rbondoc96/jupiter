@@ -9,7 +9,7 @@ use crate::{
     },
     models::{User, Profile},
     prelude::*,
-    lib::{crypt, validators},
+    utilities::{crypt, validators},
 };
 use axum::extract::State;
 use axum::response::Json;

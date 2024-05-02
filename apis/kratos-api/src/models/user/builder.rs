@@ -1,6 +1,6 @@
 use crate::enums::Role;
 use crate::models::{Error, ModelResult, User};
-use crate::lib::crypt;
+use crate::utilities::crypt;
 use database::{DatabaseManager, Model};
 
 // region Type States

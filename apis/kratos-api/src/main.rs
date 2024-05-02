@@ -11,7 +11,7 @@ mod actions;
 mod enums;
 mod error;
 mod http;
-mod lib;
+mod utilities;
 // mod logger;
 mod models;
 mod prelude;
@@ -39,7 +39,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync + 'static>
 
     let router = crate::http::init().await?;
     let server_config = config().server();
-    let server_address = SocketAddr::from(([127, 0, 0, 1], server_config.port()));
+    let server_address = SocketAddr::from((
+        server_config.hostname(),
+        server_config.port()
+    ));
     let server = axum::Server::bind(&server_address)
         .serve(router.into_make_service());
 

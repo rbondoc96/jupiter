@@ -1,7 +1,7 @@
 use super::{Error, Result};
 use crate::{
     enums::Role,
-    lib::{crypt, validators},
+    utilities::{crypt, validators},
     models::User,
 };
 use database::DatabaseManager;

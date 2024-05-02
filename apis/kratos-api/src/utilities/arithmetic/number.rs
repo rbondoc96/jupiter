@@ -1,5 +1,5 @@
-use crate::lib::arithmetic::{ArithmeticError, ArithmeticResult};
-use crate::lib::arithmetic::base;
+use crate::utilities::arithmetic::{ArithmeticError, ArithmeticResult};
+use crate::utilities::arithmetic::base;
 
 #[derive(Clone, Debug)]
 pub struct Number<N>(pub N);

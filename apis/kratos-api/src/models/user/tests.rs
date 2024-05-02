@@ -1,7 +1,7 @@
 use crate::enums::Role;
 use crate::models::{Profile, User};
 use crate::prelude::*;
-use crate::lib::crypt::decrypt_and_verify;
+use crate::utilities::crypt::decrypt_and_verify;
 
 #[sqlx::test]
 async fn create_user_success(pool: PgPool) -> TestResult<()> {

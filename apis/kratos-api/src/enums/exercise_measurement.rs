@@ -1,4 +1,4 @@
-use crate::lib::measurements::Measurement;
+use crate::utilities::measurements::Measurement;
 use database::impl_bindable;
 use serde::{Deserialize, Serialize};
 use sqlx::Type;

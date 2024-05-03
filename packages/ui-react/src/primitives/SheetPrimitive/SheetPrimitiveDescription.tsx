@@ -3,7 +3,7 @@ import {Description} from '@radix-ui/react-dialog';
 
 import {composeClassName} from '@/utilities/styles';
 
-export const SheetDescription = forwardRef<
+export const SheetPrimitiveDescription = forwardRef<
     ElementRef<typeof Description>,
     ComponentPropsWithoutRef<typeof Description>
 >(({
@@ -23,4 +23,4 @@ export const SheetDescription = forwardRef<
     </Description>
 ));
 
-SheetDescription.displayName = 'SheetDescription';
+SheetPrimitiveDescription.displayName = 'SheetPrimitiveDescription';

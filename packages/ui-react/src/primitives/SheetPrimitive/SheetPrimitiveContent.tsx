@@ -41,11 +41,11 @@ const sheetVariants = cva([
     },
 });
 
-type SheetContentProps = ComponentPropsWithoutRef<typeof Content> & VariantProps<typeof sheetVariants>;
+type SheetPrimitiveContentProps = ComponentPropsWithoutRef<typeof Content> & VariantProps<typeof sheetVariants>;
   
-export const SheetContent = forwardRef<
+export const SheetPrimitiveContent = forwardRef<
     ElementRef<typeof Content>,
-    SheetContentProps
+    SheetPrimitiveContentProps
 >(({
     children,
     className,
@@ -81,4 +81,4 @@ export const SheetContent = forwardRef<
     </Portal>
 ));
 
-SheetContent.displayName = 'SheetContent';
+SheetPrimitiveContent.displayName = 'SheetPrimitiveContent';

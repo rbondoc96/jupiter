@@ -3,29 +3,29 @@ import {
     Trigger as RadixTrigger,
 } from '@radix-ui/react-dialog';
 
-import {SheetContent} from '@/primitives/SheetPrimitive/SheetContent';
-import {SheetDescription} from '@/primitives/SheetPrimitive/SheetDescription';
-import {SheetFooter} from '@/primitives/SheetPrimitive/SheetFooter';
-import {SheetHeader} from '@/primitives/SheetPrimitive/SheetHeader';
-import {SheetOverlay} from '@/primitives/SheetPrimitive/SheetOverlay';
-import {SheetTitle} from '@/primitives/SheetPrimitive/SheetTitle';
+import {SheetPrimitiveContent} from '@/primitives/SheetPrimitive/SheetPrimitiveContent';
+import {SheetPrimitiveDescription} from '@/primitives/SheetPrimitive/SheetPrimitiveDescription';
+import {SheetPrimitiveFooter} from '@/primitives/SheetPrimitive/SheetPrimitiveFooter';
+import {SheetPrimitiveHeader} from '@/primitives/SheetPrimitive/SheetPrimitiveHeader';
+import {SheetPrimitiveOverlay} from '@/primitives/SheetPrimitive/SheetPrimitiveOverlay';
+import {SheetPrimitiveTitle} from '@/primitives/SheetPrimitive/SheetPrimitiveTitle';
 
 type SheetPrimitiveComponent = typeof RadixRoot & {
-    Content: typeof SheetContent;
-    Description: typeof SheetDescription;
-    Footer: typeof SheetFooter;
-    Header: typeof SheetHeader;
-    Overlay: typeof SheetOverlay;
-    Title: typeof SheetTitle;
+    Content: typeof SheetPrimitiveContent;
+    Description: typeof SheetPrimitiveDescription;
+    Footer: typeof SheetPrimitiveFooter;
+    Header: typeof SheetPrimitiveHeader;
+    Overlay: typeof SheetPrimitiveOverlay;
+    Title: typeof SheetPrimitiveTitle;
     Trigger: typeof RadixTrigger;
 };
 
 export const SheetPrimitive: SheetPrimitiveComponent = Object.assign(RadixRoot, {
-    Content: SheetContent,
-    Description: SheetDescription,
-    Footer: SheetFooter,
-    Header: SheetHeader,
-    Overlay: SheetOverlay,
-    Title: SheetTitle,
+    Content: SheetPrimitiveContent,
+    Description: SheetPrimitiveDescription,
+    Footer: SheetPrimitiveFooter,
+    Header: SheetPrimitiveHeader,
+    Overlay: SheetPrimitiveOverlay,
+    Title: SheetPrimitiveTitle,
     Trigger: RadixTrigger,
 });

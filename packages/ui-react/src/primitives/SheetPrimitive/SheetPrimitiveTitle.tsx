@@ -2,7 +2,7 @@ import {type ComponentPropsWithoutRef, type ElementRef, forwardRef} from 'react'
 import {Title} from '@radix-ui/react-dialog';
 import {composeClassName} from '@/utilities/styles';
 
-export const SheetTitle = forwardRef<
+export const SheetPrimitiveTitle = forwardRef<
     ElementRef<typeof Title>,
     ComponentPropsWithoutRef<typeof Title>
 >(({
@@ -22,4 +22,4 @@ export const SheetTitle = forwardRef<
     </Title>
 ));
 
-SheetTitle.displayName = 'SheetTitle';
+SheetPrimitiveTitle.displayName = 'SheetPrimitiveTitle';

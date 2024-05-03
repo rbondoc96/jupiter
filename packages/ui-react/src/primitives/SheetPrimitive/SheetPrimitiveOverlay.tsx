@@ -2,7 +2,7 @@ import {type ComponentPropsWithoutRef, type ElementRef, forwardRef} from 'react'
 import {Overlay} from '@radix-ui/react-dialog';
 import {composeClassName} from '@/utilities/styles';
 
-export const SheetOverlay = forwardRef<
+export const SheetPrimitiveOverlay = forwardRef<
     ElementRef<typeof Overlay>,
     ComponentPropsWithoutRef<typeof Overlay>
 >(({
@@ -26,4 +26,4 @@ export const SheetOverlay = forwardRef<
     </Overlay>
 ));
 
-SheetOverlay.displayName = 'SheetOverlay';
+SheetPrimitiveOverlay.displayName = 'SheetPrimitiveOverlay';

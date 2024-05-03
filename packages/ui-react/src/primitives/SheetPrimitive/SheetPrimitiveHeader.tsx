@@ -1,16 +1,16 @@
 import {type FunctionComponent, type HTMLAttributes} from 'react';
 import {composeClassName} from '@/utilities/styles';
 
-type SheetFooterProps = HTMLAttributes<HTMLDivElement>;
+type SheetPrimitiveHeaderProps = HTMLAttributes<HTMLDivElement>;
 
-export const SheetFooter: FunctionComponent<SheetFooterProps> = ({
+export const SheetPrimitiveHeader: FunctionComponent<SheetPrimitiveHeaderProps> = ({
     children,
     className,
     ...props
 }) => (
     <div
         className={composeClassName(
-            'flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2',
+            'flex flex-col space-y-2 text-center sm:text-left',
             className,
         )}
         {...props}
@@ -19,4 +19,4 @@ export const SheetFooter: FunctionComponent<SheetFooterProps> = ({
     </div>
 );
 
-SheetFooter.displayName = 'SheetFooter';
+SheetPrimitiveHeader.displayName = 'SheetPrimitiveHeader';

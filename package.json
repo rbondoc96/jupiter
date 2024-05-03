@@ -10,6 +10,7 @@
         "@codercooks:dev": "concurrently \"pnpm @ui-react run build && pnpm @codercooks run dev\" \"pnpm @ui-react run build:watch\" --names codercooks,ui-react",
         "@kratos:dev": "nodemon --exec \"pnpm @ui-react run build && pnpm @kratos-web run dev\" --watch ./packages/ui-react/src -e ts,tsx",
         "@kratos-api": "pnpm --filter \"./apis/kratos-api\"",
+        "@kratos-api:docker": "pnpm @kratos-api run docker",
         "@kratos-web": "pnpm --filter \"./apps/kratos-web\"",
         "@next-template": "pnpm --filter \"./apps/next-template\"",
         "@react-resume": "pnpm --filter \"./packages/react-resume\"",
@@ -28,8 +29,6 @@
         "start": "",
         "test": "turbo run test --filter=!./apis/kratos-api"
     },
-    "keywords": [],
-    "license": "ISC",
     "devDependencies": {
         "@types/node": "^20.12.2",
         "concurrently": "^8.2.2",

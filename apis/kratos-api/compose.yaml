@@ -18,9 +18,9 @@ services:
       - ./lang:/code/lang
       - ./src:/code/src
       - ./.env:/code/.env
-      - /code/target
       - ./Cargo.lock:/code/Cargo.lock
       - ./Cargo.toml:/code/Cargo.toml
+      - /code/target
     networks:
       - jupiter
     ports:

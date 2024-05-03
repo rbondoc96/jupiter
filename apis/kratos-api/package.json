@@ -11,6 +11,7 @@
         "dev": "cargo watch -q -c -w src -w database/src --ignore src/tests -x 'run'",
         "dev:ci": "cargo watch -w src -w src/tests -w database/src -x check -x test -x 'run'",
         "dev:fresh": "pnpm migrate:fresh && pnpm dev",
+        "docker": "docker compose up",
         "make:migration": "sqlx migrate add --source database/migrations",
         "migrate": "sqlx migrate run --source database/migrations",
         "migrate:fresh": "sqlx database reset -y --source database/migrations",

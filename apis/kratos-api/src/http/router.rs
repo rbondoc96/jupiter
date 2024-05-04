@@ -26,7 +26,7 @@ use chrono::{Duration, NaiveDate};
 use database::DatabaseManager;
 use tower_http::cors::{Any, CorsLayer};
 
-type Result<TValue> = ::core::result::Result<TValue, Box<dyn std::error::Error + Send + Sync + 'static>>;
+type Result<T> = ::core::result::Result<T, Box<dyn std::error::Error + Send + Sync + 'static>>;
 
 pub async fn create_admin_user(database: &DatabaseManager) -> () {
     let auth = config().auth();
@@ -81,9 +81,11 @@ pub async fn router(database: DatabaseManager) -> Router {
         .await
         .unwrap();
 
-    // Note: `.layer()` calls are executed from bottom-to-top
     Router::new()
-        .merge(HealthController::router(database.clone()))
+        .nest(
+            "/api/health",
+            HealthController::router(database.clone()),
+        )
         .nest(
             "/api/exercises",
             ExerciseController::router(database.clone())
@@ -113,6 +115,7 @@ pub async fn router(database: DatabaseManager) -> Router {
         // .layer(middleware::map_response(
         //     crate::http::middleware::response_mapper,
         // ))
+        // `.layer` calls are executed from bottom-to-top
         .layer(middleware::from_fn_with_state(
             database.clone(),
             crate::http::middleware::context_resolver,

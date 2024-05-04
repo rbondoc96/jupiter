@@ -13,7 +13,9 @@ export type AppRouterLinkClassNames = Partial<{
     icon: string;
     iconActive: string;
     iconInactive: string;
-    iconPositioner: string;
+    iconRoot: string;
+    iconRootActive: string;
+    iconRootInactive: string;
     root: string;
     rootActive: string;
     rootInactive: string;
@@ -66,9 +68,16 @@ export const AppRouterLink = forwardRef<HTMLAnchorElement, PropsWithChildren<App
                     onClick={onClick}
                 >
                     {icon && (
-                        <div className={classNames?.iconPositioner}>
+                        <div
+                            className={composeClassName(
+                                'h-full aspect-square',
+                                classNames?.iconRoot,
+                                isActive ? classNames?.iconRootActive : classNames?.iconRootInactive,
+                            )}
+                        >
                             <div className="flex justify-center items-center h-full w-full">
                                 <FontAwesomeIcon
+                                    fixedWidth
                                     className={composeClassName(
                                         classNames?.icon,
                                         isActive ? classNames?.iconActive : classNames?.iconInactive,

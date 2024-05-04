@@ -1,15 +1,18 @@
-import {faChartLine, faDumbbell, faEllipsis, faHome, faWeightHanging} from '@fortawesome/free-solid-svg-icons';
+import {faChartLine, faDumbbell, faEllipsis, faHome, faWeightHanging, faX} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {useSuspenseQuery} from '@tanstack/react-query';
 // import {useRouterState} from '@tanstack/react-router';
 // import {motion} from 'framer-motion';
-import {forwardRef, useRef} from 'react';
+import {forwardRef, useRef, useState} from 'react';
 
 import {Avatar} from '@jupiter/ui-react';
+import {SheetPrimitive} from '@jupiter/ui-react/primitives';
 
 import userImage from '@/assets/images/user.png';
 import {AppRouterLink} from '@/components/AppRouterLink';
 import {Logo} from '@/components/Logo';
 import {userFetchQuery} from '@/core/queries';
+import {composeClassName} from '@jupiter/ui-react/utilities';
 
 const navLinks = [
     {children: 'Home', icon: faHome, route: '/app'},
@@ -21,6 +24,7 @@ const navLinks = [
 
 export const AppSideBar = forwardRef<HTMLDivElement>((_props, ref) => {
     const {data: user} = useSuspenseQuery(userFetchQuery());
+    const [isExpanded, setIsExpanded] = useState(false);
 
     // const routerState = useRouterState();
 
@@ -35,42 +39,80 @@ export const AppSideBar = forwardRef<HTMLDivElement>((_props, ref) => {
     const linkContainerRef = useRef<HTMLDivElement>(null);
 
     return (
-        <div className="fixed left-0 h-screen z-10" ref={ref}>
-            <div className="h-full flex flex-col">
-                <div className="flex-1 px-4 py-5">
-                    <div className="h-full flex flex-col justify-between">
-                        <div className="flex justify-center items-center">
-                            <Logo />
-                        </div>
-                        <div className="relative flex">
-                            <div
-                                // The compressed version of the sidebar
-                                className="absolute inset-0"
-                                ref={linkContainerRef}
-                            >
-                                <div className="relative h-full">
+        <div className="relative h-screen z-10" ref={ref}>
+            <div className="absolute right-0 top-7 translate-x-1/2">
+                <SheetPrimitive open={isExpanded} onOpenChange={setIsExpanded}>
+                    <SheetPrimitive.Trigger
+                        className={composeClassName(
+                            'flex items-center justify-center',
+                            'border border-black rounded-full',
+                            'h-3 aspect-square',
+                            'p-2',
+                            'bg-white',
+                        )}
+                    >
+                        <FontAwesomeIcon
+                            icon={faX}
+                            size="xs"
+                        />
+                    </SheetPrimitive.Trigger>
+
+                    <SheetPrimitive.Content side="left" className="w-[270px] px-6 py-5">
+                        <div className="h-full flex flex-col justify-between">
+                            <div className="flex flex-col gap-y-8">
+                                <div>
+                                    <Logo />
+                                </div>
+                                <div className="flex flex-col gap-y-4">
                                     {navLinks.map(navLink => (
                                         <AppRouterLink
                                             key={`app-side-bar-${navLink.route}`}
                                             icon={navLink.icon}
                                             iconSize="1x"
                                             classNames={{
-                                                content: 'relative flex flex-row h-full w-full',
+                                                content: 'relative flex flex-row items-center gap-x-4 h-full w-full text-foreground',
+                                                contentActive: 'font-semibold',
+                                                contentInactive: 'text-primary',
                                                 icon: 'text-primary',
-                                                iconActive: 'text-primary-foreground',
-                                                iconPositioner: '',
-                                                root: 'rounded-full flex-1',
-                                                rootActive: 'bg-primary',
+                                                iconActive: 'text-white',
+                                                iconRoot: 'p-2 rounded-md',
+                                                iconRootActive: 'bg-primary',
+                                                root: 'group rounded-md flex-1 hover:bg-primary/50',
+                                                rootActive: '',
                                             }}
                                             to={navLink.route}
                                             params={{}}
-                                        />
+                                            onClick={() => setIsExpanded(false)}
+                                        >
+                                            <span className="text-sm">
+                                                {navLink.children}
+                                            </span>
+                                        </AppRouterLink>
                                     ))}
                                 </div>
                             </div>
 
+                            <div className="flex">
+                                <Avatar
+                                    alt={user.name.full}
+                                    fallback="Fallback"
+                                    src={userImage}
+                                />
+                            </div>
+                        </div>
+                    </SheetPrimitive.Content>
+                </SheetPrimitive>
+            </div>
+
+            <div className="h-full flex flex-col bg-black/10">
+                <div className="flex-1 px-6 py-5">
+                    <div className="h-full flex flex-col justify-between">
+                        <div className="flex flex-col gap-y-8 justify-center items-center">
+                            <div>
+                                <Logo />
+                            </div>
+
                             <div
-                                // The expanded version of the sidebar
                                 className="relative flex flex-col gap-y-4 rounded-full"
                                 ref={linkContainerRef}
                             >
@@ -80,21 +122,18 @@ export const AppSideBar = forwardRef<HTMLDivElement>((_props, ref) => {
                                         icon={navLink.icon}
                                         iconSize="1x"
                                         classNames={{
-                                            content: 'relative flex flex-row items-center gap-x-4 h-full w-full',
+                                            content: 'relative flex flex-row justify-center items-center h-full w-full group-hover:text-white',
                                             contentActive: 'text-white',
                                             contentInactive: 'text-primary',
+                                            icon: 'group-hover:text-white',
                                             iconActive: 'text-white',
-                                            iconPositioner: 'h-full aspect-square',
-                                            root: 'rounded-full flex-1 px-5 py-3',
+                                            iconRoot: 'h-full aspect-square',
+                                            root: 'group rounded-md flex-1 p-2 hover:bg-primary/50',
                                             rootActive: 'bg-primary',
                                         }}
                                         to={navLink.route}
                                         params={{}}
-                                    >
-                                        <span className="text-sm tracking-wide">
-                                            {navLink.children}
-                                        </span>
-                                    </AppRouterLink>
+                                    />
                                 ))}
                             </div>
                         </div>

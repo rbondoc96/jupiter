@@ -1,5 +1,6 @@
 import type {Config} from 'tailwindcss';
 import plugin from 'tailwindcss/plugin';
+import animate from 'tailwindcss-animate';
 // import twColors from 'tailwindcss/colors';
 
 export default {
@@ -108,6 +109,7 @@ export default {
         },
     },
     plugins: [
+        animate,
         plugin(({addUtilities}) => {
             addUtilities({
                 '.inline-size-full': {

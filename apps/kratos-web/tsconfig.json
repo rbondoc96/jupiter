@@ -9,7 +9,7 @@
     "compilerOptions": {
         // Project Environment
         "jsx": "react-jsx",
-        "lib": ["ES2020", "DOM", "DOM.Iterable"],
+        "lib": ["ES2020", "DOM", "DOM.Iterable", "WebWorker"],
         "paths": {
             "@/*": ["./src/*"]
         }

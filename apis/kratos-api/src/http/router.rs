@@ -79,7 +79,7 @@ pub async fn router(database: DatabaseManager) -> Router {
     let cors = cors().unwrap();
     let session = session(database.clone())
         .await
-        .unwrap();
+        .expect("Failed to initialize session authentication.");
 
     Router::new()
         .nest(
@@ -125,6 +125,8 @@ pub async fn router(database: DatabaseManager) -> Router {
 }
 
 fn cors() -> Result<CorsLayer> {
+    let server = config().server();
+
     Ok(CorsLayer::new()
         .allow_credentials(true)
         .allow_headers([ACCEPT, AUTHORIZATION, CONTENT_TYPE])
@@ -136,7 +138,7 @@ fn cors() -> Result<CorsLayer> {
             Method::POST,
             Method::PUT,
         ])
-        .allow_origin("http://localhost:3000".parse::<HeaderValue>()?))
+        .allow_origin(server.allowed_origin()))
 }
 
 async fn session(database: DatabaseManager) -> Result<SessionLayer<SessionPgPool>> {

@@ -6,6 +6,7 @@ TODO.*
 
 # Build Output
 build
+dev-dist
 dist
 target
 
@@ -29,6 +30,7 @@ node_modules
 
 # Environment Files
 .env
+*.pem
 
 # Next.js
 .next

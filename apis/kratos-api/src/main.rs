@@ -21,10 +21,13 @@ mod types;
 #[cfg(test)]
 mod tests;
 
+use axum::Server;
+use axum_server::tls_rustls::RustlsConfig;
 use database::DatabaseManager;
 use config::config;
 use log::Level;
 use std::net::SocketAddr;
+use std::path::PathBuf;
 use tracing_subscriber::filter::EnvFilter;
 
 i18n!("lang", fallback = "en");
@@ -43,7 +46,16 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync + 'static>
         server_config.hostname(),
         server_config.port()
     ));
-    let server = axum::Server::bind(&server_address)
+    let tls_config = RustlsConfig::from_pem_file(
+        PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+            .join("certs")
+            .join("localhost.pem"),
+        PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+            .join("certs")
+            .join("localhost-key.pem"),
+    ).await.expect("Failed to package TLS certs.");
+
+    let server = axum_server::bind_rustls(server_address.clone(), tls_config)
         .serve(router.into_make_service());
 
     tracing::debug!("Server listening at http://{}", &server_address);

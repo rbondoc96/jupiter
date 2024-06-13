@@ -10,6 +10,7 @@ authors = ["Rodrigo Bondoc <https://github.com/rbondoc86>"]
 [dependencies]
 async-trait.workspace = true
 axum = "0.6.20"
+axum-server = { version = "0.5.1", features = ["tls-rustls"] }
 axum_session = { version = "0.5.0", features = [ "postgres-rustls"] }
 bcrypt = "0.15.0"
 chrono = { workspace = true, features = ["serde"]}

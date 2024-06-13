@@ -4,14 +4,13 @@ services:
     build:
       context: .
       target: local
-    env_file:
-      - .env
     volumes:
 #      - type: bind
 #        source: ./.cargo
 #        target: /code/.cargo
       - cargo_registry_database:/usr/local/cargo/registry
       - ./.cargo:/code/.cargo
+      - ./certs:/code/certs
       - ./database/migrations:/code/database/migrations
       - ./database/src:/code/database/src
       - ./database/Cargo.toml:/code/database/Cargo.toml

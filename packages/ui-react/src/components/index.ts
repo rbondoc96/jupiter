@@ -4,6 +4,7 @@ export * from '@/components/Button';
 export * from '@/components/Calendar';
 export * from '@/components/Checkbox';
 export * from '@/components/Dialog';
+export * from '@/components/Drawer';
 export * from '@/components/DropdownMenu';
 export * from '@/components/Form';
 export * from '@/components/HorizontalList';

@@ -49,6 +49,7 @@
   },
   "scripts": {
     "build": "vite build",
+    "build:dev": "vite build --watch",
     "build:watch": "nodemon --exec \"vite build\" --ignore dist --watch ./src -e ts,tsx",
     "check:lint": "eslint src --max-warnings 0",
     "check:types": "tsc --noEmit --skipLibCheck",
@@ -75,6 +76,7 @@
     "react-day-picker": "^8.10.0",
     "react-hook-form": "^7.49.3",
     "tailwind-merge": "^2.2.2",
+    "vaul": "^0.9.1",
     "zod": "^3.22.4"
   },
   "peerDependencies": {

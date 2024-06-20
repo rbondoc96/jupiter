@@ -10,5 +10,6 @@ export * from '@/components/Form';
 export * from '@/components/HorizontalList';
 export * from '@/components/ImageWithOverlay';
 export * from '@/components/Link';
+export * from '@/components/ResponsiveDialog';
 export * from '@/components/Skeleton';
 export * from '@/components/Text';

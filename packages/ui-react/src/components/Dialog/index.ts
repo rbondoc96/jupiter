@@ -5,7 +5,7 @@ import {DialogFooter} from './DialogFooter';
 import {DialogHeader} from './DialogHeader';
 import {DialogTitle} from './DialogTitle';
 
-type DialogComponentMap = {
+type DialogComponent = typeof Root & {
     Close: typeof Close;
     Content: typeof DialogContent;
     Description: typeof DialogDescription;
@@ -16,7 +16,7 @@ type DialogComponentMap = {
     Trigger: typeof Trigger;
 };
 
-export const Dialog = Object.assign<Record<string, never>, DialogComponentMap>({}, {
+export const Dialog: DialogComponent = Object.assign(Root, {
     Close,
     Content: DialogContent,
     Description: DialogDescription,

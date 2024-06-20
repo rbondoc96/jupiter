@@ -17,7 +17,7 @@ import {DropdownMenuShortcut} from './DropdownMenuShortcut';
 import {DropdownMenuSubContent} from './DropdownMenuSubContent';
 import {DropdownMenuSubTrigger} from './DropdownMenuSubTrigger';
 
-type DropdownMenuComponentMap = {
+type DropdownMenuComponent = typeof Root & {
     CheckboxItem: typeof DropdownMenuCheckboxItem;
     /**
      * The component that pops out when the dropdown menu is open.
@@ -59,7 +59,7 @@ type DropdownMenuComponentMap = {
     Trigger: typeof Trigger;
 };
 
-export const DropdownMenu = Object.assign<Record<string, never>, DropdownMenuComponentMap>({}, {
+export const DropdownMenu: DropdownMenuComponent = Object.assign(Root, {
     CheckboxItem: DropdownMenuCheckboxItem,
     Content: DropdownMenuContent,
     Group,

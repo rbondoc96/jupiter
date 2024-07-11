@@ -23,25 +23,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2.2.4
-        with:
-          version: '8.x.x'
-
       - name: Install Node.js v18
         uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'pnpm'
 
       - name: Install Dependencies
-        run: pnpm install
+        run: npm ci
 
       - name: Build React Resume
-        run: pnpm @react-resume run build
+        run: npm run @react-resume run build
 
-      - name: Build React UI Library
-        run: pnpm @ui-react run build
+      - name: Build Jupiter Web Library
+        run: npm run @web run build
+    
+      - name: Build React Primtive Components Library
+        run: npm run @react-primitives run build
+
+      - name: Build React Component Library
+        run: npm run @react-components run build
 
       - name: Check Types and Code Style
-        run: pnpm run check
+        run: npm run check

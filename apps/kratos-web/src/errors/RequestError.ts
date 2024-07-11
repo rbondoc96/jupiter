@@ -1,8 +1,8 @@
-import {HTTPError} from 'ky';
+import { HTTPError } from 'ky';
 
-import {type AlertContext} from '@jupiter/ui-react';
+import { type AlertContext } from '@jupiter/react-components';
 
-import {type ErrorResponse} from '@/parsers/responseParsers';
+import { type ErrorResponse } from '@/parsers/responseParsers';
 
 export class RequestError extends HTTPError {
     public readonly status: number;
@@ -16,9 +16,8 @@ export class RequestError extends HTTPError {
         this.name = errorResponse.error.name;
         this.status = baseError.response.status;
 
-        this.messages = errorResponse.error.errors === undefined
-            ? []
-            : Object.values(errorResponse.error.errors).flat();
+        this.messages =
+            errorResponse.error.errors === undefined ? [] : Object.values(errorResponse.error.errors).flat();
     }
 
     public toAlertContext(): AlertContext {

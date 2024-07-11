@@ -94,50 +94,86 @@ const AppExercisesMuscleGroupsIdRoute = AppExercisesMuscleGroupsIdImport.update(
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
     '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
     '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
       preLoaderRoute: typeof AppImport
       parentRoute: typeof rootRoute
     }
     '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
       preLoaderRoute: typeof LoginImport
       parentRoute: typeof rootRoute
     }
     '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
       preLoaderRoute: typeof RegisterImport
       parentRoute: typeof rootRoute
     }
     '/app/': {
+      id: '/app/'
+      path: '/'
+      fullPath: '/app/'
       preLoaderRoute: typeof AppIndexImport
       parentRoute: typeof AppImport
     }
     '/app/exercises/$id': {
+      id: '/app/exercises/$id'
+      path: '/exercises/$id'
+      fullPath: '/app/exercises/$id'
       preLoaderRoute: typeof AppExercisesIdImport
       parentRoute: typeof AppImport
     }
     '/app/exercises/': {
+      id: '/app/exercises/'
+      path: '/exercises'
+      fullPath: '/app/exercises'
       preLoaderRoute: typeof AppExercisesIndexImport
       parentRoute: typeof AppImport
     }
     '/app/goals/': {
+      id: '/app/goals/'
+      path: '/goals'
+      fullPath: '/app/goals'
       preLoaderRoute: typeof AppGoalsIndexImport
       parentRoute: typeof AppImport
     }
     '/app/menu/': {
+      id: '/app/menu/'
+      path: '/menu'
+      fullPath: '/app/menu'
       preLoaderRoute: typeof AppMenuIndexImport
       parentRoute: typeof AppImport
     }
     '/app/workouts/': {
+      id: '/app/workouts/'
+      path: '/workouts'
+      fullPath: '/app/workouts'
       preLoaderRoute: typeof AppWorkoutsIndexImport
       parentRoute: typeof AppImport
     }
     '/app/exercises/muscle-groups/$id': {
+      id: '/app/exercises/muscle-groups/$id'
+      path: '/exercises/muscle-groups/$id'
+      fullPath: '/app/exercises/muscle-groups/$id'
       preLoaderRoute: typeof AppExercisesMuscleGroupsIdImport
       parentRoute: typeof AppImport
     }
     '/app/exercises/muscle-groups/': {
+      id: '/app/exercises/muscle-groups/'
+      path: '/exercises/muscle-groups'
+      fullPath: '/app/exercises/muscle-groups'
       preLoaderRoute: typeof AppExercisesMuscleGroupsIndexImport
       parentRoute: typeof AppImport
     }
@@ -146,9 +182,9 @@ declare module '@tanstack/react-router' {
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren([
+export const routeTree = rootRoute.addChildren({
   IndexRoute,
-  AppRoute.addChildren([
+  AppRoute: AppRoute.addChildren({
     AppIndexRoute,
     AppExercisesIdRoute,
     AppExercisesIndexRoute,
@@ -157,9 +193,79 @@ export const routeTree = rootRoute.addChildren([
     AppWorkoutsIndexRoute,
     AppExercisesMuscleGroupsIdRoute,
     AppExercisesMuscleGroupsIndexRoute,
-  ]),
+  }),
   LoginRoute,
   RegisterRoute,
-])
+})
 
 /* prettier-ignore-end */
+
+/* ROUTE_MANIFEST_START
+{
+  "routes": {
+    "__root__": {
+      "filePath": "__root.tsx",
+      "children": [
+        "/",
+        "/app",
+        "/login",
+        "/register"
+      ]
+    },
+    "/": {
+      "filePath": "index.tsx"
+    },
+    "/app": {
+      "filePath": "app.tsx",
+      "children": [
+        "/app/",
+        "/app/exercises/$id",
+        "/app/exercises/",
+        "/app/goals/",
+        "/app/menu/",
+        "/app/workouts/",
+        "/app/exercises/muscle-groups/$id",
+        "/app/exercises/muscle-groups/"
+      ]
+    },
+    "/login": {
+      "filePath": "login.tsx"
+    },
+    "/register": {
+      "filePath": "register.tsx"
+    },
+    "/app/": {
+      "filePath": "app/index.tsx",
+      "parent": "/app"
+    },
+    "/app/exercises/$id": {
+      "filePath": "app/exercises/$id.tsx",
+      "parent": "/app"
+    },
+    "/app/exercises/": {
+      "filePath": "app/exercises/index.tsx",
+      "parent": "/app"
+    },
+    "/app/goals/": {
+      "filePath": "app/goals/index.tsx",
+      "parent": "/app"
+    },
+    "/app/menu/": {
+      "filePath": "app/menu/index.tsx",
+      "parent": "/app"
+    },
+    "/app/workouts/": {
+      "filePath": "app/workouts/index.tsx",
+      "parent": "/app"
+    },
+    "/app/exercises/muscle-groups/$id": {
+      "filePath": "app/exercises/muscle-groups/$id.tsx",
+      "parent": "/app"
+    },
+    "/app/exercises/muscle-groups/": {
+      "filePath": "app/exercises/muscle-groups/index.tsx",
+      "parent": "/app"
+    }
+  }
+}
+ROUTE_MANIFEST_END */

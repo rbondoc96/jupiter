@@ -1,15 +1,11 @@
-import {AppTheme} from '@/enums/AppTheme';
+import { AppTheme } from '@/enums/AppTheme';
 
 export function getSystemTheme(): AppTheme {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? AppTheme.Dark
-        : AppTheme.Light;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? AppTheme.Dark : AppTheme.Light;
 }
 
 export function applyAppTheme(appTheme: AppTheme) {
-    const targetTheme = appTheme === AppTheme.System
-        ? getSystemTheme()
-        : appTheme;
+    const targetTheme = appTheme === AppTheme.System ? getSystemTheme() : appTheme;
 
     // Toggling the `no-transition` class defined in `index.scss` makes it so that
     // any of its descendants won't animate when the `dark` class is added or removed.

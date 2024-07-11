@@ -1,9 +1,9 @@
-import {compile} from 'path-to-regexp';
+import { compile } from 'path-to-regexp';
 
-import {delay} from '@jupiter/ui-react/utilities';
+import { delay } from '@jupiter/web';
 
-import {createClient} from '@/api/client';
-import {type MuscleGroup, muscleGroupListParser} from '@/parsers/muscleGroupParser';
+import { createClient } from '@/api/client';
+import { type MuscleGroup, muscleGroupListParser } from '@/parsers/muscleGroupParser';
 
 const muscleGroupListRoute = compile('api/muscle-groups');
 

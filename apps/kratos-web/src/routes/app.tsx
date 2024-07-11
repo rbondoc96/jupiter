@@ -1,17 +1,17 @@
-import {CatchBoundary, createFileRoute, Outlet, redirect} from '@tanstack/react-router';
-import {type ReactNode, useRef} from 'react';
+import { CatchBoundary, createFileRoute, Outlet, redirect } from '@tanstack/react-router';
+import { type ReactNode, useRef } from 'react';
 
-import {composeClassName} from '@jupiter/ui-react/utilities';
+import { composeClassName } from '@jupiter/web';
 
-import {AppSideBar} from '@/components/AppSideBar';
-import {AppTabBar} from '@/components/AppTabBar';
-import {userFetchQuery} from '@/core/queries';
-import {useViewportIsMostLikelyMobile} from '@/hooks/stores/useViewportStore';
+import { AppSideBar } from '@/components/AppSideBar';
+import { AppTabBar } from '@/components/AppTabBar';
+import { userFetchQuery } from '@/core/queries';
+import { useViewportIsMostLikelyMobile } from '@/hooks/stores/useViewportStore';
 
 export const Route = createFileRoute('/app')({
-    beforeLoad: async ({context, location}) => {
-        const {queryClient} = context;
-        
+    beforeLoad: async ({ context, location }) => {
+        const { queryClient } = context;
+
         try {
             await queryClient.ensureQueryData(userFetchQuery());
         } catch (error) {
@@ -29,9 +29,7 @@ export const Route = createFileRoute('/app')({
     // when logging out of the app.
     // This allows the app to log out as expected.
     errorComponent: () => {
-        <CatchBoundary getResetKey={() => Math.random().toString()}>
-            {null}
-        </CatchBoundary>;
+        <CatchBoundary getResetKey={() => Math.random().toString()}>{null}</CatchBoundary>;
     },
     component: Component,
 });
@@ -39,16 +37,12 @@ export const Route = createFileRoute('/app')({
 function Component(): ReactNode {
     const isMostLikelyMobile = useViewportIsMostLikelyMobile();
     const sideBarRef = useRef<HTMLDivElement>(null);
-    
+
     return (
         <div className="flex flex-1">
             {!isMostLikelyMobile && <AppSideBar ref={sideBarRef} />}
 
-            <div
-                className={composeClassName(
-                    isMostLikelyMobile && 'pb-14 w-screen',
-                )}
-            >
+            <div className={composeClassName(isMostLikelyMobile && 'pb-14 w-screen')}>
                 <Outlet />
             </div>
 

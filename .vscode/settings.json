@@ -12,9 +12,18 @@
         "*.css": "tailwindcss",
         "*.scss": "tailwindcss"
     },
+    "prettier.configPath": "prettier.config.mjs",
     "tailwindCSS.classAttributes": ["class", "class:list", "className", "classNames", "ngClass", "ng-class"],
     "[rust]": {
         "editor.defaultFormatter": "rust-lang.rust-analyzer",
         "editor.formatOnSave": true
-    }
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+    },
 }

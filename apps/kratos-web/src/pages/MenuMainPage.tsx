@@ -1,14 +1,14 @@
-import {useMutation, useQueryClient, useSuspenseQuery} from '@tanstack/react-query';
-import {type ReactNode, useCallback} from 'react';
+import { useMutation, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
+import { type ReactNode, useCallback } from 'react';
 
-import {Avatar, Button, Skeleton} from '@jupiter/ui-react';
+import { Avatar, Button, Skeleton } from '@jupiter/react-components';
 
 import userImage from '@/assets/images/user.png';
-import {AppHeader, AppHeaderSkeleton} from '@/components/AppHeader';
-import {AppPageShell} from '@/components/AppPageShell';
-import {userLogOutMutation} from '@/core/mutations';
-import {userFetchQuery} from '@/core/queries';
-import {useRouter} from '@/hooks/useRouter';
+import { AppHeader, AppHeaderSkeleton } from '@/components/AppHeader';
+import { AppPageShell } from '@/components/AppPageShell';
+import { userLogOutMutation } from '@/core/mutations';
+import { userFetchQuery } from '@/core/queries';
+import { useRouter } from '@/hooks/useRouter';
 
 export function MenuMainPageSkeleton(): ReactNode {
     return (
@@ -25,19 +25,16 @@ export function MenuMainPageSkeleton(): ReactNode {
 
 export function MenuMainPage(): ReactNode {
     const queryClient = useQueryClient();
-    const {data: user} = useSuspenseQuery(userFetchQuery());
+    const { data: user } = useSuspenseQuery(userFetchQuery());
 
-    const {mutateAsync: logOutUser, isPending: isLoggingOut} = useMutation(userLogOutMutation(queryClient));
+    const { mutateAsync: logOutUser, isPending: isLoggingOut } = useMutation(userLogOutMutation(queryClient));
 
     const router = useRouter();
 
-    const onLogOut = useCallback(
-        async () => {
-            await logOutUser();
-            void router.push('/login', {view: 'log_out'});
-        },
-        [logOutUser, router],
-    );
+    const onLogOut = useCallback(async () => {
+        await logOutUser();
+        void router.push('/login', { view: 'log_out' });
+    }, [logOutUser, router]);
 
     return (
         <AppPageShell
@@ -55,14 +52,8 @@ export function MenuMainPage(): ReactNode {
                         <div className="bg-accent px-3 py-3 rounded-md">
                             <div className="flex items-center">
                                 <div className="flex items-center gap-x-3">
-                                    <Avatar
-                                        alt="Avatar"
-                                        fallback="Fallback"
-                                        src={userImage}
-                                    />
-                                    <p>
-                                        {user.name.full}
-                                    </p>
+                                    <Avatar alt="Avatar" fallback="Fallback" src={userImage} />
+                                    <p>{user.name.full}</p>
                                 </div>
                             </div>
                         </div>

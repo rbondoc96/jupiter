@@ -9,7 +9,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {Link} from '@tanstack/react-router';
 import {type FunctionComponent} from 'react';
 
-import {PaginationPrimitive} from '@jupiter/ui-react/primitives';
+import {PaginationPrimitive} from '@jupiter/react-primitives';
 
 type PaginationProps = {
     currentPage: number;

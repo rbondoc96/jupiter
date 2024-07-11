@@ -1,22 +1,22 @@
-import {faGithub, faLinkedin} from '@fortawesome/free-brands-svg-icons';
-import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
-import {usePDF} from '@react-pdf/renderer';
-import {motion} from 'framer-motion';
-import {type FunctionComponent} from 'react';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { usePDF } from '@react-pdf/renderer';
+import { motion } from 'framer-motion';
+import { type FunctionComponent } from 'react';
 
-import {Resume} from '@jupiter/react-resume';
-import {Button, Link, Text} from '@jupiter/ui-react';
+import { Button, Link, Text } from '@jupiter/react-components';
+import { Resume } from '@jupiter/react-resume';
 
 import laptopWithCatSvg from '@/assets/images/laptop-with-cat.svg';
-import {Logo} from '@/components/Logo';
-import {ThemeToggle} from '@/components/ThemeToggle';
+import { Logo } from '@/components/Logo';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 export const HomePage: FunctionComponent = () => {
-    const [pdfInstance] = usePDF({document: <Resume />});
+    const [pdfInstance] = usePDF({ document: <Resume /> });
 
     return (
         <motion.div
-            className="flex flex-col"
+            className="flex flex-col animate-in fade-in"
             initial={{
                 opacity: 0,
             }}
@@ -26,17 +26,12 @@ export const HomePage: FunctionComponent = () => {
             exit={{
                 opacity: 0,
             }}
-            transition={{
-                duration: 1,
-            }}
         >
             <header className="w-full">
                 <div className="fixed inset-x-0 z-10">
                     <div className="flex flex-col gap-y-2 items-stretch">
                         <div className="relative w-full py-2 bg-primary z-20">
-                            <p className="text-white text-center font-bold">
-                                Ceasefire now! 🕊️
-                            </p>
+                            <p className="text-white text-center font-bold">Ceasefire now! 🕊️</p>
                         </div>
                         <div className="w-full mx-auto max-w-7xl px-10">
                             <div className="w-full lg:max-w-none">
@@ -55,15 +50,11 @@ export const HomePage: FunctionComponent = () => {
                                             duration: 1,
                                         }}
                                     >
-                                        <Link
-                                            href="/"
-                                            className="block p-2"
-                                            aria-label="Home"
-                                        >
+                                        <Link href="/" className="block p-2" aria-label="Home">
                                             <Logo />
                                         </Link>
                                     </motion.div>
-                                    
+
                                     <motion.div
                                         initial={{
                                             opacity: 0,
@@ -103,9 +94,7 @@ export const HomePage: FunctionComponent = () => {
             >
                 <main className="min-h-screen flex flex-col items-center justify-center p-4 gap-y-4 md:gap-y-8">
                     <div className="flex flex-col items-center justify-center gap-y-3 md:gap-y-6">
-                        <Text as="h1">
-                            Welcome!
-                        </Text>
+                        <Text as="h1">Welcome!</Text>
 
                         <Text as="h3" className="text-center">
                             I&apos;m in the middle of a website and repo rework.
@@ -124,11 +113,7 @@ export const HomePage: FunctionComponent = () => {
 
                     <div className="flex flex-col items-center gap-y-8">
                         <div className="flex flex-col md:flex-row items-center justify-center gap-y-4 md:gap-x-8">
-                            <Link
-                                href="mailto:rbondoc96@gmail.com"
-                                icon={faEnvelope}
-                                className="font-normal"
-                            >
+                            <Link href="mailto:rbondoc96@gmail.com" icon={faEnvelope} className="font-normal">
                                 rbondoc96@gmail.com
                             </Link>
 
@@ -153,11 +138,7 @@ export const HomePage: FunctionComponent = () => {
 
                         {pdfInstance.url && (
                             <Button asChild>
-                                <a
-                                    href={pdfInstance.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
+                                <a href={pdfInstance.url} target="_blank" rel="noopener noreferrer">
                                     My Resume
                                 </a>
                             </Button>

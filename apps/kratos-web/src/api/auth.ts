@@ -1,7 +1,7 @@
-import {delay} from '@jupiter/ui-react/utilities';
+import { delay } from '@jupiter/web';
 
-import {createClient} from '@/api/client';
-import {type User, userParser} from '@/parsers/authParsers';
+import { createClient } from '@/api/client';
+import { type User, userParser } from '@/parsers/authParsers';
 
 export const fetchUser = async (): Promise<User> => {
     const client = createClient();
@@ -21,9 +21,11 @@ export const login = async (payload: LoginUserPayload): Promise<User> => {
 
     await delay(2000);
 
-    const data = await client.post('api/auth', {
-        json: payload,
-    }).json();
+    const data = await client
+        .post('api/auth', {
+            json: payload,
+        })
+        .json();
 
     return userParser.parse(data).data;
 };
@@ -45,11 +47,13 @@ export type RegisterUserPayload = {
 export const register = async (payload: RegisterUserPayload): Promise<User> => {
     const client = createClient();
 
-    const data = await client.post('api/auth/register', {
-        json: {
-            ...payload,
-        },
-    }).json();
+    const data = await client
+        .post('api/auth/register', {
+            json: {
+                ...payload,
+            },
+        })
+        .json();
 
     return userParser.parse(data).data;
 };

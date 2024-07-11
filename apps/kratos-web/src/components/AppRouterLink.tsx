@@ -3,8 +3,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {Link as RouterLink, type LinkProps as RouterLinkProps} from '@tanstack/react-router';
 import {forwardRef, type PropsWithChildren} from 'react';
 
-import {Button} from '@jupiter/ui-react';
-import {composeClassName} from '@jupiter/ui-react/utilities';
+import {Button} from '@jupiter/react-components';
+import {composeClassName} from '@jupiter/web';
 
 export type AppRouterLinkClassNames = Partial<{
     content: string;

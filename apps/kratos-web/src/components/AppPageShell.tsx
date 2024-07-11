@@ -1,7 +1,7 @@
 import {type PropsWithChildren, type ReactNode} from 'react';
 import {Helmet} from 'react-helmet-async';
 
-import {composeClassName} from '@jupiter/ui-react/utilities';
+import {composeClassName} from '@jupiter/web';
 
 import {Page, type PageProps} from '@/components/Page';
 import {useViewportIsMostLikelyMobile} from '@/hooks/stores/useViewportStore';

@@ -1,0 +1,30 @@
+{
+    "name": "@jupiter/web",
+    "private": true,
+    "type": "module",
+    "version": "0.1.0",
+    "author": "Rodrigo Bondoc",
+    "files": [
+        "dist"
+    ],
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.cjs",
+            "types": "./dist/index.d.ts"
+        }
+    },
+    "scripts": {
+        "build": "vite build"
+    },
+    "dependencies": {
+        "class-variance-authority": "^0.7.0",
+        "tailwind-merge": "^2.2.2"
+    },
+    "devDependencies": {
+        "typescript": "^5.5.3"
+    }
+}

@@ -1,11 +1,11 @@
-import {useSuspenseQuery} from '@tanstack/react-query';
-import {type ReactNode} from 'react';
+import { useSuspenseQuery } from '@tanstack/react-query';
+import { type ReactNode } from 'react';
 
-import {Skeleton} from '@jupiter/ui-react';
+import { Skeleton } from '@jupiter/react-components';
 
-import {AppHeader} from '@/components/AppHeader';
-import {AppPageShell} from '@/components/AppPageShell';
-import {userFetchQuery} from '@/core/queries';
+import { AppHeader } from '@/components/AppHeader';
+import { AppPageShell } from '@/components/AppPageShell';
+import { userFetchQuery } from '@/core/queries';
 
 export function HubMainPageSkeleton(): ReactNode {
     return (
@@ -17,7 +17,7 @@ export function HubMainPageSkeleton(): ReactNode {
 }
 
 export function HubMainPage(): ReactNode {
-    const {data: user} = useSuspenseQuery(userFetchQuery());
+    const { data: user } = useSuspenseQuery(userFetchQuery());
 
     return (
         <AppPageShell
@@ -29,9 +29,7 @@ export function HubMainPage(): ReactNode {
             <main className="flex-1 flex flex-col px-4">
                 <div className="flex-1 flex flex-col">
                     <div>
-                        <h3 className="text-lg">
-                            Today&apos;s Activity
-                        </h3>
+                        <h3 className="text-lg">Today&apos;s Activity</h3>
                     </div>
                 </div>
             </main>

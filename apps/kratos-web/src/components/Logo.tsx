@@ -1,7 +1,7 @@
 import {animated, useTransition} from '@react-spring/web';
 import {type FunctionComponent} from 'react';
 
-import {composeClassName} from '@jupiter/ui-react/utilities';
+import {composeClassName} from '@jupiter/web';
 
 type LogoProps = {
     showText?: boolean;

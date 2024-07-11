@@ -61,6 +61,9 @@ export default defineConfig({
     ],
     resolve: {
         alias: {
+            '@jupiter/react-components': resolve(__dirname, '..', '..', 'packages', 'react-components', 'src'),
+            '@jupiter/react-primitives': resolve(__dirname, '..', '..', 'packages', 'react-primitives', 'src'),
+            '@jupiter/web': resolve(__dirname, '..', '..', 'packages', 'web', 'src'),
             '@': resolve(__dirname, 'src'),
         },
     },

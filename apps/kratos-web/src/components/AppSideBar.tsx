@@ -5,14 +5,14 @@ import {useSuspenseQuery} from '@tanstack/react-query';
 // import {motion} from 'framer-motion';
 import {forwardRef, useRef, useState} from 'react';
 
-import {Avatar} from '@jupiter/ui-react';
-import {SheetPrimitive} from '@jupiter/ui-react/primitives';
+import {Avatar} from '@jupiter/react-components';
+import {SheetPrimitive} from '@jupiter/react-primitives';
+import {composeClassName} from '@jupiter/web';
 
 import userImage from '@/assets/images/user.png';
 import {AppRouterLink} from '@/components/AppRouterLink';
 import {Logo} from '@/components/Logo';
 import {userFetchQuery} from '@/core/queries';
-import {composeClassName} from '@jupiter/ui-react/utilities';
 
 const navLinks = [
     {children: 'Home', icon: faHome, route: '/app'},

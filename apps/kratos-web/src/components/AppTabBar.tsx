@@ -49,7 +49,9 @@ export function AppTabBar(): ReactNode {
                             root: 'flex-1 flex justify-center items-center',
                         }}
                         icon={icon}
+                        iconSize="1x"
                         to={route}
+                        params={{}}
                     >
                         <p className="text-[0.65rem] text-center">
                             {children}

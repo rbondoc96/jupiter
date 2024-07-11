@@ -1,4 +1,4 @@
-import type {Config} from 'tailwindcss';
+import type { Config } from 'tailwindcss';
 import plugin from 'tailwindcss/plugin';
 import animate from 'tailwindcss-animate';
 // import twColors from 'tailwindcss/colors';
@@ -7,7 +7,7 @@ export default {
     content: [
         './src/**/*.{ts,tsx}',
         // Needed to load the Tailwind styles used in Jupiter UI
-        './node_modules/@jupiter/ui-react/src/**/*.{ts,tsx}',
+        '../../node_modules/@jupiter/react-components/src/**/*.{ts,tsx}',
     ],
     theme: {
         container: {
@@ -110,7 +110,7 @@ export default {
     },
     plugins: [
         animate,
-        plugin(({addUtilities}) => {
+        plugin(({ addUtilities }) => {
             addUtilities({
                 '.inline-size-full': {
                     inlineSize: '100%',

@@ -1,6 +1,6 @@
-import {memo, type ReactNode} from 'react';
+import { memo, type ReactNode } from 'react';
 
-import {composeClassName} from '@jupiter/ui-react/utilities';
+import { composeClassName } from '@jupiter/web';
 
 type AppHeaderProps = {
     classNames?: {
@@ -9,10 +9,7 @@ type AppHeaderProps = {
     title?: string;
 };
 
-export function AppHeader({
-    classNames,
-    title,
-}: AppHeaderProps): ReactNode {
+export function AppHeader({ classNames, title }: AppHeaderProps): ReactNode {
     return (
         <header className="absolute top-0 inset-x-0 h-14 flex">
             <div className="w-full flex flex-col">
@@ -20,12 +17,7 @@ export function AppHeader({
                     <div className="flex-1 flex flex-col px-4">
                         <div className="flex-1 flex flex-col justify-center">
                             {title && (
-                                <h2 className={composeClassName(
-                                    'text-lg font-bold',
-                                    classNames?.title,
-                                )}>
-                                    {title}
-                                </h2>
+                                <h2 className={composeClassName('text-lg font-bold', classNames?.title)}>{title}</h2>
                             )}
                         </div>
                     </div>
@@ -35,14 +27,8 @@ export function AppHeader({
     );
 }
 
-function Skeleton({
-    classNames,
-}: Pick<AppHeaderProps, 'classNames'>): ReactNode {
-    return (
-        <AppHeader
-            classNames={classNames}
-        />
-    );
+function Skeleton({ classNames }: Pick<AppHeaderProps, 'classNames'>): ReactNode {
+    return <AppHeader classNames={classNames} />;
 }
 
 export const AppHeaderSkeleton = memo(Skeleton);

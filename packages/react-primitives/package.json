@@ -1,0 +1,49 @@
+{
+    "name": "@jupiter/react-primitives",
+    "private": true,
+    "type": "module",
+    "version": "0.1.0",
+    "author": "Rodrigo Bondoc",
+    "files": [
+        "dist"
+    ],
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.cjs",
+            "types": "./dist/index.d.ts"
+        }
+    },
+    "scripts": {
+        "build": "vite build"
+    },
+    "dependencies": {
+        "@radix-ui/react-dialog": "^1.0.5",
+        "@radix-ui/react-label": "^2.0.2",
+        "@radix-ui/react-popover": "^1.0.7",
+        "@radix-ui/react-select": "^2.0.0",
+        "@radix-ui/react-slot": "^1.0.2",
+        "class-variance-authority": "^0.7.0"
+    },
+    "devDependencies": {
+        "@fortawesome/free-solid-svg-icons": "^6.5.2",
+        "@fortawesome/react-fontawesome": "^0.2.0",
+        "@jupiter/web": "0.1.0",
+        "@types/react": ">=16.8.0",
+        "react": ">=16.8.0",
+        "react-dom": ">=16.8.0",
+        "react-hook-form": "^7.49.3",
+        "typescript": "^5.5.3"
+    },
+    "peerDependencies": {
+        "@fortawesome/free-solid-svg-icons": "^6.5.2",
+        "@fortawesome/react-fontawesome": "^0.2.0",
+        "@jupiter/web": "0.1.0",
+        "react": ">=16.8.0",
+        "react-dom": ">=16.8.0",
+        "react-hook-form": "^7.49.3"
+    }
+}

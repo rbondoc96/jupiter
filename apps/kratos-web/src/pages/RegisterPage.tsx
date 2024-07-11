@@ -1,16 +1,16 @@
-import {useMutation, useQueryClient} from '@tanstack/react-query';
-import {Link} from '@tanstack/react-router';
-import {type FunctionComponent, useCallback, useState} from 'react';
-import {object, string} from 'zod';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { Link } from '@tanstack/react-router';
+import { type FunctionComponent, useCallback, useState } from 'react';
+import { object, string } from 'zod';
 
-import {Alert, type AlertContext, Button, Form} from '@jupiter/ui-react';
+import { Alert, type AlertContext, Button, Form } from '@jupiter/react-components';
 
-import {AuthAPI} from '@/api';
-import {Logo} from '@/components/Logo';
-import {Page} from '@/components/Page';
-import {userRegisterMutation} from '@/core/mutations';
-import {RequestError} from '@/errors/RequestError';
-import {useRouter} from '@/hooks/useRouter';
+import { AuthAPI } from '@/api';
+import { Logo } from '@/components/Logo';
+import { Page } from '@/components/Page';
+import { userRegisterMutation } from '@/core/mutations';
+import { RequestError } from '@/errors/RequestError';
+import { useRouter } from '@/hooks/useRouter';
 
 const registerFormSchema = object({
     email: string().email('A valid email address is required.'),
@@ -22,10 +22,7 @@ const registerFormSchema = object({
 
 export const RegisterPage: FunctionComponent = () => {
     const queryClient = useQueryClient();
-    const {
-        mutateAsync: registerUser,
-        isPending: isRegistering,
-    } = useMutation(userRegisterMutation(queryClient));
+    const { mutateAsync: registerUser, isPending: isRegistering } = useMutation(userRegisterMutation(queryClient));
 
     const router = useRouter();
 
@@ -74,9 +71,7 @@ export const RegisterPage: FunctionComponent = () => {
                         </Link>
 
                         <div className="flex flex-col gap-y-1 text-center">
-                            <h2 className="text-2xl lg:text-3xl tracking-tighter">
-                                Create an Account
-                            </h2>
+                            <h2 className="text-2xl lg:text-3xl tracking-tighter">Create an Account</h2>
                         </div>
                     </div>
 
@@ -101,7 +96,7 @@ export const RegisterPage: FunctionComponent = () => {
                         }}
                         onSubmit={onRegister}
                     >
-                        {control => (
+                        {(control) => (
                             <div className="flex flex-col gap-y-4">
                                 <div className="flex gap-x-3 items-end">
                                     <Form.Text
@@ -170,9 +165,7 @@ export const RegisterPage: FunctionComponent = () => {
                     </Form>
 
                     <div className="self-stretch flex flex-col items-center gap-y-1">
-                        <p className="text-sm">
-                            Already have an account?&nbsp;
-                        </p>
+                        <p className="text-sm">Already have an account?&nbsp;</p>
 
                         <Link
                             to="/login"

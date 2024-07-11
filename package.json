@@ -4,19 +4,26 @@
     "type": "module",
     "author": "Rodrigo Bondoc",
     "description": "",
-    "packageManager": "pnpm@8.6.12",
+    "workspaces": [
+        "apis/*",
+        "apps/*",
+        "packages/*"
+    ],
     "scripts": {
         "@codercooks": "pnpm --filter \"./apps/codercooks\"",
         "@codercooks:dev": "concurrently \"pnpm @ui-react run build && pnpm @codercooks run dev\" \"pnpm @ui-react run build:watch\" --names codercooks,ui-react",
         "@kratos:dev": "nodemon --exec \"pnpm @ui-react run build && pnpm @kratos-web run dev\" --watch ./packages/ui-react/src -e ts,tsx",
         "@kratos-api": "pnpm --filter \"./apis/kratos-api\"",
         "@kratos-api:docker": "pnpm @kratos-api run docker",
-        "@kratos-web": "pnpm --filter \"./apps/kratos-web\"",
+        "@kratos-web": "npm --workspace=\"kratos-web\"",
         "@next-template": "pnpm --filter \"./apps/next-template\"",
-        "@react-resume": "pnpm --filter \"./packages/react-resume\"",
-        "@react-template": "pnpm --filter \"./apps/react-template\"",
+        "@react-components": "npm --workspace=\"@jupiter/react-components\"",
+        "@react-primitives": "npm --workspace=\"@jupiter/react-primitives\"",
+        "@react-resume": "npm --workspace=\"@jupiter/react-resume\"",
+        "@react-template": "npm --workspace=\"react-template\"",
         "@ui-react": "pnpm --filter \"./packages/ui-react\"",
-        "@www": "pnpm --filter \"./apps/www\"",
+        "@web": "npm --workspace=\"@jupiter/web\"",
+        "@www": "npm --workspace=\"www\"",
         "@www:deploy": "pnpm @react-resume run build && pnpm @ui-react run build && pnpm @www run build",
         "@www:dev": "concurrently \"pnpm @ui-react run build && pnpm @www run dev\" \"pnpm @ui-react run build:watch\" --names www,ui-react",
         "@www-solid": "pnpm --filter \"./apps/www-solid\"",
@@ -26,7 +33,6 @@
         "init": "pnpm run init:git",
         "init:git": "git config --local include.path ../.gitconfig",
         "new:react-ts": "cd apps && cp -r react-template",
-        "start": "",
         "test": "turbo run test --filter=!./apis/kratos-api"
     },
     "devDependencies": {
@@ -34,13 +40,17 @@
         "@rollup/plugin-node-resolve": "^15.2.3",
         "@rollup/plugin-replace": "^5.0.7",
         "@types/node": "^20.12.2",
+        "@vitejs/plugin-react-swc": "^3.7.0",
         "concurrently": "^8.2.2",
         "nodemon": "^3.1.0",
         "npm-run-all": "^4.1.5",
+        "prettier": "3.3.2",
         "rimraf": "^5.0.7",
         "rollup": "^4.18.0",
         "rollup-plugin-cleanup": "^3.2.1",
         "tsx": "^4.7.1",
-        "turbo": "^1.13.0"
+        "turbo": "^1.13.0",
+        "vite": "^5.3.3",
+        "vitest": "^2.0.1"
     }
 }

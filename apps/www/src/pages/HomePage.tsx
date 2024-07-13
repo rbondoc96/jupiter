@@ -8,91 +8,25 @@ import { Button, Link, Text } from '@jupiter/react-components';
 import { Resume } from '@jupiter/react-resume';
 
 import laptopWithCatSvg from '@/assets/images/laptop-with-cat.svg';
-import { Logo } from '@/components/Logo';
-import { ThemeToggle } from '@/components/ThemeToggle';
 
 export const HomePage: FunctionComponent = () => {
     const [pdfInstance] = usePDF({ document: <Resume /> });
 
     return (
-        <motion.div
-            className="flex flex-col animate-in fade-in"
-            initial={{
-                opacity: 0,
-            }}
-            animate={{
-                opacity: 1,
-            }}
-            exit={{
-                opacity: 0,
-            }}
-        >
-            <header className="w-full">
-                <div className="fixed inset-x-0 z-10">
-                    <div className="flex flex-col gap-y-2 items-stretch">
-                        <div className="relative w-full py-2 bg-primary z-20">
-                            <p className="text-white text-center font-bold">Ceasefire now! 🕊️</p>
-                        </div>
-                        <div className="w-full mx-auto max-w-7xl px-10">
-                            <div className="w-full lg:max-w-none">
-                                <div className="flex items-center justify-between">
-                                    <motion.div
-                                        initial={{
-                                            opacity: 0,
-                                            y: '-100%',
-                                        }}
-                                        animate={{
-                                            opacity: 1,
-                                            y: '0%',
-                                        }}
-                                        transition={{
-                                            delay: 0.25,
-                                            duration: 1,
-                                        }}
-                                    >
-                                        <Link href="/" className="block p-2" aria-label="Home">
-                                            <Logo />
-                                        </Link>
-                                    </motion.div>
-
-                                    <motion.div
-                                        initial={{
-                                            opacity: 0,
-                                            y: '-100%',
-                                        }}
-                                        animate={{
-                                            opacity: 1,
-                                            y: '0%',
-                                        }}
-                                        transition={{
-                                            delay: 0.75,
-                                            duration: 1,
-                                        }}
-                                    >
-                                        <ThemeToggle />
-                                    </motion.div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
+        <div className="relative flex flex-col">
             <motion.div
                 initial={{
                     opacity: 0,
-                    y: '-5%',
                 }}
                 animate={{
                     opacity: 1,
-                    y: '0%',
                 }}
                 transition={{
-                    delay: 1.25,
+                    delay: 0.9,
                     duration: 1,
                 }}
             >
-                <main className="min-h-screen flex flex-col items-center justify-center p-4 gap-y-4 md:gap-y-8">
+                <main className="flex flex-col items-center justify-center p-4 gap-y-4 md:gap-y-8">
                     <div className="flex flex-col items-center justify-center gap-y-3 md:gap-y-6">
                         <Text as="h1">Welcome!</Text>
 
@@ -146,6 +80,6 @@ export const HomePage: FunctionComponent = () => {
                     </div>
                 </main>
             </motion.div>
-        </motion.div>
+        </div>
     );
 };

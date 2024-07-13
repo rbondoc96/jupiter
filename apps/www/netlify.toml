@@ -3,4 +3,4 @@
   ignore = "git diff --quiet $COMMIT_REF $CACHED_COMMIT_REF -- apps/www packages/react-resume packages/react-components packages/react-primitives packages/web"
 
   publish = "apps/www/dist"
-  command = "pnpm @www:deploy"
+  command = "npm run @www:deploy"

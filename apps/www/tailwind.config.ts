@@ -1,5 +1,5 @@
 import { type Config } from 'tailwindcss';
-import animate from 'tailwindcss-animate';
+import animated from 'tailwindcss-animated';
 
 export default {
     content: [
@@ -18,9 +18,6 @@ export default {
             '2xl': '1536px',
         },
         extend: {
-            animation: {
-                'fade-in-slide-in-from-top': 'fade-in-slide-in-from-top 1s linear 1',
-            },
             aspectRatio: {
                 'paper-A4': 'calc(var(--aspect-paper-A4))',
             },
@@ -54,19 +51,7 @@ export default {
                 'popover': 'hsl(var(--popover))',
                 'popover-foreground': 'hsl(var(--popover-foreground))',
             },
-            keyframes: {
-                'fade-in-slide-in-from-top': {
-                    from: {
-                        opacity: '0',
-                        transform: 'translateY(-100%)',
-                    },
-                    to: {
-                        opacity: '1',
-                        transform: 'translateY(0%)',
-                    },
-                },
-            },
         },
     },
-    plugins: [animate],
+    plugins: [animated],
 } satisfies Config;

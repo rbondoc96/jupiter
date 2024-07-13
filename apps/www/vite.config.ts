@@ -1,17 +1,14 @@
-import {join, resolve} from 'node:path';
-import {TanStackRouterVite} from '@tanstack/router-vite-plugin';
+import { join, resolve } from 'node:path';
+import { TanStackRouterVite } from '@tanstack/router-vite-plugin';
 import react from '@vitejs/plugin-react-swc';
-import {defineConfig, type PluginOption} from 'vite';
+import { defineConfig, type PluginOption } from 'vite';
 
 const transformHtmlPlugin: () => PluginOption = () => {
     return {
         name: 'custom-plugin',
         transformIndexHtml: (html) => {
             if (process.env.NODE_ENV !== 'production') {
-                return html.replace(
-                    /<!-- Umami Analytics -->/,
-                    '',
-                );
+                return html.replace(/<!-- Umami Analytics -->/, '');
             }
 
             return html.replace(
@@ -25,6 +22,17 @@ const transformHtmlPlugin: () => PluginOption = () => {
 const cwd = (...paths: string[]) => join(resolve(__dirname), ...paths);
 
 export default defineConfig({
+    build: {
+        rollupOptions: {
+            output: {
+                manualChunks(id) {
+                    if (id.includes('node_modules')) {
+                        return id.toString().split('node_modules/')[1].split('/')[0].toString();
+                    }
+                },
+            },
+        },
+    },
     plugins: [
         react(),
         TanStackRouterVite({

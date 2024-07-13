@@ -18,7 +18,7 @@
 }
 
 body {
-    @apply flex flex-col;
+    @apply flex flex-col min-h-screen;
     @apply bg-background;
 }
 

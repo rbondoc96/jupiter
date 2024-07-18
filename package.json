@@ -21,7 +21,7 @@
         "@react-template": "npm --workspace=\"react-template\"",
         "@web": "npm --workspace=\"@jupiter/web\"",
         "@www": "npm --workspace=\"www\"",
-        "@www:deploy": "npm run @web run build && npm run @react-primitives run build && npm run @react-components run build && npm run @react-resume run build && npm run @www run build",
+        "@www:deploy": "node ./scripts/deploy_www.mjs && npm install && npm run @web run build && npm run @react-primitives run build && npm run @react-components run build && npm run @react-resume run build && npm run @www run build",
         "@www-solid": "npm --workspace=\"www-solid\"",
         "check": "npm run check:lint && npm run check:types && npm run test",
         "check:lint": "turbo run check:lint",

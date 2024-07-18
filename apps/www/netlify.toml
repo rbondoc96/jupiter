@@ -1,6 +1,6 @@
 [build]
   # Only deploy if changes are made to the website, resume, or component library 
-#   ignore = "git diff --quiet $COMMIT_REF $CACHED_COMMIT_REF -- packages/web packages/react-primitives packages/react-components packages/react-resume apps/www"
+  ignore = "git diff --quiet $COMMIT_REF $CACHED_COMMIT_REF -- packages/web packages/react-primitives packages/react-components packages/react-resume apps/www"
 
   publish = "apps/www/dist"
   command = "npm run @www:deploy"
